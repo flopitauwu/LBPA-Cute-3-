@@ -109,5 +109,24 @@ const lbpa = [
         texto: "El procedimiento administrativo se realizará con transparencia, de manera que permita y promueva el conocimiento, contenidos y fundamentos de las decisiones que se adopten en él.",
         conceptos: ["principios", "transparencia", "publicidad"],
         comentarioProfesor: "Bermúdez aclara que el interesado en un procedimiento tiene derecho a acceder al expediente directamente (art. 17 letra d) LBPA), sin necesidad de recurrir a la Ley de Transparencia (Ley 20.285), que regula el acceso a la información pública en general (p. 206)."
+    },
+        {
+        numero: 17,
+        titulo: "Derechos de las personas",
+        texto: "Las personas, en sus relaciones con la Administración, tienen derecho a:",
+        numerales: [
+            "a) Conocer, en cualquier momento, el estado de la tramitación de los procedimientos en los que tengan la condición de interesados, y obtener copia autorizada de los documentos que rolan en el expediente y la devolución de los originales.",
+            "b) Identificar a las autoridades y al personal al servicio de la Administración, bajo cuya responsabilidad se tramiten los procedimientos.",
+            "c) Eximirse de presentar documentos que no correspondan al procedimiento, o que ya se encuentren en poder de la Administración.",
+            "d) Acceder a los actos administrativos y sus documentos, en los términos previstos en la ley.",
+            "e) Ser tratados con respeto y deferencia por las autoridades y funcionarios, que habrán de facilitarles el ejercicio de sus derechos y el cumplimiento de sus obligaciones.",
+            "f) Que los actos de instrucción que requieran su intervención se practiquen en la forma que resulte más cómoda para ellos y compatible, en la medida de lo posible, con sus obligaciones laborales o profesionales.",
+            "g) Formular alegaciones y aportar documentos en cualquier fase del procedimiento anterior al trámite de audiencia, que deberán ser tenidos en cuenta por el órgano competente al redactar la propuesta de resolución.",
+            "h) Exigir las responsabilidades de la Administración Pública y del personal a su servicio, cuando así corresponda legalmente.",
+            "i) Obtener información acerca de los requisitos jurídicos o técnicos que las disposiciones vigentes impongan a los proyectos, actuaciones o solicitudes que se propongan realizar.",
+            "j) Cualesquiera otros que les reconozcan la Constitución y las leyes."
+        ],
+        conceptos: ["derechos de las personas", "interesado", "acceso al expediente", "transparencia"],
+        comentarioProfesor: "Bermúdez conecta este catálogo con otros derechos del interesado a lo largo del procedimiento: proponer actuaciones (art. 34), solicitar diligencias probatorias (art. 35), participar en ellas (art. 36), y con el principio de transparencia (art. 16), que exige dar a conocer el fundamento de las decisiones adoptadas (p. 231, 638)."
     }
 ];
