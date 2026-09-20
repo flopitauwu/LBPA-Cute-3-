@@ -135,3 +135,28 @@ body {
 }
 
 .sin-resultados { text-align: center; color: #8a6a63; }
+.resultado-numerales {
+    margin: 0 0 12px;
+    padding-left: 22px;
+}
+
+.resultado-numerales li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.btn-volver {
+    display: inline-block;
+    margin-bottom: 16px;
+    background: none;
+    border: none;
+    color: var(--borgoña);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-volver:hover {
+    text-decoration: underline;
+}
