@@ -1,0 +1,113 @@
+// Ley N° 19.880 - Bases de los Procedimientos Administrativos (LBPA)
+// Texto oficial verificado en BCN / LeyChile.
+// "comentarioProfesor" son notas de cátedra basadas en Bermúdez, "Derecho Administrativo General", Cap. VII.
+
+const lbpa = [
+    {
+        numero: 1,
+        titulo: "Procedimiento Administrativo",
+        texto: "La presente ley establece y regula las bases del procedimiento administrativo de los actos de la Administración del Estado. En caso de que la ley establezca procedimientos administrativos especiales, la presente ley se aplicará con carácter supletorio.",
+        conceptos: ["objeto de la ley", "supletoriedad"]
+    },
+    {
+        numero: 2,
+        titulo: "Ámbito de aplicación",
+        texto: "Las disposiciones de la presente ley serán aplicables a los ministerios, las intendencias, las gobernaciones y los servicios públicos creados para el cumplimiento de la función administrativa. También se aplicarán a la Contraloría General de la República, a las Fuerzas Armadas y a las Fuerzas de Orden y Seguridad Pública, a los gobiernos regionales y a las municipalidades.",
+        conceptos: ["ámbito de aplicación", "Administración del Estado"]
+    },
+    {
+        numero: 3,
+        titulo: "Concepto de Acto administrativo",
+        texto: "Las decisiones escritas que adopte la Administración se expresarán por medio de actos administrativos. Para efectos de esta ley se entenderá por acto administrativo las decisiones formales que emitan los órganos de la Administración del Estado en las cuales se contienen declaraciones de voluntad, realizadas en el ejercicio de una potestad pública. Los actos administrativos tomarán la forma de decretos supremos y resoluciones. El decreto supremo es la orden escrita que dicta el Presidente de la República o un Ministro \"Por orden del Presidente de la República\", sobre asuntos propios de su competencia. Las resoluciones son los actos de análoga naturaleza que dictan las autoridades administrativas dotadas de poder de decisión.",
+        conceptos: ["acto administrativo", "decreto supremo", "resolución"]
+    },
+    {
+        numero: 4,
+        titulo: "Principios del procedimiento",
+        texto: "El procedimiento administrativo estará sometido a los principios de escrituración, gratuidad, celeridad, conclusivo, economía procedimental, contradictoriedad, imparcialidad, abstención, no formalización, inexcusabilidad, impugnabilidad, transparencia y publicidad.",
+        conceptos: ["principios", "principios del procedimiento administrativo"]
+    },
+    {
+        numero: 5,
+        titulo: "Principio de escrituración",
+        texto: "El procedimiento administrativo y los actos administrativos a los cuales da origen, se expresarán por escrito o por medios electrónicos, a menos que su naturaleza exija o permita otra forma más adecuada de expresión y constancia.",
+        conceptos: ["principios", "escrituración"]
+    },
+    {
+        numero: 6,
+        titulo: "Principio de gratuidad",
+        texto: "En el procedimiento administrativo, las actuaciones que deban practicar los órganos de la Administración del Estado y la obtención de documentos e información necesaria para su conclusión serán gratuitas para los interesados, salvo disposición legal en contrario.",
+        conceptos: ["principios", "gratuidad"],
+        comentarioProfesor: "Bermúdez explica que la gratuidad se funda en que el procedimiento es parte de la actividad normal del órgano, cuyos costos ya están cubiertos por la ley de presupuestos; las excepciones quedan entregadas a normas legales especiales (p. 197)."
+    },
+    {
+        numero: 7,
+        titulo: "Principio de celeridad",
+        texto: "El procedimiento, sometido al criterio de celeridad, se impulsará de oficio en todos sus trámites.",
+        conceptos: ["principios", "celeridad"],
+        comentarioProfesor: "Según Bermúdez, esta regla revela el carácter abierto del procedimiento y la primacía de la Administración en su configuración: aunque debe evitarse la dilación, la Administración conserva poder discrecional durante la tramitación (p. 197-198)."
+    },
+    {
+        numero: 8,
+        titulo: "Principio conclusivo",
+        texto: "Todo el procedimiento administrativo está destinado a que la Administración dicte un acto decisorio que se pronuncie sobre la cuestión de fondo y en el cual exprese su voluntad.",
+        conceptos: ["principios", "conclusivo"],
+        comentarioProfesor: "El profesor señala que la LBPA busca evitar procedimientos abiertos indefinidamente, por eso existen también las reglas de silencio administrativo (p. 198-199)."
+    },
+    {
+        numero: 9,
+        titulo: "Principio de economía procedimental",
+        texto: "La Administración debe responder a la máxima economía de medios con eficacia, evitando trámites dilatorios.",
+        conceptos: ["principios", "economía procedimental"],
+        comentarioProfesor: "Bermúdez lo relaciona con la posibilidad de decidir en un solo acto los trámites que admitan impulso simultáneo, y con la acumulación de procedimientos por identidad sustancial o conexión (art. 33 LBPA) (p. 199)."
+    },
+    {
+        numero: 10,
+        titulo: "Principio de contradictoriedad",
+        texto: "Los interesados podrán, en cualquier momento del procedimiento, aducir alegaciones y aportar documentos u otros elementos de juicio.",
+        conceptos: ["principios", "contradictoriedad", "igualdad entre interesados"],
+        comentarioProfesor: "Bermúdez destaca que el inciso 4° agrega, además de la contradictoriedad, un principio distinto: la igualdad entre los interesados (igualdad de trato e igualdad de medios jurídicos), aplicable cuando hay varias partes con intereses contrapuestos (p. 200-201)."
+    },
+    {
+        numero: 11,
+        titulo: "Principio de imparcialidad",
+        texto: "La Administración debe actuar con objetividad y respetar el principio de probidad consagrado en la legislación, tanto en la substanciación del procedimiento como en las decisiones que adopte.",
+        conceptos: ["principios", "imparcialidad", "probidad"],
+        comentarioProfesor: "El profesor observa que la exigencia de fundamentación del inciso 2° es en la práctica redundante frente al artículo 41 inciso 4°, que ya exige motivación para todas las resoluciones administrativas, no solo las que afectan derechos (p. 201-202)."
+    },
+    {
+        numero: 12,
+        titulo: "Principio de abstención",
+        texto: "Las autoridades y los funcionarios de la Administración en quienes se den algunas de las circunstancias señaladas a continuación, se abstendrán de intervenir en el procedimiento y lo comunicarán a su superior inmediato, quien resolverá lo procedente.",
+        conceptos: ["principios", "abstención", "conflicto de interés"],
+        comentarioProfesor: "Bermúdez explica que estas reglas cumplen tres funciones: garantizar al ciudadano una decisión imparcial, proteger a la Administración de colisiones de interés, y precaver la responsabilidad del propio funcionario (p. 202-203)."
+    },
+    {
+        numero: 13,
+        titulo: "Principio de la no formalización",
+        texto: "El procedimiento debe desarrollarse con sencillez y eficacia, de modo que las formalidades que se exijan sean aquéllas indispensables para dejar constancia indubitada de lo actuado y evitar perjuicios a los particulares.",
+        conceptos: ["principios", "no formalización", "proporcionalidad", "conservación del acto", "convalidación"],
+        comentarioProfesor: "El profesor identifica en este artículo tres sub-reglas: el principio de proporcionalidad (inciso 1°), el de conservación del acto —el vicio de forma solo invalida si recae en un requisito esencial y causa perjuicio— (inciso 2°), y el de convalidación —la Administración puede subsanar vicios si no afecta a terceros— (inciso 3°) (p. 203-204)."
+    },
+    {
+        numero: 14,
+        titulo: "Principio de inexcusabilidad",
+        texto: "La Administración estará obligada a dictar resolución expresa en todos los procedimientos y a notificarla, cualquiera que sea su forma de iniciación.",
+        conceptos: ["principios", "inexcusabilidad"],
+        comentarioProfesor: "Bermúdez lo compara con el principio conclusivo: no se refiere a la rapidez del procedimiento, sino al mandato de que todo procedimiento debe terminar con una resolución, incluso en casos de término anormal (p. 204-205)."
+    },
+    {
+        numero: 15,
+        titulo: "Principio de impugnabilidad",
+        texto: "Todo acto administrativo es impugnable por el interesado mediante los recursos administrativos de reposición y jerárquico, regulados en esta ley, sin perjuicio del recurso extraordinario de revisión y de los demás recursos que establezcan las leyes especiales.",
+        conceptos: ["principios", "impugnabilidad", "recursos administrativos"],
+        comentarioProfesor: "El profesor destaca la distinción entre actos de mero trámite (solo impugnables si generan indefensión o impiden continuar el procedimiento) y actos terminales (siempre impugnables) (p. 205)."
+    },
+    {
+        numero: 16,
+        titulo: "Principio de Transparencia y de Publicidad",
+        texto: "El procedimiento administrativo se realizará con transparencia, de manera que permita y promueva el conocimiento, contenidos y fundamentos de las decisiones que se adopten en él.",
+        conceptos: ["principios", "transparencia", "publicidad"],
+        comentarioProfesor: "Bermúdez aclara que el interesado en un procedimiento tiene derecho a acceder al expediente directamente (art. 17 letra d) LBPA), sin necesidad de recurrir a la Ley de Transparencia (Ley 20.285), que regula el acceso a la información pública en general (p. 206)."
+    }
+];
