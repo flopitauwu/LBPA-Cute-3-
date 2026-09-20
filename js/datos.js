@@ -19,32 +19,32 @@ const lbpa = [
         numero: 3,
         titulo: "Concepto de Acto administrativo",
         conceptos: ["principios", "contradictoriedad", "igualdad entre interesados"],
-        texto: "Las decisiones escritas que adopte la Administración se expresarán por medio de actos administrativos. Para efectos de esta ley se entenderá por acto administrativo las decisiones formales que emitan los órganos de la Administración del Estado en las cuales se contienen declaraciones de voluntad, realizadas en el ejercicio de una potestad pública. Los actos administrativos tomarán la forma de decretos supremos y resoluciones. El decreto supremo es la orden escrita que dicta el Presidente de la República o un Ministro [Por orden del Presidente de la República], sobre asuntos propios de su competencia. Las resoluciones son los actos de análoga naturaleza que dictan las autoridades administrativas dotadas de poder de decisión. Constituyen, también, actos administrativos los dictámenes o declaraciones de juicio, constancia o conocimiento que realicen los órganos de la Administración en el ejercicio de sus competencias. Las decisiones de los órganos administrativos pluripersonales se denominan acuerdos y se llevan a efecto por medio de resoluciones de la autoridad ejecutiva de la entidad correspondiente. Los actos administrativos gozan de una presunción de legalidad, de imperio y exigibilidad frente a sus destinatarios, desde su entrada en vigencia, autorizando su ejecución de oficio por la autoridad administrativa, salvo que mediare una orden de suspensión dispuesta por la autoridad administrativa dentro del procedimiento impugnatorio o por el juez, conociendo por la vía jurisdiccional.",
+        texto: "Las decisiones escritas que adopte la Administración se expresarán por medio de actos administrativos. Para efectos de esta ley se entenderá por acto administrativo las decisiones formales que emitan los órganos de la Administración del Estado en las cuales se contienen declaraciones de voluntad, realizadas en el ejercicio de una potestad pública. Los actos administrativos tomarán la forma de decretos supremos y resoluciones. El decreto supremo es la orden escrita que dicta el Presidente de la República o un Ministro Por orden del Presidente de la República, sobre asuntos propios de su competencia. Las resoluciones son los actos de análoga naturaleza que dictan las autoridades administrativas dotadas de poder de decisión. Constituyen, también, actos administrativos los dictámenes o declaraciones de juicio, constancia o conocimiento que realicen los órganos de la Administración en el ejercicio de sus competencias. Las decisiones de los órganos administrativos pluripersonales se denominan acuerdos y se llevan a efecto por medio de resoluciones de la autoridad ejecutiva de la entidad correspondiente. Los actos administrativos gozan de una presunción de legalidad, de imperio y exigibilidad frente a sus destinatarios, desde su entrada en vigencia, autorizando su ejecución de oficio por la autoridad administrativa, salvo que mediare una orden de suspensión dispuesta por la autoridad administrativa dentro del procedimiento impugnatorio o por el juez, conociendo por la vía jurisdiccional.",
         conceptos: ["acto administrativo", "decreto supremo", "resolución"]
     },
     {
         numero: 4,
         titulo: "Principios del procedimiento",
-        texto: "El procedimiento administrativo estará sometido a los principios de escrituración, gratuidad, celeridad, conclusivo, economía procedimental, contradictoriedad, imparcialidad, abstención, no formalización, inexcusabilidad, impugnabilidad, transparencia y publicidad.",
+        texto: "El procedimiento administrativo estará sometido a los principios de escrituración, gratuidad, celeridad, conclusivo, economía procedimental, contradictoriedad, imparcialidad, abstención, no formalización, inexcusabilidad, impugnabilidad, transparencia, publicidad y aquellos relativos a los medios electrónicos.",
         conceptos: ["principios", "principios del procedimiento administrativo"]
     },
     {
         numero: 5,
         titulo: "Principio de escrituración",
-        texto: "El procedimiento administrativo y los actos administrativos a los cuales da origen, se expresarán por escrito o por medios electrónicos, a menos que su naturaleza exija o permita otra forma más adecuada de expresión y constancia.",
+        texto: "El procedimiento administrativo y los actos administrativos a los cuales da origen se expresarán por escrito a través de medios electrónicos, a menos que se configure alguna excepción establecida en la ley.",
         conceptos: ["principios", "escrituración"]
     },
     {
         numero: 6,
         titulo: "Principio de gratuidad",
-        texto: "En el procedimiento administrativo, las actuaciones que deban practicar los órganos de la Administración del Estado y la obtención de documentos e información necesaria para su conclusión serán gratuitas para los interesados, salvo disposición legal en contrario.",
+        texto: "En el procedimiento administrativo, las actuaciones que deban practicar los órganos de la Administración del Estado y la obtención de documentos e información necesaria para su conclusión serán gratuitas para los interesados, salvo disposición legal en contrario. No procederán cobros entre los órganos de la Administración del Estado que deban participar en su desarrollo e intercambio, salvo disposición legal en contrario.",
         conceptos: ["principios", "gratuidad"],
         comentarioProfesor: "Bermúdez explica que la gratuidad se funda en que el procedimiento es parte de la actividad normal del órgano, cuyos costos ya están cubiertos por la ley de presupuestos; las excepciones quedan entregadas a normas legales especiales (p. 197)."
     },
     {
         numero: 7,
         titulo: "Principio de celeridad",
-        texto: "El procedimiento, sometido al criterio de celeridad, se impulsará de oficio en todos sus trámites.",
+        texto: "El procedimiento, sometido al criterio de celeridad, se impulsará de oficio en todos sus trámites. Las autoridades y funcionarios de los órganos de la Administración del Estado deberán actuar por propia iniciativa en la iniciación del procedimiento de que se trate y en su prosecución, haciendo expeditos los trámites que debe cumplir el expediente y removiendo todo obstáculo que pudiere afectar a su pronta y debida decisión. En el despacho de los expedientes originados en una solicitud o en el ejercicio de un derecho se guardará el orden riguroso de ingreso en asuntos de similar naturaleza, salvo que por el titular de la unidad administrativa se dé orden motivada en contrario, de la que quede constancia.",
         conceptos: ["principios", "celeridad"],
         comentarioProfesor: "Según Bermúdez, esta regla revela el carácter abierto del procedimiento y la primacía de la Administración en su configuración: aunque debe evitarse la dilación, la Administración conserva poder discrecional durante la tramitación (p. 197-198)."
     },
@@ -58,56 +58,56 @@ const lbpa = [
     {
         numero: 9,
         titulo: "Principio de economía procedimental",
-        texto: "La Administración debe responder a la máxima economía de medios con eficacia, evitando trámites dilatorios.",
+        texto: "La Administración debe responder a la máxima economía de medios con eficacia, evitando trámites dilatorios. Se decidirán en un solo acto todos los trámites que, por su naturaleza, admitan un impulso simultáneo, siempre que no sea obligatorio su cumplimiento sucesivo. Toda comunicación entre órganos de la Administración que se practique en el marco del procedimiento se realizará por medios electrónicos, dejándose constancia del órgano requirente, el funcionario responsable que practica el requerimiento, destinatario, procedimiento a que corresponde, gestión que se encarga y el plazo establecido para su realización. Asimismo, deberá remitirse una copia electrónica de tal comunicación a todos quienes figuren como interesados en el procedimiento administrativo de que se trate. Las cuestiones incidentales que se susciten en el procedimiento, incluso las que se refieran a la nulidad de actuaciones, no suspenderán la tramitación del mismo, a menos que la Administración, por resolución fundada, determine lo contrario.",
         conceptos: ["principios", "economía procedimental"],
         comentarioProfesor: "Bermúdez lo relaciona con la posibilidad de decidir en un solo acto los trámites que admitan impulso simultáneo, y con la acumulación de procedimientos por identidad sustancial o conexión (art. 33 LBPA) (p. 199)."
     },
     {
         numero: 10,
         titulo: "Principio de contradictoriedad",
-        texto: "Los interesados podrán, en cualquier momento del procedimiento, aducir alegaciones y aportar documentos u otros elementos de juicio.",
+        texto: "Los interesados podrán, en cualquier momento del procedimiento, aducir alegaciones y aportar documentos u otros elementos de juicio. Los interesados podrán, en todo momento, alegar defectos de tramitación, especialmente los que supongan paralización, infracción de los plazos señalados o la omisión de trámites que pueden ser subsanados antes de la resolución definitiva del asunto. Dichas alegaciones podrán dar lugar, si hubiere razones para ello, a la exigencia de la correspondiente responsabilidad disciplinaria. Los interesados podrán, en todo caso, actuar asistidos de asesor cuando lo consideren conveniente en defensa de sus intereses. En cualquier caso, el órgano instructor adoptará las medidas necesarias para lograr el pleno respeto a los principios de contradicción y de igualdad de los interesados en el procedimiento.",
         conceptos: ["principios", "contradictoriedad", "igualdad entre interesados"],
         comentarioProfesor: "Bermúdez destaca que el inciso 4° agrega, además de la contradictoriedad, un principio distinto: la igualdad entre los interesados (igualdad de trato e igualdad de medios jurídicos), aplicable cuando hay varias partes con intereses contrapuestos (p. 200-201)."
     },
     {
         numero: 11,
         titulo: "Principio de imparcialidad",
-        texto: "La Administración debe actuar con objetividad y respetar el principio de probidad consagrado en la legislación, tanto en la substanciación del procedimiento como en las decisiones que adopte.",
+        texto: "La Administración debe actuar con objetividad y respetar el principio de probidad consagrado en la legislación, tanto en la substanciación del procedimiento como en las decisiones que adopte. Los hechos y fundamentos de derecho deberán siempre expresarse en aquellos actos que afectaren los derechos de los particulares, sea que los limiten, restrinjan, priven de ellos, perturben o amenacen su legítimo ejercicio, así como aquellos que resuelvan recursos administrativos.",
         conceptos: ["principios", "imparcialidad", "probidad"],
         comentarioProfesor: "El profesor observa que la exigencia de fundamentación del inciso 2° es en la práctica redundante frente al artículo 41 inciso 4°, que ya exige motivación para todas las resoluciones administrativas, no solo las que afectan derechos (p. 201-202)."
     },
     {
         numero: 12,
         titulo: "Principio de abstención",
-        texto: "Las autoridades y los funcionarios de la Administración en quienes se den algunas de las circunstancias señaladas a continuación, se abstendrán de intervenir en el procedimiento y lo comunicarán a su superior inmediato, quien resolverá lo procedente.",
+        texto: "Las autoridades y los funcionarios de la Administración en quienes se den algunas de las circunstancias señaladas a continuación, se abstendrán de intervenir en el procedimiento y lo comunicarán a su superior inmediato, quien resolverá lo procedente. Son motivos de abstención los siguientes: 1. Tener interés personal en el asunto de que se trate o en otro en cuya resolución pudiera influir la de aquél; ser administrador de sociedad o entidad interesada, o tener cuestión litigiosa pendiente con algún interesado. 2. Tener parentesco de consanguinidad dentro del cuarto grado o de afinidad dentro del segundo, con cualquiera de los interesados, con los administradores de entidades o sociedades interesadas y también con los asesores, representantes legales o mandatarios que intervengan en el procedimiento, así como compartir despacho profesional o estar asociado con éstos para el asesoramiento, la representación o el mandato. 3. Tener amistad íntima o enemistad manifiesta con alguna de las personas mencionadas anteriormente. 4. Haber tenido intervención como perito o como testigo en el procedimiento de que se trate. 5. Tener relación de servicio con persona natural o jurídica interesada directamente en el asunto, o haberle prestado en los dos últimos años servicios profesionales de cualquier tipo y en cualquier circunstancia o lugar. La actuación de autoridades y los funcionarios de la Administración en los que concurran motivos de abstención no implicará, necesariamente, la invalidez de los actos en que hayan intervenido. La no abstención en los casos en que proceda dará lugar a responsabilidad. En los casos previstos en los incisos precedentes podrá promoverse inhabilitación por los interesados en cualquier momento de la tramitación del procedimiento. La inhabilitación se planteará ante la misma autoridad o funcionario afectado, por escrito, en el que se expresará la causa o causas en que se funda.",
         conceptos: ["principios", "abstención", "conflicto de interés"],
         comentarioProfesor: "Bermúdez explica que estas reglas cumplen tres funciones: garantizar al ciudadano una decisión imparcial, proteger a la Administración de colisiones de interés, y precaver la responsabilidad del propio funcionario (p. 202-203)."
     },
     {
         numero: 13,
         titulo: "Principio de la no formalización",
-        texto: "El procedimiento debe desarrollarse con sencillez y eficacia, de modo que las formalidades que se exijan sean aquéllas indispensables para dejar constancia indubitada de lo actuado y evitar perjuicios a los particulares.",
+        texto: "El procedimiento debe desarrollarse con sencillez y eficacia, de modo que las formalidades que se exijan sean aquéllas indispensables para dejar constancia indubitada de lo actuado y evitar perjuicios a los particulares. Quienes desempeñen cargos en la Administración no podrán exigir la presentación de autorizaciones notariales de firmas en documentos otorgados en soporte de papel o electrónico, salvo que dicha autorización sea expresamente requerida por mandato legal o reglamentario. El vicio de procedimiento o de forma sólo afecta la validez del acto administrativo cuando recae en algún requisito esencial del mismo, sea por su naturaleza o por mandato del ordenamiento jurídico y genera perjuicio al interesado. La Administración podrá subsanar los vicios de que adolezcan los actos que emita, siempre que con ello no se afectaren intereses de terceros.",
         conceptos: ["principios", "no formalización", "proporcionalidad", "conservación del acto", "convalidación"],
         comentarioProfesor: "El profesor identifica en este artículo tres sub-reglas: el principio de proporcionalidad (inciso 1°), el de conservación del acto —el vicio de forma solo invalida si recae en un requisito esencial y causa perjuicio— (inciso 2°), y el de convalidación —la Administración puede subsanar vicios si no afecta a terceros— (inciso 3°) (p. 203-204)."
     },
     {
         numero: 14,
         titulo: "Principio de inexcusabilidad",
-        texto: "La Administración estará obligada a dictar resolución expresa en todos los procedimientos y a notificarla, cualquiera que sea su forma de iniciación.",
+        texto: "La Administración estará obligada a dictar resolución expresa en todos los procedimientos y a notificarla, cualquiera que sea su forma de iniciación. Requerido un órgano de la Administración para intervenir en un asunto que no sea de su competencia, enviará de inmediato los antecedentes a la autoridad que deba conocer según el ordenamiento jurídico, informando de ello al interesado. En los casos de prescripción, renuncia del derecho, abandono del procedimiento o desistimiento de la solicitud, así como la desaparición sobreviniente del objeto del procedimiento, la resolución consistirá en la declaración de la circunstancia que concurra en cada caso, con indicación de los hechos producidos y las normas aplicables.",
         conceptos: ["principios", "inexcusabilidad"],
         comentarioProfesor: "Bermúdez lo compara con el principio conclusivo: no se refiere a la rapidez del procedimiento, sino al mandato de que todo procedimiento debe terminar con una resolución, incluso en casos de término anormal (p. 204-205)."
     },
     {
         numero: 15,
         titulo: "Principio de impugnabilidad",
-        texto: "Todo acto administrativo es impugnable por el interesado mediante los recursos administrativos de reposición y jerárquico, regulados en esta ley, sin perjuicio del recurso extraordinario de revisión y de los demás recursos que establezcan las leyes especiales.",
+        texto: " Todo acto administrativo es impugnable por el interesado mediante los recursos administrativos de reposición y jerárquico, regulados en esta ley, sin perjuicio del recurso extraordinario de revisión y de los demás recursos que establezcan las leyes especiales. Sin embargo, los actos de mero trámite son impugnables sólo cuando determinen la imposibilidad de continuar un procedimiento o produzcan indefensión. La autoridad que acogiere un recurso interpuesto en contra de un acto administrativo, podrá dictar por sí misma el acto de reemplazo.",
         conceptos: ["principios", "impugnabilidad", "recursos administrativos"],
         comentarioProfesor: "El profesor destaca la distinción entre actos de mero trámite (solo impugnables si generan indefensión o impiden continuar el procedimiento) y actos terminales (siempre impugnables) (p. 205)."
     },
     {
         numero: 16,
         titulo: "Principio de Transparencia y de Publicidad",
-        texto: "El procedimiento administrativo se realizará con transparencia, de manera que permita y promueva el conocimiento, contenidos y fundamentos de las decisiones que se adopten en él.",
+        texto: "El procedimiento administrativo se realizará con transparencia, de manera que permita y promueva el conocimiento, contenidos y fundamentos de las decisiones que se adopten en él. En consecuencia, salvo las excepciones establecidas en la Ley de Transparencia de la Función Pública y de Acceso a la Información de la Administración del Estado y en otras disposiciones legales aprobadas con quórum calificado, son públicos los actos y resoluciones de los órganos de la Administración del Estado, así como sus fundamentos y documentos en que éstos se contengan, y los procedimientos que utilicen en su elaboración o dictación.",
         conceptos: ["principios", "transparencia", "publicidad"],
         comentarioProfesor: "Bermúdez aclara que el interesado en un procedimiento tiene derecho a acceder al expediente directamente (art. 17 letra d) LBPA), sin necesidad de recurrir a la Ley de Transparencia (Ley 20.285), que regula el acceso a la información pública en general (p. 206)."
     },
