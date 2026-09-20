@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LBPA Cute · Ley de Bases del Procedimiento Administrativo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <h1>⚖ LBPA <span class="corazon">♡</span></h1>
+        <p class="subtitulo">Ley de Bases del Procedimiento<br>Administrativo (Ley N° 19.880)</p>
+        <p class="frase">Con comentarios de cátedra de Derecho Administrativo</p>
+
+        <div class="buscador">
+            <input type="text" id="inputBuscador" placeholder="Buscar artículo, palabra o concepto...">
+        </div>
+    </header>
+
+    <div id="resultadosBusqueda" class="resultados"></div>
+
+    <main>
+        <section class="capitulos"></section>
+    </main>
+
+    <script src="js/datos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
