@@ -128,5 +128,36 @@ const lbpa = [
         ],
         conceptos: ["derechos de las personas", "interesado", "acceso al expediente", "transparencia"],
         comentarioProfesor: "Bermúdez conecta este catálogo con otros derechos del interesado a lo largo del procedimiento: proponer actuaciones (art. 34), solicitar diligencias probatorias (art. 35), participar en ellas (art. 36), y con el principio de transparencia (art. 16), que exige dar a conocer el fundamento de las decisiones adoptadas (p. 231, 638)."
+    },
+        {
+        numero: 18,
+        titulo: "Definición",
+        texto: "El procedimiento administrativo es una sucesión de actos trámite vinculados entre sí, emanados de la Administración y, en su caso, de particulares interesados, que tiene por finalidad producir un acto administrativo terminal.",
+        conceptos: ["definición de procedimiento administrativo", "acto trámite", "acto terminal"],
+        comentarioProfesor: "Bermúdez advierte que esta es una definición tradicional pero restrictiva: solo contempla la producción de un acto administrativo, cuando en realidad el procedimiento también puede dar lugar a reglamentos o contratos administrativos (p. 207)."
+    },
+    {
+        numero: 19,
+        titulo: "Utilización de medios electrónicos",
+        texto: "El procedimiento administrativo podrá realizarse a través de técnicas y medios electrónicos.",
+        conceptos: ["medios electrónicos", "expediente electrónico", "transformación digital"]
+    },
+    {
+        numero: 20,
+        titulo: "Capacidad para actuar",
+        texto: "Tendrán capacidad de actuar ante la Administración, además de las personas que gocen de ella o la ejerzan con arreglo a las normas generales, los menores de edad para el ejercicio y defensa de aquellos de sus derechos e intereses cuya actuación esté permitida por el ordenamiento jurídico-administrativo sin la asistencia de la persona que ejerza la patria potestad, tutela o curatela. Se exceptúa el supuesto de los menores incapacitados, cuando la extensión de la incapacitación afecte al ejercicio y defensa de los derechos o intereses de que se trate.",
+        conceptos: ["capacidad para actuar", "interesado", "menores de edad"]
+    },
+    {
+        numero: 21,
+        titulo: "Interesados",
+        texto: "Se consideran interesados en el procedimiento administrativo:",
+        numerales: [
+            "1. Quienes lo promuevan como titulares de derechos o intereses individuales o colectivos.",
+            "2. Los que, sin haber iniciado el procedimiento, tengan derechos que puedan resultar afectados por la decisión que en el mismo se adopte.",
+            "3. Aquéllos cuyos intereses, individuales o colectivos, puedan resultar afectados por la resolución y se apersonen en el procedimiento en tanto no haya recaído resolución definitiva."
+        ],
+        conceptos: ["interesado", "interés individual", "interés colectivo"],
+        comentarioProfesor: "Bermúdez aclara que este artículo no da una verdadera 'definición' de interesado, sino un listado de situaciones; el elemento común es el interés, que ubica a quien solo lo tiene en una posición jurídica distinta —aunque igualmente protegida— a la del titular de un derecho subjetivo. A partir de esto clasifica al interesado en: quien inicia el procedimiento, el tercero afectado por la resolución, y quien impugna mediante un recurso administrativo (p. 229-230)."
     }
 ];
