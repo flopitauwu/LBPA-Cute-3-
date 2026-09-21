@@ -288,11 +288,11 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
         setTimeout(function () { mensajeNota.textContent = ""; }, 2000);
     });
 
-    // Iniciar sistema de dibujo
+    // Iniciar sistema de dibujo después de un pequeño retraso para asegurar que el DOM cargó
     setTimeout(() => { inicializarAnotacion(articulo.numero); }, 50);
 }
 
-// --- ANOTACIÓN Y LIENZO (MODO GOODNOTES) ---
+// --- ANOTACIÓN Y LIENZO (MODO GOODNOTES PARA IPAD Y PC) ---
 function inicializarAnotacion(numeroArticulo) {
     const contenedorAnotable = document.querySelector("#contenedorAnotable");
     const canvas = document.querySelector("#lienzoAnotacion");
@@ -324,8 +324,10 @@ function inicializarAnotacion(numeroArticulo) {
         catch (error) { console.log("Error al guardar:", error); }
     }
 
-    // Inicializar primer estado
-    guardarEstadoHistorial();
+    // Guardar el estado inicial en blanco (o con lo que haya recuperado)
+    if (historial.length === 0) {
+        guardarEstadoHistorial();
+    }
 
     function dibujarTrazo(trazo) {
         if (!trazo.puntos || trazo.puntos.length < 2) return;
@@ -344,7 +346,6 @@ function inicializarAnotacion(numeroArticulo) {
             }
             ctx.stroke();
         } else if (trazo.herramienta === "destacador") {
-            // Se usa opacidad semitransparente por detrás de las letras
             ctx.globalAlpha = 0.45;
             ctx.strokeStyle = trazo.color;
             ctx.lineWidth = 18;
@@ -383,7 +384,6 @@ function inicializarAnotacion(numeroArticulo) {
         opcionesDestacador.classList.toggle("oculto", herramientaActiva !== "destacador");
         opcionesBorrador.classList.toggle("oculto", herramientaActiva !== "borrador");
         
-        // Manejo de capas e interacción al activar el lienzo
         if (herramientaActiva) {
             contenedorAnotable.classList.add("modo-dibujo");
         } else {
@@ -412,7 +412,7 @@ function inicializarAnotacion(numeroArticulo) {
         });
     });
 
-    // Botones de Deshacer / Rehacer / Borrar Todo
+    // Deshacer / Rehacer / Borrar todo
     document.querySelector("#btnDeshacer")?.addEventListener("click", () => {
         if (pasoHistorial > 0) {
             pasoHistorial--;
@@ -437,7 +437,7 @@ function inicializarAnotacion(numeroArticulo) {
         guardarEstadoHistorial();
     });
 
-    // Borrador
+    // --- Lógica del Borrador ---
     function distanciaPuntoSegmento(p, a, b) {
         const dx = b.x - a.x, dy = b.y - a.y;
         const largo2 = dx * dx + dy * dy;
@@ -484,21 +484,40 @@ function inicializarAnotacion(numeroArticulo) {
         return huboCambio;
     }
 
+    // --- Eventos de Dibujo con Palm Rejection ---
     let dibujando = false;
     let trazoActual = null;
 
     function obtenerPosicion(evento) {
         const rect = canvas.getBoundingClientRect();
-        return { x: evento.clientX - rect.left, y: evento.clientY - rect.top };
+        return { 
+            x: evento.clientX - rect.left, 
+            y: evento.clientY - rect.top 
+        };
     }
 
     canvas.addEventListener("pointerdown", function (evento) {
         if (!herramientaActiva) return;
+
+        // Palm Rejection: si detecta toque de dedo y no estás borrando, no pinta.
+        // Esto permite hacer zoom en iPad sin que se dibuje una raya.
+        if (evento.pointerType === "touch" && herramientaActiva !== "borrador") {
+            return;
+        }
+
+        // Evitar comportamientos por defecto que causan que la pantalla se mueva
+        evento.preventDefault(); 
+        
         dibujando = true;
         const punto = obtenerPosicion(evento);
 
         if (herramientaActiva === "lapiz" || herramientaActiva === "destacador") {
-            trazoActual = { herramienta: herramientaActiva, color: herramientaActiva === "lapiz" ? colorLapiz : colorDestacador, grosor: tamañoLapiz, puntos: [punto] };
+            trazoActual = { 
+                herramienta: herramientaActiva, 
+                color: herramientaActiva === "lapiz" ? colorLapiz : colorDestacador, 
+                grosor: tamañoLapiz, 
+                puntos: [punto] 
+            };
         } else if (herramientaActiva === "borrador") {
             const cambio = modoBorrador === "trazo" ? borrarTrazoCompleto(punto) : borrarPreciso(punto);
             if (cambio) redibujarTodo();
@@ -507,6 +526,9 @@ function inicializarAnotacion(numeroArticulo) {
 
     canvas.addEventListener("pointermove", function (evento) {
         if (!dibujando || !herramientaActiva) return;
+        
+        evento.preventDefault();
+
         const punto = obtenerPosicion(evento);
 
         if (herramientaActiva === "lapiz" || herramientaActiva === "destacador") {
@@ -520,14 +542,16 @@ function inicializarAnotacion(numeroArticulo) {
     });
 
     ["pointerup", "pointerleave", "pointercancel"].forEach(evt => {
-        canvas.addEventListener(evt, function () {
+        canvas.addEventListener(evt, function (evento) {
             if (!dibujando) return;
             dibujando = false;
+            
             if (trazoActual && (herramientaActiva === "lapiz" || herramientaActiva === "destacador")) {
                 trazos.push(trazoActual);
                 trazoActual = null;
                 redibujarTodo();
             }
+            // Guarda el paso solo cuando levantas el lápiz/mouse
             guardarEstadoHistorial();
         });
     });
