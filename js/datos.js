@@ -18,7 +18,8 @@ const lbpa = [
         capituloTitulo: "Disposiciones Generales",
         titulo: "Ámbito de aplicación",
         texto: "Las disposiciones de la presente ley serán aplicables a los ministerios, las intendencias, las gobernaciones y los servicios públicos creados para el cumplimiento de la función administrativa. También se aplicarán a la Contraloría General de la República, a las Fuerzas Armadas y a las Fuerzas de Orden y Seguridad Pública, a los gobiernos regionales y a las municipalidades.\nLas referencias que esta ley haga a la Administración o a la Administración del Estado, se entenderán efectuadas a los órganos y organismos señalados en el inciso precedente.",
-        conceptos: ["ámbito de aplicación", "Administración del Estado"]
+        conceptos: ["ámbito de aplicación", "Administración del Estado"],
+        comentarioProfesor: "El profesor señala que este artículo define un ámbito de aplicación subjetivo amplio, alcanzando tanto a la Administración centralizada como descentralizada. Se resalta la inclusión expresa de la CGR, las FFAA y las Municipalidades, lo que asegura que las garantías del procedimiento formal se extiendan a prácticamente cualquier órgano estatal en el ejercicio de la función administrativa."
     },
     {
         numero: 3,
