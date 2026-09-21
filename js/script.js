@@ -203,12 +203,13 @@ function renderResumenArticulo(articulo, consulta) {
 }
 
 function renderArticuloCompleto(articulo, consulta) {
+    // Hemos modificado cómo se genera el comentario para darle un margen superior
     const comentarioHTML = articulo.comentarioProfesor
-        ? `<span class="resultado-etiqueta">Según Bermúdez</span><p class="resultado-comentario">${resaltar(articulo.comentarioProfesor, consulta)}</p>`
+        ? `<div style="margin-top: 25px;"><span class="resultado-etiqueta">Según Bermúdez</span><p class="resultado-comentario">${resaltar(articulo.comentarioProfesor, consulta)}</p></div>`
         : "";
+        
     return `
         <h4>Art. ${articulo.numero} — ${articulo.titulo}</h4>
-        <span class="resultado-etiqueta">Texto oficial</span>
         
         <div class="barra-anotacion">
             <button class="btn-anotacion" data-tool="lapiz" title="Lápiz">✏️</button>
@@ -242,16 +243,18 @@ function renderArticuloCompleto(articulo, consulta) {
         
         <div class="contenedor-anotable" id="contenedorAnotable">
             <div class="texto-anotable">
+                <span class="resultado-etiqueta">Texto oficial</span>
                 ${formatearIncisos(articulo.texto, consulta)}
                 ${formatearNumerales(articulo.numerales, consulta)}
                 ${articulo.textoContinuacion ? formatearIncisos(articulo.textoContinuacion, consulta) : ""}
+                
+                <!-- ¡El comentario ahora vive aquí adentro, bajo el lienzo! -->
+                ${comentarioHTML}
             </div>
             <canvas id="lienzoAnotacion" class="lienzo-anotacion"></canvas>
         </div>
-        ${comentarioHTML}
     `;
 }
-
 // --- NOTAS (LocalStorage) ---
 function obtenerNotas(numero) {
     try {
