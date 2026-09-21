@@ -125,6 +125,8 @@ function renderResumenArticulo(articulo, consulta) {
         <span class="resultado-ver-mas">Ver artículo completo →</span>
     `;
 }
+
+// --- Texto oficial + barra de anotación (lápiz/destacador/borrador) ---
 function renderArticuloCompleto(articulo, consulta) {
     const comentarioHTML = articulo.comentarioProfesor
         ? `<span class="resultado-etiqueta">Según Bermúdez</span><p class="resultado-comentario">${resaltar(articulo.comentarioProfesor, consulta)}</p>`
@@ -132,9 +134,41 @@ function renderArticuloCompleto(articulo, consulta) {
     return `
         <h4>Art. ${articulo.numero} — ${articulo.titulo}</h4>
         <span class="resultado-etiqueta">Texto oficial</span>
-        ${formatearIncisos(articulo.texto, consulta)}
-        ${formatearNumerales(articulo.numerales, consulta)}
-        ${articulo.textoContinuacion ? formatearIncisos(articulo.textoContinuacion, consulta) : ""}
+
+        <div class="barra-anotacion">
+            <button class="btn-anotacion" data-tool="lapiz" title="Lápiz">✏️</button>
+            <button class="btn-anotacion" data-tool="destacador" title="Destacador">🖍️</button>
+            <button class="btn-anotacion" data-tool="borrador" title="Borrador">🧹</button>
+            <button class="btn-anotacion" id="btnLimpiarDibujo" title="Borrar todo">🗑️</button>
+
+            <div id="opcionesLapiz" class="opciones-anotacion oculto">
+                <span class="color-swatch" data-color="#1a1a1a" style="background:#1a1a1a"></span>
+                <span class="color-swatch" data-color="#E03131" style="background:#E03131"></span>
+                <span class="color-swatch" data-color="#1971C2" style="background:#1971C2"></span>
+                <button class="btn-tamano" data-size="2">Fina</button>
+                <button class="btn-tamano" data-size="4">Media</button>
+                <button class="btn-tamano" data-size="7">Grande</button>
+            </div>
+
+            <div id="opcionesDestacador" class="opciones-anotacion oculto">
+                <span class="color-swatch" data-color="#FFC1D9" style="background:#FFC1D9"></span>
+                <span class="color-swatch" data-color="#D9C9E8" style="background:#D9C9E8"></span>
+                <span class="color-swatch" data-color="#AEE1F5" style="background:#AEE1F5"></span>
+                <span class="color-swatch" data-color="#FFB3B3" style="background:#FFB3B3"></span>
+                <span class="color-swatch" data-color="#FFD3A5" style="background:#FFD3A5"></span>
+                <span class="color-swatch" data-color="#FFF3A0" style="background:#FFF3A0"></span>
+            </div>
+        </div>
+
+        <div class="contenedor-anotable" id="contenedorAnotable">
+            <div class="texto-anotable">
+                ${formatearIncisos(articulo.texto, consulta)}
+                ${formatearNumerales(articulo.numerales, consulta)}
+                ${articulo.textoContinuacion ? formatearIncisos(articulo.textoContinuacion, consulta) : ""}
+            </div>
+            <canvas id="lienzoAnotacion" class="lienzo-anotacion"></canvas>
+        </div>
+
         ${comentarioHTML}
     `;
 }
@@ -246,5 +280,123 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
         renderizarListaNotas(articulo.numero);
         mensajeNota.textContent = "✓ Nota agregada";
         setTimeout(function () { mensajeNota.textContent = ""; }, 2000);
+    });
+
+    inicializarAnotacion(articulo.numero);
+}
+
+// --- ANOTACIÓN A MANO (lápiz, destacador, borrador) ---
+function inicializarAnotacion(numeroArticulo) {
+    const textoAnotable = document.querySelector("#contenedorAnotable .texto-anotable");
+    const canvas = document.querySelector("#lienzoAnotacion");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = textoAnotable.offsetWidth;
+    canvas.height = textoAnotable.offsetHeight;
+
+    const claveDibujo = `dibujo-art-${numeroArticulo}`;
+    try {
+        const dibujoGuardado = localStorage.getItem(claveDibujo);
+        if (dibujoGuardado) {
+            const img = new Image();
+            img.onload = function () { ctx.drawImage(img, 0, 0); };
+            img.src = dibujoGuardado;
+        }
+    } catch (error) {
+        console.log("No se pudo cargar el dibujo guardado:", error);
+    }
+
+    function guardarDibujo() {
+        try { localStorage.setItem(claveDibujo, canvas.toDataURL()); }
+        catch (error) { console.log("No se pudo guardar el dibujo:", error); }
+    }
+
+    let herramientaActiva = null;
+    let colorLapiz = "#1a1a1a";
+    let tamañoLapiz = 4;
+    let colorDestacador = "#FFC1D9";
+    let dibujando = false;
+    let ultimoPunto = null;
+
+    const botonesHerramienta = document.querySelectorAll(".btn-anotacion[data-tool]");
+    const opcionesLapiz = document.querySelector("#opcionesLapiz");
+    const opcionesDestacador = document.querySelector("#opcionesDestacador");
+
+    function activarHerramienta(herramienta) {
+        herramientaActiva = (herramientaActiva === herramienta) ? null : herramienta;
+        botonesHerramienta.forEach(function (b) { b.classList.toggle("activo", b.dataset.tool === herramientaActiva); });
+        opcionesLapiz.classList.toggle("oculto", herramientaActiva !== "lapiz");
+        opcionesDestacador.classList.toggle("oculto", herramientaActiva !== "destacador");
+        canvas.style.pointerEvents = herramientaActiva ? "auto" : "none";
+        canvas.style.cursor = herramientaActiva ? "crosshair" : "default";
+    }
+
+    botonesHerramienta.forEach(function (boton) {
+        boton.addEventListener("click", function () { activarHerramienta(boton.dataset.tool); });
+    });
+
+    opcionesLapiz.querySelectorAll(".color-swatch").forEach(function (swatch) {
+        swatch.addEventListener("click", function () { colorLapiz = swatch.dataset.color; });
+    });
+    opcionesLapiz.querySelectorAll(".btn-tamano").forEach(function (boton) {
+        boton.addEventListener("click", function () { tamañoLapiz = Number(boton.dataset.size); });
+    });
+    opcionesDestacador.querySelectorAll(".color-swatch").forEach(function (swatch) {
+        swatch.addEventListener("click", function () { colorDestacador = swatch.dataset.color; });
+    });
+
+    document.querySelector("#btnLimpiarDibujo").addEventListener("click", function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        try { localStorage.removeItem(claveDibujo); } catch (error) {}
+    });
+
+    function obtenerPosicion(evento) {
+        const rect = canvas.getBoundingClientRect();
+        return { x: evento.clientX - rect.left, y: evento.clientY - rect.top };
+    }
+
+    canvas.addEventListener("pointerdown", function (evento) {
+        if (!herramientaActiva) return;
+        dibujando = true;
+        ultimoPunto = obtenerPosicion(evento);
+    });
+
+    canvas.addEventListener("pointermove", function (evento) {
+        if (!dibujando || !herramientaActiva) return;
+        const puntoActual = obtenerPosicion(evento);
+        ctx.beginPath();
+        ctx.moveTo(ultimoPunto.x, ultimoPunto.y);
+        ctx.lineTo(puntoActual.x, puntoActual.y);
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+
+        if (herramientaActiva === "lapiz") {
+            ctx.globalCompositeOperation = "source-over";
+            ctx.globalAlpha = 1;
+            ctx.strokeStyle = colorLapiz;
+            ctx.lineWidth = tamañoLapiz;
+        } else if (herramientaActiva === "destacador") {
+            ctx.globalCompositeOperation = "multiply";
+            ctx.globalAlpha = 0.55;
+            ctx.strokeStyle = colorDestacador;
+            ctx.lineWidth = 16;
+        } else if (herramientaActiva === "borrador") {
+            ctx.globalCompositeOperation = "destination-out";
+            ctx.globalAlpha = 1;
+            ctx.lineWidth = 20;
+        }
+        ctx.stroke();
+        ultimoPunto = puntoActual;
+    });
+
+    ["pointerup", "pointerleave", "pointercancel"].forEach(function (evt) {
+        canvas.addEventListener(evt, function () {
+            if (dibujando) {
+                dibujando = false;
+                ctx.globalCompositeOperation = "source-over";
+                ctx.globalAlpha = 1;
+                guardarDibujo();
+            }
+        });
     });
 }
