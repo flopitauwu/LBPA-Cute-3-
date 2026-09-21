@@ -235,4 +235,12 @@ const lbpa = [
         texto: "Los interesados podrán actuar por medio de apoderados, entendiéndose que éstos tienen todas las facultades necesarias para la consecución del acto administrativo, salvo manifestación expresa en contrario.\n    El poder podrá constar en documento suscrito mediante firma electrónica simple o avanzada. Se aceptará también aquel que conste por escritura pública o documento privado suscrito ante notario. Con todo, se requerirá siempre de documento suscrito mediante firma electrónica avanzada o de escritura pública cuando el acto administrativo de que se trate produzca efectos que exijan solemnidad de instrumento o escritura pública.",
         conceptos: ["Apoderados"]
     },
+    {
+        numero: 23,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Obligación de cumplimiento de los plazos.",
+        texto: "Los términos y plazos establecidos en ésta u otras leyes obligan a las autoridades y personal al servicio de la Administración en la tramitación de los asuntos, así como los interesados en los mismos.",
+        conceptos: ["Cumplimiento de plazos"]
+    },
 ];
