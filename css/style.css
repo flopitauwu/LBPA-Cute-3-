@@ -59,15 +59,39 @@ body {
 
 .buscador input:focus { border-color: var(--borgoña); }
 
+/* --- CONTENEDOR GENERAL DE CAPÍTULOS --- */
 .capitulos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px 40px 60px;
 }
 
+/* --- ESTRUCTURA DE CADA CAPÍTULO INDIVIDUAL --- */
+.bloque-capitulo {
+    width: 100%;
+}
+
+.titulo-capitulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--borgoña);
+    margin: 0 0 20px 0;
+    text-align: left;
+    border-bottom: 2px solid var(--rosa-empolvado);
+    padding-bottom: 8px;
+}
+
+.fila-capitulo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* --- TARJETAS --- */
 .tarjeta-capitulo {
     background-color: white;
     border-radius: 18px;
@@ -92,6 +116,7 @@ body {
 
 .tarjeta-capitulo p { margin: 0; font-size: 0.9rem; }
 
+/* --- RESULTADOS DE BÚSQUEDA --- */
 .resultados {
     max-width: 700px;
     margin: 0 auto;
@@ -135,6 +160,7 @@ body {
 }
 
 .sin-resultados { text-align: center; color: #8a6a63; }
+
 .resultado-numerales {
     margin: 0 0 12px;
     padding-left: 22px;
@@ -160,6 +186,7 @@ body {
 .btn-volver:hover {
     text-decoration: underline;
 }
+
 .resultado-clicable {
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
