@@ -37,11 +37,10 @@ function mostrarArticulosDestacados() {
     contenedorCapitulos.style.display = ""; // Elimina inline styles que interfieran con el CSS
 
     const grupos = agruparPorCapitulo(lbpa);
+
     grupos.forEach(function (grupo) {
-        // Envolvemos todo el capítulo en una sección individual
         const bloqueCapitulo = document.createElement("div");
         bloqueCapitulo.classList.add("bloque-capitulo");
-
         bloqueCapitulo.appendChild(crearEncabezadoCapitulo(grupo));
 
         const fila = document.createElement("div");
@@ -66,14 +65,18 @@ function mostrarArticulosDestacados() {
 }
 
 // --- BUSCADOR ---
+
 inputBuscador.addEventListener("input", function () {
     const consulta = inputBuscador.value.trim().toLowerCase();
+
     if (consulta === "") {
         contenedorResultados.innerHTML = "";
         contenedorCapitulos.style.display = ""; // Muestra el contenedor respetando CSS
         return;
     }
+
     contenedorCapitulos.style.display = "none";
+
     const resultados = lbpa.filter(function (articulo) {
         const coincideNumero = String(articulo.numero) === consulta;
         const coincideTitulo = articulo.titulo.toLowerCase().includes(consulta);
@@ -85,51 +88,64 @@ inputBuscador.addEventListener("input", function () {
             : false;
         return coincideNumero || coincideTitulo || coincideTexto || coincideConcepto || coincideNumerales || coincideContinuacion;
     });
+
     mostrarResultados(resultados, consulta);
 });
+
+// --- RESALTADO ---
+
+function escaparRegex(texto) {
+    return texto.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function resaltar(texto, consulta) {
+    if (!consulta) return texto;
+    const regex = new RegExp(`(${escaparRegex(consulta)})`, "gi");
+    return texto.replace(regex, '<mark class="resaltado">$1</mark>');
+}
 
 function obtenerPrimerInciso(texto) {
     return texto.split("\n")[0].trim();
 }
 
-function formatearIncisos(texto) {
+function formatearIncisos(texto, consulta) {
     return texto
         .split("\n")
         .map(function (inciso) {
-            return `<p class="resultado-texto">${inciso.trim()}</p>`;
+            return `<p class="resultado-texto">${resaltar(inciso.trim(), consulta)}</p>`;
         })
         .join("");
 }
 
-function formatearNumerales(numerales) {
+function formatearNumerales(numerales, consulta) {
     if (!numerales || numerales.length === 0) return "";
     const items = numerales.map(function (n) {
-        return `<li>${n}</li>`;
+        return `<li>${resaltar(n, consulta)}</li>`;
     }).join("");
     return `<ol class="resultado-numerales">${items}</ol>`;
 }
 
-function renderResumenArticulo(articulo) {
+function renderResumenArticulo(articulo, consulta) {
     const primerInciso = obtenerPrimerInciso(articulo.texto);
     return `
         <h4>Art. ${articulo.numero} — ${articulo.titulo}</h4>
         <span class="resultado-etiqueta">Texto oficial (primer inciso)</span>
-        <p class="resultado-texto">${primerInciso}</p>
+        <p class="resultado-texto">${resaltar(primerInciso, consulta)}</p>
         <span class="resultado-ver-mas">Ver artículo completo →</span>
     `;
 }
 
-function renderArticuloCompleto(articulo) {
+function renderArticuloCompleto(articulo, consulta) {
     const comentarioHTML = articulo.comentarioProfesor
         ? `<span class="resultado-etiqueta">Según Bermúdez</span>
-           <p class="resultado-comentario">${articulo.comentarioProfesor}</p>`
+           <p class="resultado-comentario">${resaltar(articulo.comentarioProfesor, consulta)}</p>`
         : "";
     return `
         <h4>Art. ${articulo.numero} — ${articulo.titulo}</h4>
         <span class="resultado-etiqueta">Texto oficial</span>
-        ${formatearIncisos(articulo.texto)}
-        ${formatearNumerales(articulo.numerales)}
-        ${articulo.textoContinuacion ? formatearIncisos(articulo.textoContinuacion) : ""}
+        ${formatearIncisos(articulo.texto, consulta)}
+        ${formatearNumerales(articulo.numerales, consulta)}
+        ${articulo.textoContinuacion ? formatearIncisos(articulo.textoContinuacion, consulta) : ""}
         ${comentarioHTML}
     `;
 }
@@ -137,17 +153,21 @@ function renderArticuloCompleto(articulo) {
 // Resultados del buscador, agrupados por capítulo
 function mostrarResultados(resultados, consulta) {
     contenedorResultados.innerHTML = "";
+
     if (resultados.length === 0) {
         contenedorResultados.innerHTML = `<p class="sin-resultados">No se encontraron resultados para "${consulta}".</p>`;
         return;
     }
+
     const grupos = agruparPorCapitulo(resultados);
+
     grupos.forEach(function (grupo) {
         contenedorResultados.appendChild(crearEncabezadoCapitulo(grupo));
+
         grupo.articulos.forEach(function (articulo) {
             const item = document.createElement("div");
             item.classList.add("resultado-item", "resultado-clicable");
-            item.innerHTML = renderResumenArticulo(articulo);
+            item.innerHTML = renderResumenArticulo(articulo, consulta);
             item.addEventListener("click", function () {
                 mostrarArticuloIndividual(articulo, consulta);
             });
@@ -160,8 +180,9 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
     contenedorCapitulos.style.display = "none";
     contenedorResultados.innerHTML = `
         <button id="btnVolver" class="btn-volver">← Volver</button>
-        <div class="resultado-item">${renderArticuloCompleto(articulo)}</div>
+        <div class="resultado-item">${renderArticuloCompleto(articulo, origenConsulta)}</div>
     `;
+
     document.querySelector("#btnVolver").addEventListener("click", function () {
         if (origenConsulta) {
             inputBuscador.value = origenConsulta;
