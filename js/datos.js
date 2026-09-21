@@ -9,7 +9,8 @@ const lbpa = [
         capituloTitulo: "Disposiciones Generales",
         titulo: "Procedimiento Administrativo",
         texto: "La presente ley establece y regula las bases del procedimiento administrativo de los actos de la Administración del Estado.\nTodo procedimiento administrativo deberá expresarse a través de los medios electrónicos establecidos por ley, salvo las excepciones legales.\nEn caso de que la ley establezca procedimientos administrativos especiales, la presente ley se aplicará con carácter supletorio. Tratándose de los procedimientos seguidos para el otorgamiento de una autorización sectorial, iniciados a solicitud de parte, se estará a lo dispuesto en la Ley Marco de Autorizaciones Sectoriales. En lo no dispuesto en dicha ley, se aplicará la presente ley con carácter supletorio.\nLa toma de razón de los actos de la Administración del Estado se regirán por lo dispuesto en la Constitución y en la Ley Orgánica Constitucional de la Contraloría General de la República.",
-        conceptos: ["objeto de la ley", "supletoriedad"]
+        conceptos: ["objeto de la ley", "supletoriedad"],
+        comentarioProfesor: "Bermúdez destaca que la LBPA cumple una función unificadora y garantista al fijar un piso mínimo común para la actuación de la Administración. Además, enfatiza la supletoriedad de esta ley: solo se acude a ella cuando el procedimiento especial no regule una materia determinada, actuando como el régimen común del Derecho Administrativo chileno."
     },
     {
         numero: 2,
