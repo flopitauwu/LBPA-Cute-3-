@@ -34,7 +34,7 @@ function crearEncabezadoCapitulo(grupo) {
 // Muestra la grilla principal, agrupada por capítulo
 function mostrarArticulosDestacados() {
     contenedorCapitulos.innerHTML = "";
-    contenedorCapitulos.style.display = ""; // Elimina inline styles que interfieran con el CSS
+    contenedorCapitulos.style.display = "";
 
     const grupos = agruparPorCapitulo(lbpa);
 
@@ -71,7 +71,7 @@ inputBuscador.addEventListener("input", function () {
 
     if (consulta === "") {
         contenedorResultados.innerHTML = "";
-        contenedorCapitulos.style.display = ""; // Muestra el contenedor respetando CSS
+        contenedorCapitulos.style.display = "";
         return;
     }
 
@@ -147,6 +147,14 @@ function renderArticuloCompleto(articulo, consulta) {
         ${formatearNumerales(articulo.numerales, consulta)}
         ${articulo.textoContinuacion ? formatearIncisos(articulo.textoContinuacion, consulta) : ""}
         ${comentarioHTML}
+        <div class="nota-personal">
+            <span class="resultado-etiqueta">✎ Mi nota</span>
+            <textarea id="notaTexto" class="nota-textarea" placeholder="Escribe aquí tu nota personal sobre este artículo..."></textarea>
+            <div class="nota-acciones">
+                <button id="btnGuardarNota" class="btn-guardar-nota">Guardar nota</button>
+                <span id="notaGuardadaMsg" class="nota-guardada-msg"></span>
+            </div>
+        </div>
     `;
 }
 
@@ -191,6 +199,27 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
             inputBuscador.value = "";
             contenedorResultados.innerHTML = "";
             contenedorCapitulos.style.display = "";
+        }
+    });
+
+    // --- NOTAS PERSONALES (guardadas en este dispositivo) ---
+    const claveNota = `nota-art-${articulo.numero}`;
+    const textareaNota = document.querySelector("#notaTexto");
+    const mensajeNota = document.querySelector("#notaGuardadaMsg");
+
+    try {
+        textareaNota.value = localStorage.getItem(claveNota) || "";
+    } catch (error) {
+        console.log("No se pudo leer la nota guardada:", error);
+    }
+
+    document.querySelector("#btnGuardarNota").addEventListener("click", function () {
+        try {
+            localStorage.setItem(claveNota, textareaNota.value);
+            mensajeNota.textContent = "✓ Nota guardada en este dispositivo";
+            setTimeout(function () { mensajeNota.textContent = ""; }, 2500);
+        } catch (error) {
+            mensajeNota.textContent = "No se pudo guardar la nota";
         }
     });
 }
