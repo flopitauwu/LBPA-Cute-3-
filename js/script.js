@@ -6,20 +6,53 @@ const inputBuscador = document.querySelector("#inputBuscador");
 const contenedorResultados = document.querySelector("#resultadosBusqueda");
 const contenedorCapitulos = document.querySelector(".capitulos");
 
-// Muestra tarjetas con todos los artículos
+// Agrupa una lista de artículos en bloques por capítulo, respetando el orden
+function agruparPorCapitulo(articulos) {
+    const grupos = [];
+    let capituloActual = null;
+    articulos.forEach(function (articulo) {
+        if (articulo.capitulo !== capituloActual) {
+            capituloActual = articulo.capitulo;
+            grupos.push({
+                capitulo: articulo.capitulo,
+                capituloTitulo: articulo.capituloTitulo,
+                articulos: []
+            });
+        }
+        grupos[grupos.length - 1].articulos.push(articulo);
+    });
+    return grupos;
+}
+
+function crearEncabezadoCapitulo(grupo) {
+    const encabezado = document.createElement("h2");
+    encabezado.classList.add("titulo-capitulo");
+    encabezado.textContent = `Capítulo ${grupo.capitulo} — ${grupo.capituloTitulo}`;
+    return encabezado;
+}
+
+// Muestra la grilla principal, agrupada por capítulo
 function mostrarArticulosDestacados() {
     contenedorCapitulos.innerHTML = "";
-    lbpa.forEach(function (articulo) {
-        const tarjeta = document.createElement("article");
-        tarjeta.classList.add("tarjeta-capitulo");
-        tarjeta.innerHTML = `
-            <h3>Art. ${articulo.numero}</h3>
-            <p>${articulo.titulo}</p>
-        `;
-        tarjeta.addEventListener("click", function () {
-            mostrarArticuloIndividual(articulo);
+    const grupos = agruparPorCapitulo(lbpa);
+    grupos.forEach(function (grupo) {
+        contenedorCapitulos.appendChild(crearEncabezadoCapitulo(grupo));
+
+        const fila = document.createElement("div");
+        fila.classList.add("fila-capitulo");
+        grupo.articulos.forEach(function (articulo) {
+            const tarjeta = document.createElement("article");
+            tarjeta.classList.add("tarjeta-capitulo");
+            tarjeta.innerHTML = `
+                <h3>Art. ${articulo.numero}</h3>
+                <p>${articulo.titulo}</p>
+            `;
+            tarjeta.addEventListener("click", function () {
+                mostrarArticuloIndividual(articulo);
+            });
+            fila.appendChild(tarjeta);
         });
-        contenedorCapitulos.appendChild(tarjeta);
+        contenedorCapitulos.appendChild(fila);
     });
 }
 
@@ -28,7 +61,7 @@ inputBuscador.addEventListener("input", function () {
     const consulta = inputBuscador.value.trim().toLowerCase();
     if (consulta === "") {
         contenedorResultados.innerHTML = "";
-        contenedorCapitulos.style.display = "grid";
+        contenedorCapitulos.style.display = "block";
         return;
     }
     contenedorCapitulos.style.display = "none";
@@ -46,12 +79,10 @@ inputBuscador.addEventListener("input", function () {
     mostrarResultados(resultados, consulta);
 });
 
-// Devuelve solo el primer inciso de un texto (los incisos se separan con \n)
 function obtenerPrimerInciso(texto) {
     return texto.split("\n")[0].trim();
 }
 
-// Convierte un texto con \n entre incisos en párrafos HTML separados
 function formatearIncisos(texto) {
     return texto
         .split("\n")
@@ -61,7 +92,6 @@ function formatearIncisos(texto) {
         .join("");
 }
 
-// Convierte un arreglo de numerales en una lista ordenada
 function formatearNumerales(numerales) {
     if (!numerales || numerales.length === 0) return "";
     const items = numerales.map(function (n) {
@@ -70,7 +100,6 @@ function formatearNumerales(numerales) {
     return `<ol class="resultado-numerales">${items}</ol>`;
 }
 
-// Vista RESUMIDA para resultados de búsqueda: solo título + primer inciso
 function renderResumenArticulo(articulo) {
     const primerInciso = obtenerPrimerInciso(articulo.texto);
     return `
@@ -81,7 +110,6 @@ function renderResumenArticulo(articulo) {
     `;
 }
 
-// Vista COMPLETA: todos los incisos + numerales + continuación + comentario
 function renderArticuloCompleto(articulo) {
     const comentarioHTML = articulo.comentarioProfesor
         ? `<span class="resultado-etiqueta">Según Bermúdez</span>
@@ -97,25 +125,28 @@ function renderArticuloCompleto(articulo) {
     `;
 }
 
+// Resultados del buscador, agrupados por capítulo
 function mostrarResultados(resultados, consulta) {
     contenedorResultados.innerHTML = "";
     if (resultados.length === 0) {
         contenedorResultados.innerHTML = `<p class="sin-resultados">No se encontraron resultados para "${consulta}".</p>`;
         return;
     }
-    resultados.forEach(function (articulo) {
-        const item = document.createElement("div");
-        item.classList.add("resultado-item", "resultado-clicable");
-        item.innerHTML = renderResumenArticulo(articulo);
-        item.addEventListener("click", function () {
-            mostrarArticuloIndividual(articulo, consulta);
+    const grupos = agruparPorCapitulo(resultados);
+    grupos.forEach(function (grupo) {
+        contenedorResultados.appendChild(crearEncabezadoCapitulo(grupo));
+        grupo.articulos.forEach(function (articulo) {
+            const item = document.createElement("div");
+            item.classList.add("resultado-item", "resultado-clicable");
+            item.innerHTML = renderResumenArticulo(articulo);
+            item.addEventListener("click", function () {
+                mostrarArticuloIndividual(articulo, consulta);
+            });
+            contenedorResultados.appendChild(item);
         });
-        contenedorResultados.appendChild(item);
     });
 }
 
-// Muestra un artículo completo. Si viene de una búsqueda, "origenConsulta"
-// guarda lo que se buscó para poder volver a esos mismos resultados.
 function mostrarArticuloIndividual(articulo, origenConsulta) {
     contenedorCapitulos.style.display = "none";
     contenedorResultados.innerHTML = `
@@ -129,7 +160,7 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
         } else {
             inputBuscador.value = "";
             contenedorResultados.innerHTML = "";
-            contenedorCapitulos.style.display = "grid";
+            contenedorCapitulos.style.display = "block";
         }
     });
 }
