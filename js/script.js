@@ -215,7 +215,7 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
             </aside>
             <div class="resultado-item">${renderArticuloCompleto(articulo, origenConsulta)}</div>
             <aside class="panel-nota-ver">
-                <span class="resultado-etiqueta">📌 Mis notas</span>
+                <span class="resultado-etiqueta">♡ Mis notas</span>
                 <div id="listaNotasGuardadas" class="lista-notas-guardadas"></div>
             </aside>
         </div>
