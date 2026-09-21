@@ -427,15 +427,14 @@ body {
         position: static;
     }
 }
-/* --- ANOTACIÓN A MANO (lápiz, destacador, borrador) --- */
-
+/* --- ANOTACIÓN A MANO Y SECCIÓN GOODNOTES --- */
 .barra-anotacion {
     display: flex;
     align-items: center;
     gap: 8px;
     flex-wrap: wrap;
-    margin: 10px 0;
-    padding: 8px 10px;
+    margin: 15px 0;
+    padding: 10px;
     background-color: white;
     border-radius: 14px;
     border: 1px solid var(--rosa-empolvado);
@@ -445,53 +444,76 @@ body {
     background: none;
     border: 1px solid var(--rosa-empolvado);
     border-radius: 10px;
-    width: 36px;
-    height: 36px;
-    font-size: 1.1rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
-.btn-anotacion:hover { background-color: var(--crema); }
+.btn-anotacion:hover { 
+    background-color: var(--crema); 
+}
 
 .btn-anotacion.activo {
     background-color: var(--lavanda);
+    border-color: var(--borgoña);
     transform: scale(1.05);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
 }
 
 .opciones-anotacion {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding-left: 8px;
-    border-left: 1px solid var(--rosa-empolvado);
+    gap: 12px;
+    padding-left: 10px;
+    width: 100%;
+    margin-top: 5px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rosa-empolvado);
 }
 
-.opciones-anotacion.oculto { display: none; }
+.opciones-anotacion.oculto { 
+    display: none !important; 
+}
 
 .color-swatch {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     cursor: pointer;
     border: 2px solid white;
     box-shadow: 0 0 0 1px var(--rosa-empolvado);
+    transition: transform 0.15s ease;
 }
 
-.color-swatch:hover { transform: scale(1.15); }
+.color-swatch:hover { 
+    transform: scale(1.15); 
+}
 
-.btn-tamano {
+.btn-tamano, .btn-modo-borrador {
     background-color: var(--crema);
     border: 1px solid var(--rosa-empolvado);
     border-radius: 8px;
-    padding: 4px 8px;
-    font-size: 0.75rem;
+    padding: 4px 10px;
+    font-size: 0.85rem;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
 }
 
+.btn-tamano.activo, .btn-modo-borrador.activo {
+    background-color: var(--borgoña);
+    color: white;
+    border-color: var(--borgoña);
+}
+
+/* =========================================
+   LIENZO DE DIBUJO Y TEXTO
+========================================= */
 .contenedor-anotable {
     position: relative;
+    width: 100%;
+    margin-top: 1rem;
 }
 
 .texto-anotable {
@@ -503,133 +525,19 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
-    pointer-events: none;
-    touch-action: none;
-}
-.btn-modo-borrador {
-    background-color: var(--crema);
-    border: 1px solid var(--rosa-empolvado);
-    border-radius: 8px;
-    padding: 4px 10px;
-    font-size: 0.75rem;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-}
-
-.btn-modo-borrador.activo {
-    background-color: var(--borgoña);
-    color: white;
-    border-color: var(--borgoña);
-}
-/* =========================================
-   SECCIÓN GOODNOTES (LIENZO Y TEXTO)
-========================================= */
-
-/* 1. El contenedor principal: Crea el "marco" de referencia */
-.contenedor-anotable {
-    position: relative; /* Crucial para que el lienzo sepa dónde anclarse */
-    width: 100%;
-    margin-top: 1rem;
-}
-
-/* 2. El texto del artículo: Va en el fondo */
-.texto-anotable {
-    position: relative;
-    z-index: 1; /* Nivel inferior */
-}
-
-/* 3. El lienzo de dibujo: Va encima como un cristal transparente */
-.lienzo-anotacion {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2; /* Nivel superior, tapa al texto */
-    pointer-events: none; /* Por defecto, está "apagado" para que puedas copiar texto normalmente */
-    touch-action: none; /* CRUCIAL PARA IPAD: Evita que la pantalla salte al apoyar la mano */
+    z-index: 2;
+    pointer-events: none;
+    touch-action: none; 
 }
 
-/* 4. Cuando seleccionas un lápiz/destacador (Activado por JS) */
+/* Activación del lienzo al seleccionar herramienta */
 .contenedor-anotable.modo-dibujo .lienzo-anotacion {
-    pointer-events: auto; /* "Enciende" el cristal para que atrape tu lápiz o ratón */
-    cursor: crosshair; /* Cambia el cursor para indicar que puedes dibujar */
+    pointer-events: auto;
+    cursor: crosshair;
 }
 
 .contenedor-anotable.modo-dibujo .texto-anotable {
-    user-select: none; /* Evita que el texto se ponga azul (se seleccione) por accidente al dibujar */
-}
-
-/* =========================================
-   BARRA DE HERRAMIENTAS Y BOTONES
-========================================= */
-
-.barra-anotacion {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 15px 0;
-    padding: 10px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
-}
-
-.btn-anotacion {
-    background: white;
-    border: 1px solid #dee2e6;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.2s;
-}
-
-/* Botón presionado */
-.btn-anotacion.activo {
-    background: #e7f5ff;
-    border-color: #339af0;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
-}
-
-.opciones-anotacion {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    width: 100%;
-    margin-top: 5px;
-    padding-top: 10px;
-    border-top: 1px solid #dee2e6;
-}
-
-.opciones-anotacion.oculto {
-    display: none !important; /* Esconde la paleta de colores si no hay herramienta seleccionada */
-}
-
-.color-swatch {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid transparent;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.color-swatch:hover {
-    transform: scale(1.1);
-}
-
-.btn-modo-borrador, .btn-tamano {
-    background: white;
-    border: 1px solid #ccc;
-    padding: 4px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.btn-modo-borrador.activo, .btn-tamano.activo {
-    background: #f1f3f5;
-    font-weight: bold;
+    user-select: none;
 }
