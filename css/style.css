@@ -205,3 +205,10 @@ body {
     color: var(--borgoña);
     font-weight: 500;
 }
+.resaltado {
+    background: linear-gradient(90deg, #FBD9E3, #E4D4F4);
+    padding: 1px 3px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: var(--borgoña);
+}
