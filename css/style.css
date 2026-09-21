@@ -507,3 +507,18 @@ body {
     pointer-events: none;
     touch-action: none;
 }
+.btn-modo-borrador {
+    background-color: var(--crema);
+    border: 1px solid var(--rosa-empolvado);
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-modo-borrador.activo {
+    background-color: var(--borgoña);
+    color: white;
+    border-color: var(--borgoña);
+}
