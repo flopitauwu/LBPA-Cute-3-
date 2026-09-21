@@ -2,10 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarArticulosDestacados();
 });
 
+const inputBuscador = document.querySelector("#inputBuscador");
+const contenedorResultados = document.querySelector("#resultadosBusqueda");
+const contenedorCapitulos = document.querySelector(".capitulos");
+
 // Muestra tarjetas con todos los artículos
 function mostrarArticulosDestacados() {
-    const contenedor = document.querySelector(".capitulos");
-    contenedor.innerHTML = "";
+    contenedorCapitulos.innerHTML = "";
     lbpa.forEach(function (articulo) {
         const tarjeta = document.createElement("article");
         tarjeta.classList.add("tarjeta-capitulo");
@@ -16,15 +19,11 @@ function mostrarArticulosDestacados() {
         tarjeta.addEventListener("click", function () {
             mostrarArticuloIndividual(articulo);
         });
-        contenedor.appendChild(tarjeta);
+        contenedorCapitulos.appendChild(tarjeta);
     });
 }
 
 // --- BUSCADOR ---
-const inputBuscador = document.querySelector("#inputBuscador");
-const contenedorResultados = document.querySelector("#resultadosBusqueda");
-const contenedorCapitulos = document.querySelector(".capitulos");
-
 inputBuscador.addEventListener("input", function () {
     const consulta = inputBuscador.value.trim().toLowerCase();
     if (consulta === "") {
@@ -47,6 +46,11 @@ inputBuscador.addEventListener("input", function () {
     mostrarResultados(resultados, consulta);
 });
 
+// Devuelve solo el primer inciso de un texto (los incisos se separan con \n)
+function obtenerPrimerInciso(texto) {
+    return texto.split("\n")[0].trim();
+}
+
 // Convierte un texto con \n entre incisos en párrafos HTML separados
 function formatearIncisos(texto) {
     return texto
@@ -57,7 +61,7 @@ function formatearIncisos(texto) {
         .join("");
 }
 
-// Convierte un arreglo de numerales (a), b)... o 1., 2....) en una lista ordenada
+// Convierte un arreglo de numerales en una lista ordenada
 function formatearNumerales(numerales) {
     if (!numerales || numerales.length === 0) return "";
     const items = numerales.map(function (n) {
@@ -66,8 +70,19 @@ function formatearNumerales(numerales) {
     return `<ol class="resultado-numerales">${items}</ol>`;
 }
 
-// Arma el HTML completo de un artículo: texto + numerales + continuación + comentario
-function renderArticulo(articulo) {
+// Vista RESUMIDA para resultados de búsqueda: solo título + primer inciso
+function renderResumenArticulo(articulo) {
+    const primerInciso = obtenerPrimerInciso(articulo.texto);
+    return `
+        <h4>Art. ${articulo.numero} — ${articulo.titulo}</h4>
+        <span class="resultado-etiqueta">Texto oficial (primer inciso)</span>
+        <p class="resultado-texto">${primerInciso}</p>
+        <span class="resultado-ver-mas">Ver artículo completo →</span>
+    `;
+}
+
+// Vista COMPLETA: todos los incisos + numerales + continuación + comentario
+function renderArticuloCompleto(articulo) {
     const comentarioHTML = articulo.comentarioProfesor
         ? `<span class="resultado-etiqueta">Según Bermúdez</span>
            <p class="resultado-comentario">${articulo.comentarioProfesor}</p>`
@@ -90,22 +105,31 @@ function mostrarResultados(resultados, consulta) {
     }
     resultados.forEach(function (articulo) {
         const item = document.createElement("div");
-        item.classList.add("resultado-item");
-        item.innerHTML = renderArticulo(articulo);
+        item.classList.add("resultado-item", "resultado-clicable");
+        item.innerHTML = renderResumenArticulo(articulo);
+        item.addEventListener("click", function () {
+            mostrarArticuloIndividual(articulo, consulta);
+        });
         contenedorResultados.appendChild(item);
     });
 }
 
-// Muestra un solo artículo completo al presionar su tarjeta
-function mostrarArticuloIndividual(articulo) {
+// Muestra un artículo completo. Si viene de una búsqueda, "origenConsulta"
+// guarda lo que se buscó para poder volver a esos mismos resultados.
+function mostrarArticuloIndividual(articulo, origenConsulta) {
     contenedorCapitulos.style.display = "none";
-    inputBuscador.value = "";
     contenedorResultados.innerHTML = `
-        <button id="btnVolver" class="btn-volver">← Volver a todos los artículos</button>
-        <div class="resultado-item">${renderArticulo(articulo)}</div>
+        <button id="btnVolver" class="btn-volver">← Volver</button>
+        <div class="resultado-item">${renderArticuloCompleto(articulo)}</div>
     `;
     document.querySelector("#btnVolver").addEventListener("click", function () {
-        contenedorResultados.innerHTML = "";
-        contenedorCapitulos.style.display = "grid";
+        if (origenConsulta) {
+            inputBuscador.value = origenConsulta;
+            inputBuscador.dispatchEvent(new Event("input"));
+        } else {
+            inputBuscador.value = "";
+            contenedorResultados.innerHTML = "";
+            contenedorCapitulos.style.display = "grid";
+        }
     });
 }
