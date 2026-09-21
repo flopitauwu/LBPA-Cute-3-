@@ -427,3 +427,83 @@ body {
         position: static;
     }
 }
+/* --- ANOTACIÓN A MANO (lápiz, destacador, borrador) --- */
+
+.barra-anotacion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    padding: 8px 10px;
+    background-color: white;
+    border-radius: 14px;
+    border: 1px solid var(--rosa-empolvado);
+}
+
+.btn-anotacion {
+    background: none;
+    border: 1px solid var(--rosa-empolvado);
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-anotacion:hover { background-color: var(--crema); }
+
+.btn-anotacion.activo {
+    background-color: var(--lavanda);
+    transform: scale(1.05);
+}
+
+.opciones-anotacion {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-left: 8px;
+    border-left: 1px solid var(--rosa-empolvado);
+}
+
+.opciones-anotacion.oculto { display: none; }
+
+.color-swatch {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 0 1px var(--rosa-empolvado);
+}
+
+.color-swatch:hover { transform: scale(1.15); }
+
+.btn-tamano {
+    background-color: var(--crema);
+    border: 1px solid var(--rosa-empolvado);
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contenedor-anotable {
+    position: relative;
+}
+
+.texto-anotable {
+    position: relative;
+    z-index: 1;
+}
+
+.lienzo-anotacion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+    touch-action: none;
+}
