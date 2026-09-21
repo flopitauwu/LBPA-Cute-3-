@@ -384,4 +384,148 @@ const lbpa = [
         texto: "Informes. Para los efectos de la resolución del procedimiento, se solicitarán aquellos informes que señalen las disposiciones legales, y los que se juzguen necesarios para resolver, citándose el precepto que los exija o fundamentando, en su caso, la conveniencia de requerirlos.",
         conceptos: ["Informes."]
     },
+    {
+        numero: "37 bis",
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "bis del 37",
+        texto: "Cuando un órgano de la Administración del Estado deba evacuar un acto administrativo de carácter general que tenga claros efectos en los ámbitos de competencia de otro órgano, le remitirá todos los antecedentes y requerirá de éste un informe para efectos de evitar o precaver conflictos de normas, con el objeto de resguardar la coordinación, cooperación y colaboración entre los órganos involucrados en su dictación.\nLos órganos administrativos cuyo informe se solicite deberán evacuarlo dentro del plazo de treinta días corridos, contado desde la fecha en que hubieren recibido el requerimiento a que se refiere el inciso precedente. El requirente valorará el contenido de la opinión del órgano administrativo requerido, expresándolo en la motivación del acto administrativo de carácter general que dicte, de conformidad con lo dispuesto en el artículo 41. Transcurrido el plazo sin que se hubiere recibido el correspondiente informe, se procederá conforme al inciso segundo del artículo 38.\nEl requerimiento y los informes que emitan los órganos administrativos en virtud de los incisos anteriores se sujetarán en su forma, valor y tramitación a lo señalado en los artículos 37 y 38.\nNo regirá lo establecido en los incisos anteriores en los casos en que el acto administrativo de carácter general requiera aplicación inmediata o en el más breve plazo posible, atendida su naturaleza y urgencia, circunstancia que deberá ser justificada y de la cual se dejará constancia en su texto.\nCon todo, el órgano administrativo autor de dicho acto, con posterioridad a su dictación, deberá remitirle a los otros órganos administrativos competentes todos los antecedentes tenidos a la vista y requerir de éstos un informe, con el propósito de cumplir con los objetivos señalados en el inciso primero, en la aplicación del acto administrativo respectivo.",
+        conceptos: ["."]
+    },
+    {
+        numero: 38,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Valor de los informes.",
+        texto: "Valor de los informes. Salvo disposición expresa en contrario, los informes serán facultativos y no vinculantes.\nSi el informe debiera ser emitido por un órgano de la Administración distinto del que tramita el procedimiento en orden a expresar el punto de vista correspondiente a sus competencias respectivas, y transcurriera el plazo sin que aquél se hubiera evacuado, se podrán proseguir las actuaciones.",
+        conceptos: ["valor de los informes", "informes"]
+    },
+    {
+        numero: 39,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Información pública.",
+        texto: "Información pública. El órgano al que corresponda la resolución del procedimiento, cuando la naturaleza de éste lo requiera, podrá ordenar un período de información pública.\nPara tales efectos, se anunciará en el Diario Oficial o en un diario de circulación nacional, a fin de que cualquier persona pueda examinar el procedimiento, o la parte del mismo que se indique.\n El anuncio señalará el lugar de exhibición y determinará el plazo para formular observaciones, que en ningún caso podrá ser inferior a diez días.\nLa falta de actuación en este trámite, no impedirá a los interesados interponer los recursos procedentes contra la resolución definitiva del procedimiento.\nLa actuación en el trámite de información pública no otorga, por sí misma, la condición de interesado. En todo caso, la Administración otorgará una respuesta razonada, en lo pertinente, que podrá ser común para todas aquellas observaciones que planteen cuestiones sustancialmente iguales.",
+        conceptos: ["información pública"]
+    },
+    {
+        numero: 40,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Conclusión del procedimiento.",
+        texto: "Conclusión del procedimiento. Pondrán término al procedimiento la resolución final, el desistimiento, la declaración de abandono y la renuncia al derecho en que se funde la solicitud, cuando tal renuncia no esté prohibida por el ordenamiento jurídico.\nTambién producirá la terminación del procedimiento la imposibilidad material de continuarlo por causas sobrevinientes. La resolución que se dicte deberá ser fundada en todo caso.",
+        conceptos: ["conclusión del procedimiento", "procedimientos"]
+    },
+    {
+        numero: 41,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Contenido de la resolución final.",
+        texto: "Contenido de la resolución final. La resolución que ponga fin al procedimiento decidirá las cuestiones planteadas por los interesados.\nCuando en la elaboración de la resolución final se adviertan cuestiones conexas, ellas serán puestas en conocimiento de los interesados, quienes dispondrán de un plazo de quince días para formular las alegaciones que estimen pertinentes y aportar, en su caso, medios de prueba. Transcurrido ese plazo el órgano competente decidirá sobre ellas en la resolución final.\nEn los procedimientos tramitados a solicitud del interesado, la resolución deberá ajustarse a las peticiones formuladas por éste, sin que en ningún caso pueda agravar su situación inicial y sin perjuicio de la potestad de la Administración de incoar de oficio un nuevo procedimiento, si fuere procedente.\nLas resoluciones contendrán la decisión, que será fundada. Expresarán, además, los recursos que contra la misma procedan, órgano administrativo o judicial ante el que hubieran de presentarse y plazo para interponerlos, sin perjuicio de que los interesados puedan ejercitar cualquier otro que estimen oportuno.\nEn ningún caso podrá la Administración abstenerse de resolver so pretexto de silencio, oscuridad o insuficiencia de los preceptos legales aplicables al caso, aunque podrá resolver la inadmisibilidad de las solicitudes de reconocimiento de derechos no previstos en el ordenamiento jurídico o manifiestamente carentes de fundamento.\nLa aceptación de informes o dictámenes servirá de motivación a la resolución cuando se incorporen al texto de la misma.",
+        conceptos: ["Contenido de la resolución final."]
+    },
+    {
+        numero: 42,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Renuncia y Desistimiento.",
+        texto: "Renuncia y Desistimiento. Todo interesado podrá desistirse de su solicitud o, cuando ello no esté prohibido por el ordenamiento jurídico, renunciar a sus derechos.\nSi la solicitud de iniciación se hubiera formulado por dos o más interesados, el desistimiento o la renuncia sólo afectará a aquéllos que la hubiesen formulado.\n Tanto el desistimiento como la renuncia podrán hacerse por cualquier medio que permita su constancia.",
+        conceptos: ["Renuncia y Desistimiento","renuncia", "desistimiento"]
+    },
+    {
+        numero: 43,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Abandono.",
+        texto: "Abandono. Cuando por la inactividad de un interesado se produzca por más de treinta días la paralización del procedimiento iniciado por él, la Administración le advertirá que si no efectúa las diligencias de su cargo en el plazo de siete días, declarará el abandono de ese procedimiento.\nTranscurrido el plazo señalado precedentemente, sin que el particular requerido realice las actividades necesarias para reanudar la tramitación, la Administración declarará abandonado el procedimiento y ordenará su archivo, notificándoselo al interesado.\nEl abandono no producirá por sí solo la prescripción de las acciones del particular o de la Administración. En todo caso, los procedimientos abandonados no interrumpirán el plazo de prescripción.",
+        conceptos: ["Abandono"]
+    },
+    {
+        numero: 44,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Excepción del abandono.",
+        texto: "Excepción del abandono. La Administración podrá no declarar el abandono, cuando la cuestión suscitada afecte al interés general o fuera conveniente continuarla para su definición y esclarecimiento.",
+        conceptos: ["inicio", "inicio de los procedimientos"]
+    },
+    {
+        numero: 45,
+        capitulo: 3,
+        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        titulo: "Procedencia",
+        texto: "Procedencia. Los actos administrativos de efectos individuales, deberán ser notificados a los interesados conteniendo su texto íntegro.\nLas notificaciones deberán practicarse, a más tardar, en los cinco días siguientes a aquél en que ha quedado totalmente tramitado el acto administrativo.\nNo obstante lo anterior, los actos administrativos que afectaren a personas cuyo paradero fuere ignorado, deberán publicarse en el Diario Oficial.",
+        conceptos: ["procedencia"]
+    },
+    {
+        numero: 46,
+       capitulo: 3,
+        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        titulo: " Procedimiento",
+        texto: "Procedimiento. Las notificaciones se practicarán por medios electrónicos en base a la información contenida en un registro único dependiente de la Secretaría de Gobierno Digital de la Subsecretaría de Hacienda sobre el cual se configurarán domicilios digitales únicos, cuyas características y operatividad será regulada mediante reglamento dictado conjuntamente por el Ministerio de Hacienda. Dichas notificaciones tendrán el carácter de personal. Las notificaciones, citaciones y comunicaciones a través del domicilio único digital definido por la ley, producirán pleno efecto legal y se entenderán practicadas al tercer día hábil siguiente contado desde la fecha de su envío\nQuienes carezcan de los medios tecnológicos, no tengan acceso a medios electrónicos o sólo actuaren excepcionalmente a través de ellos, podrán solicitar por medio de un formulario, ante el órgano respectivo que la notificación se practique mediante forma diversa, quien deberá pronunciarse dentro del tercer día, según lo establezca el reglamento, y deberá hacerlo de manera fundada en caso de denegar la solicitud. La notificación se realizará en la forma solicitada si fuere posible o mediante carta certificada dirigida al domicilio que debiere designar al presentar esta solicitud. En caso de notificaciones por carta certificada, éstas se entenderán practicadas a contar del tercer día siguiente a su recepción en la oficina de correos que corresponda.\n Asimismo, las notificaciones podrán hacerse en las dependencias de la Administración, si el interesado se apersonare a recibirla, dejándose constancia de ello en el expediente electrónico, consignándose la fecha y hora de la misma. Si el interesado requiriere copia del acto o resolución que se le notifica se le dará, sin más trámite, en el mismo momento, en el formato que se tramite el procedimiento.\nEn los procedimientos administrativos especiales en los que la ley establezca un medio de notificación distinto al establecido en el inciso primero, los órganos de la Administración podrán practicar las notificaciones a través de dichos medios de notificación especial o en la forma establecida en el presente artículo. Los órganos de la Administración del Estado deberán informar expresamente a los interesados el medio a través del cual se les practicarán las notificaciones, en los formularios a los que se refieren los artículos 18 y 30.\nMediante el reglamento referido en el inciso primero se regulará de qué forma los órganos de la Administración deberán practicar las notificaciones electrónicas, considerarlas practicadas y obtener información necesaria para llevar el registro indicado, estableciendo, a lo menos, los requisitos y condiciones necesarios que aseguren la constancia de la fecha y hora de envío de notificaciones, la recepción o acceso por el interesado o su apoderado, especialmente en el caso de la primera notificación para resguardar su derecho a la defensa, así como la integridad del contenido, la identidad fidedigna del remitente y el destinatario de la misma.",
+        conceptos: ["procedimiento"]
+    },
+    {
+        numero: 47,
+        capitulo: 3,
+        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        titulo: "Notificación tácita.",
+        texto: "Notificación tácita. Aun cuando no hubiere sido practicada notificación alguna, o la que existiere fuere viciada, se entenderá el acto debidamente notificado si el interesado a quien afectare, hiciere cualquier gestión en el procedimiento, con posterioridad al acto, que suponga necesariamente su conocimiento, sin haber reclamado previamente de su falta o nulidad.",
+        conceptos: ["notificación","notificación tácita"]
+    },
+    {
+        numero: 48,
+        capitulo: 3,
+        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        titulo: "Obligación de publicar",
+        texto: "Obligación de publicar. Deberán publicarse en el Diario Oficial los siguientes actos administrativos:",
+       numerales: [
+            "a) Los que contengan normas de general aplicación o que miren al interés general;",
+            "b) Los que interesen a un número indeterminado de personas;",
+            "c) Los que afectaren a personas cuyo paradero fuere ignorado, de conformidad a lo establecido en el artículo 45;",
+            "d) Los que ordenare publicar el Presidente de la República; y",
+            "e) Los actos respecto de los cuales la ley ordenare especialmente este trámite.",
+        ],
+         textoContinuacion: "Tratándose de los actos a que se refiere la letra c), la publicación deberá efectuarse los días 1º ó 15 de cada mes o al día siguiente, si fuese inhábil.",
+        conceptos: ["obligación de publicar", "obligación", "publicar"]
+    },
+    {
+        numero: 49,
+        capitulo: 3,
+        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        titulo: "Autenticación.",
+        texto: "Autenticación. Los actos publicados en el Diario Oficial se tendrán como auténticos y oficialmente notificados, obligando desde esa fecha a su íntegro y cabal cumplimiento, salvo que se establecieren reglas diferentes sobre la fecha en que haya de entrar en vigencia.",
+        conceptos: ["autenticación"]
+    },
+    {
+        numero: 50,
+        capitulo: 3,
+        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        titulo: "Título.",
+        texto: "Título. La Administración Pública no iniciará ninguna actuación material de ejecución de resoluciones que limite derechos de los particulares sin que previamente haya sido adoptada la resolución que le sirva de fundamento jurídico.\n El órgano que ordene un acto de ejecución material de resoluciones estará obligado a notificar al particular interesado la resolución que autorice la actuación administrativa.",
+        conceptos: ["publicidad", "Publicidad y ejecutividad de los actos administrativos","ejecutividad"]
+    },
+    {
+        numero: 51,
+        capitulo: 3,
+        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        titulo: "Ejecutoriedad.",
+        texto: "Ejecutoriedad. Los actos de la Administración Pública sujetos al Derecho Administrativo causan inmediata ejecutoriedad, salvo en aquellos casos en que una disposición establezca lo contrario o necesiten aprobación o autorización superior.\nLos decretos y las resoluciones producirán efectos jurídicos desde su notificación o publicación, según sean de contenido individual o general.",
+        conceptos: ["ejecutoriedad"]
+    },
+    {
+        numero: 52,
+        capitulo: 3,
+        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        titulo: "Retroactividad.",
+        texto: "Retroactividad. Los actos administrativos no tendrán efecto retroactivo, salvo cuando produzcan consecuencias favorables para los interesados y no lesionen derechos de terceros.",
+        conceptos: ["procedencia"]
+    },
+    {
+        numero: 48,
+        capitulo: 3,
+        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        titulo: "Procedencia",
+        texto: "k",
+        conceptos: ["procedencia"]
+    },
 ];
