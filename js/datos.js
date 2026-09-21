@@ -151,7 +151,7 @@ const lbpa = [
         comentarioProfesor: "Bermúdez aclara que el interesado en un procedimiento tiene derecho a acceder al expediente directamente (art. 17 letra d) LBPA), sin necesidad de recurrir a la Ley de Transparencia (Ley 20.285), que regula el acceso a la información pública en general (p. 206)."
     },
      {
-        numero: 16 Bis,
+        numero: 160,
         capitulo: 1,
         capituloTitulo: "Disposiciones Generales",
         titulo: "Principios generales relativos a los medios electrónicos.",
@@ -198,7 +198,7 @@ const lbpa = [
         conceptos: ["medios electrónicos", "expediente electrónico", "transformación digital"]
     },
     {
-        numero: 19 Bis,
+        numero: 190,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
         titulo: "Documentos electrónicos y digitalización.",
