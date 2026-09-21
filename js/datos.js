@@ -61,7 +61,7 @@ const lbpa = [
         titulo: "Principio de celeridad",
         texto: "El procedimiento, sometido al criterio de celeridad, se impulsará de oficio en todos sus trámites.\nLas autoridades y funcionarios de los órganos de la Administración del Estado deberán actuar por propia iniciativa en la iniciación del procedimiento de que se trate y en su prosecución, haciendo expeditos los trámites que debe cumplir el expediente y removiendo todo obstáculo que pudiere afectar a su pronta y debida decisión.\nEn el despacho de los expedientes originados en una solicitud o en el ejercicio de un derecho se guardará el orden riguroso de ingreso en asuntos de similar naturaleza, salvo que por el titular de la unidad administrativa se dé orden motivada en contrario, de la que quede constancia.",
         conceptos: ["principios", "celeridad"],
-        comentarioProfesor: "Según Bermúdez, esta regla revela el carácter abierto del procedimiento y la primacía de la Administración en su configuración: aunque debe evitarse la dilación, la Administración conserva poder discrecional durante la tramitación (p. 197-198)."
+        comentarioProfesor: "Según Bermúdez, esta regla revela el carácter abierto del procedimiento y la primacía de la Administración en su configuración: aunque debe evitarse la dilación, la Administración conserva poder discrecional durante la tramitación (p. 198-199)."
     },
     {
         numero: 8,
