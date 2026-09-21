@@ -34,12 +34,19 @@ function crearEncabezadoCapitulo(grupo) {
 // Muestra la grilla principal, agrupada por capítulo
 function mostrarArticulosDestacados() {
     contenedorCapitulos.innerHTML = "";
+    contenedorCapitulos.style.display = ""; // Elimina inline styles que interfieran con el CSS
+
     const grupos = agruparPorCapitulo(lbpa);
     grupos.forEach(function (grupo) {
-        contenedorCapitulos.appendChild(crearEncabezadoCapitulo(grupo));
+        // Envolvemos todo el capítulo en una sección individual
+        const bloqueCapitulo = document.createElement("div");
+        bloqueCapitulo.classList.add("bloque-capitulo");
+
+        bloqueCapitulo.appendChild(crearEncabezadoCapitulo(grupo));
 
         const fila = document.createElement("div");
         fila.classList.add("fila-capitulo");
+
         grupo.articulos.forEach(function (articulo) {
             const tarjeta = document.createElement("article");
             tarjeta.classList.add("tarjeta-capitulo");
@@ -52,7 +59,9 @@ function mostrarArticulosDestacados() {
             });
             fila.appendChild(tarjeta);
         });
-        contenedorCapitulos.appendChild(fila);
+
+        bloqueCapitulo.appendChild(fila);
+        contenedorCapitulos.appendChild(bloqueCapitulo);
     });
 }
 
@@ -61,7 +70,7 @@ inputBuscador.addEventListener("input", function () {
     const consulta = inputBuscador.value.trim().toLowerCase();
     if (consulta === "") {
         contenedorResultados.innerHTML = "";
-        contenedorCapitulos.style.display = "block";
+        contenedorCapitulos.style.display = ""; // Muestra el contenedor respetando CSS
         return;
     }
     contenedorCapitulos.style.display = "none";
@@ -160,7 +169,7 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
         } else {
             inputBuscador.value = "";
             contenedorResultados.innerHTML = "";
-            contenedorCapitulos.style.display = "block";
+            contenedorCapitulos.style.display = "";
         }
     });
 }
