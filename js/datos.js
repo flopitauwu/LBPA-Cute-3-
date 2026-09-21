@@ -270,4 +270,20 @@ const lbpa = [
          textoContinuacion: " Para efectos de este artículo será aplicable lo dispuesto en los artículos 7º y 11 de la ley Nº 19.628.",
         conceptos: [""]
     },
+    {
+        numero: 25,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Cómputo de los plazos del procedimiento administrativo.",
+        texto: "Cómputo de los plazos del procedimiento administrativo. Los plazos de días establecidos en esta ley son de días hábiles, entendiéndose que son inhábiles los días sábados, los domingos y los festivos.\nLos plazos se computarán desde el día siguiente a aquél en que se notifique o publique el acto de que se trate o se produzca su estimación o su desestimación en virtud del silencio administrativo. Si en el mes de vencimiento no hubiere equivalente al día del mes en que comienza el cómputo, se entenderá que el plazo expira el último día de aquel mes.\n Cuando el último día del plazo sea inhábil, éste se entenderá prorrogado al primer día hábil siguiente.\nLas plataformas electrónicas permitirán la presentación de documentos todos los días del año durante las veinticuatro horas. No obstante, la presentación en un día inhábil se entenderá realizada en la primera hora del primer día hábil siguiente.",
+        conceptos: ["computo de los plazos", "plazos"]
+    },
+     {
+        numero: 26,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Ampliación de los plazos.",
+        texto: "Ampliación de los plazos. La Administración, salvo disposición en contrario, podrá conceder, de oficio o a petición de los interesados, una ampliación de los plazos establecidos, que no exceda de la mitad de los mismos, si las circunstancias lo aconsejan y con ello no se perjudican derechos de tercero.\nTanto la petición de los interesados como la decisión sobre la ampliación, deberán producirse, en todo caso, antes del vencimiento del plazo de que se trate.\nEn ningún caso podrá ser objeto de ampliación un plazo ya vencido.",
+        conceptos: ["ampliación de los plazos", "plazos"]
+    },
 ];
