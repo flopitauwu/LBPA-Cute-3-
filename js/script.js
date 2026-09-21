@@ -388,13 +388,19 @@ function inicializarAnotacion(numeroArticulo) {
             ctx.moveTo(trazo.puntos[0].x, trazo.puntos[0].y);
             for (let i = 1; i < trazo.puntos.length; i++) ctx.lineTo(trazo.puntos[i].x, trazo.puntos[i].y);
             ctx.stroke();
-        } else if (trazo.herramienta === "destacador") {
+      } else if (trazo.herramienta === "destacador") {
             ctx.globalAlpha = 0.45;
             ctx.strokeStyle = trazo.color;
             ctx.lineWidth = 18;
             ctx.beginPath();
+            
+            // Punto de inicio
             ctx.moveTo(trazo.puntos[0].x, trazo.puntos[0].y);
-            for (let i = 1; i < trazo.puntos.length; i++) ctx.lineTo(trazo.puntos[i].x, trazo.puntos[i].y);
+            
+            // Punto final (ignora el pulso intermedio para crear una línea recta)
+            const ultimoPunto = trazo.puntos[trazo.puntos.length - 1];
+            ctx.lineTo(ultimoPunto.x, ultimoPunto.y);
+            
             ctx.stroke();
         }
         ctx.globalAlpha = 1;
