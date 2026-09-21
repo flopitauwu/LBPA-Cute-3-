@@ -245,4 +245,29 @@ const lbpa = [
         texto: "Los términos y plazos establecidos en ésta u otras leyes obligan a las autoridades y personal al servicio de la Administración en la tramitación de los asuntos, así como los interesados en los mismos.",
         conceptos: ["Cumplimiento de plazos"]
     },
+    {
+        numero: 24,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "El funcionario del organismo al que corresponda resolver",
+        texto: "El funcionario del organismo al que corresponda resolver, que reciba una solicitud, documento o expediente, deberá hacerlo llegar a la dependencia respectiva, a través de medios electrónicos, a más tardar dentro de las 24 horas siguientes a su recepción.\n Las providencias de mero trámite deberán dictarse por quien deba hacerlo, dentro del plazo de 48 horas contado desde la recepción de la solicitud, documento o expediente.\n Los informes, dictámenes u otras actuaciones similares, deberán evacuarse dentro del plazo de 10 días, contado desde la petición de la diligencia.\nLas decisiones definitivas deberán expedirse dentro de los 20 días siguientes, contados desde que, a petición del interesado, se certifique que el acto se encuentra en estado de resolverse. La prolongación injustificada de la certificación dará origen a responsabilidad administrativa.",
+        conceptos: ["funcionario", "corresponda"]
+    },
+    {
+        numero: "24 bis",
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "En virtud de los principios de interoperabilidad y cooperación",
+        texto: "En virtud de los principios de interoperabilidad y cooperación, en todo procedimiento administrativo los órganos de la Administración del Estado que tengan en su poder documentos o información respecto de materias de su competencia, que sean necesarios para su conocimiento o resolución, deberán remitirlos por medios electrónicos a aquel órgano ante el cual se estuviere tramitando el respectivo procedimiento, que así lo solicite. No obstante, se requerirá previa autorización del interesado en los términos indicados en la letra f) del artículo 30, en el caso de que dichos documentos o información contengan datos sensibles de aquel interesado, ya sea que estén incluidos o no en bases de datos personales, de conformidad con lo establecido en el artículo 30.\nSe dejará registro de toda solicitud entre los órganos de la Administración del Estado respecto a información de carácter sensible del interesado, al que tendrán acceso. Este registro deberá indicar, al menos, lo siguiente:",
+         numerales: [
+            "a) El órgano requirente.",
+            "b) El funcionario responsable.",
+            "c) El órgano destinatario.",
+            "d) El procedimiento a que corresponde.",
+            "e) Los datos o información que se solicita.",
+            "f) El plazo establecido para su realización, si corresponde.",
+        ],
+         textoContinuacion: " Para efectos de este artículo será aplicable lo dispuesto en los artículos 7º y 11 de la ley Nº 19.628.",
+        conceptos: [""]
+    },
 ];
