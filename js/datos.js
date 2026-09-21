@@ -278,12 +278,110 @@ const lbpa = [
         texto: "Cómputo de los plazos del procedimiento administrativo. Los plazos de días establecidos en esta ley son de días hábiles, entendiéndose que son inhábiles los días sábados, los domingos y los festivos.\nLos plazos se computarán desde el día siguiente a aquél en que se notifique o publique el acto de que se trate o se produzca su estimación o su desestimación en virtud del silencio administrativo. Si en el mes de vencimiento no hubiere equivalente al día del mes en que comienza el cómputo, se entenderá que el plazo expira el último día de aquel mes.\n Cuando el último día del plazo sea inhábil, éste se entenderá prorrogado al primer día hábil siguiente.\nLas plataformas electrónicas permitirán la presentación de documentos todos los días del año durante las veinticuatro horas. No obstante, la presentación en un día inhábil se entenderá realizada en la primera hora del primer día hábil siguiente.",
         conceptos: ["computo de los plazos", "plazos"]
     },
-     {
+    {
         numero: 26,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
         titulo: "Ampliación de los plazos.",
         texto: "Ampliación de los plazos. La Administración, salvo disposición en contrario, podrá conceder, de oficio o a petición de los interesados, una ampliación de los plazos establecidos, que no exceda de la mitad de los mismos, si las circunstancias lo aconsejan y con ello no se perjudican derechos de tercero.\nTanto la petición de los interesados como la decisión sobre la ampliación, deberán producirse, en todo caso, antes del vencimiento del plazo de que se trate.\nEn ningún caso podrá ser objeto de ampliación un plazo ya vencido.",
         conceptos: ["ampliación de los plazos", "plazos"]
+    },
+    {
+        numero: 27,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Salvo caso fortuito o fuerza mayor",
+        texto: "Salvo caso fortuito o fuerza mayor, el procedimiento administrativo no podrá exceder de 6 meses, desde su iniciación hasta la fecha en que se emita la decisión final.",
+        conceptos: ["ampliación de los plazos", "plazos"]
+    },
+    {
+        numero: 28,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Inicio.",
+        texto: "Inicio. Los procedimientos podrán iniciarse de oficio o a solicitud de persona interesada.",
+        conceptos: ["inicio", "inicio de los procedimientos"]
+    },
+    {
+        numero: 29,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Inicio de oficio.",
+        texto: "Inicio de oficio. Los procedimientos se iniciarán de oficio por propia iniciativa, como consecuencia de una orden superior, a petición de otros órganos o por denuncia.\nCon anterioridad al acuerdo de iniciación, podrá el órgano competente abrir un período de información previa con el fin de conocer las circunstancias del caso concreto y la conveniencia o no de iniciar el procedimiento.",
+        conceptos: ["inicio de oficio"]
+    },
+    {
+        numero: 30,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Inicio a solicitud de parte.",
+        texto: "Inicio a solicitud de parte. En caso que el procedimiento se inicie a petición de parte interesada, la solicitud que se formule deberá contener:",
+         numerales: [
+            "a) Nombre y apellidos del interesado o su razón social y, en su caso, de su apoderado o representante legal.",
+            "b) Excepcionalmente, en los casos a los que se refiere el artículo 46, medio electrónico a través del cual se llevarán a cabo las notificaciones.",
+            "c) Hechos, razones y peticiones en que consiste la solicitud",
+            "d) Lugar y fecha.",
+            "e) Firma del solicitante o acreditación de la autenticidad de su voluntad expresada por cualquier medio habilitado.",
+            "f) Órgano administrativo al que se dirige.",
+            "g) Manifestación si se autoriza al órgano de la Administración del Estado que tuviera en su poder documentos o información que contengan datos de carácter sensible del interesado, para que éstos sean remitidos por medios electrónicos al órgano que corresponda resolver en el procedimiento respectivo, conforme al artículo 9º de la ley Nº 19.628."
+        ],
+         textoContinuacion: " Cuando las pretensiones correspondientes a una pluralidad de personas, tengan un contenido y fundamento idéntico o sustancialmente similar, podrán ser formuladas en una única solicitud, salvo que las normas reguladoras de los procedimientos específicos dispongan otra cosa.\nDe las solicitudes, comunicaciones y escritos que presenten los interesados en las oficinas de la Administración, podrán éstos exigir el correspondiente recibo que acredite la fecha de presentación, considerándose suficiente acreditación un certificado de ingreso generado por la plataforma electrónica donde se acceda al expediente electrónico, en el que figure la fecha de presentación.\nLa Administración deberá establecer formularios de solicitudes cuando se trate de procedimientos de común tramitación, los que estarán a disposición de los ciudadanos por medios electrónicos o en las dependencias administrativas, en los casos autorizados de tramitación mediante presentaciones en soporte de papel. En dichos formularios el organismo señalará expresamente el medio a través del cual se practicarán las notificaciones a los interesados. Excepcionalmente, podrá indicar un medio alternativo de notificación, en los términos señalados en el artículo 46.\n Los solicitantes podrán acompañar los documentos que estimen convenientes para precisar o completar los datos del formulario, los cuales deberán ser admitidos y tenidos en cuenta por el órgano al que se dirijan.",
+        conceptos: ["inicio a solicitud de parte", "inicio"]
+    },
+    {
+        numero: 31,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Antecedentes adicionales.",
+        texto: "Antecedentes adicionales. Si la solicitud de iniciación no reúne los requisitos señalados en el artículo precedente y los exigidos, en su caso, por la legislación específica aplicable, se requerirá al interesado para que, en un plazo de cinco días, subsane la falta o acompañe los documentos respectivos, con indicación de que, si así no lo hiciere, se le tendrá por desistido de su petición.\n En los procedimientos iniciados a solicitud de los interesados, el órgano competente podrá recabar del solicitante la modificación o mejora voluntarias de los términos de aquélla. De ello se levantará acta sucinta, que se incorporará al procedimiento.",
+        conceptos: ["antecedentes", "antecedentes adicionales"]
+    },
+    {
+        numero: 32,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Medidas provisionales.",
+        texto: " Medidas provisionales. Iniciado el procedimiento, el órgano administrativo podrá adoptar, de oficio o a petición de parte, las medidas provisionales que estime oportunas para asegurar la eficacia de la decisión que pudiera recaer, si existiesen elementos de juicio suficientes para ello.\nSin embargo, antes de la iniciación del procedimiento administrativo, el órgano competente, de oficio o a petición de parte, en los casos de urgencia y para la protección provisional de los intereses implicados, podrá adoptar las medidas correspondientes. Estas medidas provisionales deberán ser confirmadas, modificadas o levantadas en la iniciación del procedimiento, que deberá efectuarse dentro de los quince días siguientes a su adopción, el cual podrá ser objeto del recurso que proceda.\nEn todo caso, las medidas a que se refiere el inciso anterior, quedarán sin efecto si no se inicia el procedimiento en dicho plazo, o cuando la decisión de iniciación no contenga un pronunciamiento expreso acerca de las mismas.\n No se podrán adoptar medidas provisionales que puedan causar perjuicio de difícil o imposible reparación a los interesados, o que impliquen violación de derechos amparados por las leyes.\nLas medidas provisionales podrán ser alzadas o modificadas durante la tramitación del procedimiento, de oficio o a petición de parte, en virtud de circunstancias sobrevinientes o que no pudieron ser tenidas en cuenta en el momento de su adopción.\nEn todo caso, las medidas de que trata este artículo, se extinguirán con la eficacia de la resolución administrativa que ponga fin al procedimiento correspondiente.",
+        conceptos: ["medidas provisionales"]
+    },
+    {
+        numero: 33,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Acumulación o desacumulación de procedimientos.",
+        texto: "Acumulación o desacumulación de procedimientos. El órgano administrativo que inicie o tramite un procedimiento, cualquiera que haya sido la forma de su iniciación, podrá disponer su acumulación a otros más antiguos con los que guarde identidad sustancial o íntima conexión, o su desacumulación.\nContra esta resolución no procederá recurso alguno.",
+        conceptos: ["acumulación", "desacumulación de procedimientos"]
+    },
+    {
+        numero: 34,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Actos de instrucción.",
+        texto: "Actos de instrucción. Los actos de instrucción son aquéllos necesarios para la determinación, conocimiento y comprobación de los datos en virtud de los cuales deba pronunciarse el acto.\nSe realizarán de oficio por el órgano que tramite el procedimiento, sin perjuicio del derecho de los interesados a proponer aquellas actuaciones que requieran su intervención, o constituyan trámites legal o reglamentariamente establecidos.",
+        conceptos: [" Instrucción del procedimiento", "actos de instrucción", "instrucción"]
+    },
+    {
+        numero: 35,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Prueba.",
+        texto: "Prueba. Los hechos relevantes para la decisión de un procedimiento, podrán acreditarse por cualquier medio de prueba admisible en derecho, apreciándose en conciencia.\n Cuando a la Administración no le consten los hechos alegados por los interesados o la naturaleza del procedimiento lo exija, el instructor del mismo ordenará la apertura de un período de prueba, por un plazo no superior a treinta días ni inferior a diez, a fin de que puedan practicarse cuantas juzgue pertinentes.\nEl instructor del procedimiento sólo podrá rechazar las pruebas propuestas por los interesados cuando sean manifiestamente improcedentes o innecesarias, mediante resolución motivada.",
+        conceptos: ["prueba", "inicio de los procedimientos"]
+    },
+        {
+        numero: 36,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Momento de la prueba.",
+        texto: "Momento de la prueba. La Administración comunicará a los interesados, con la suficiente antelación, el inicio de las actuaciones necesarias para la realización de las pruebas que hayan sido admitidas.\nEn la notificación se consignará el lugar, fecha y hora en que se practicará la prueba, con la advertencia, en su caso, de que el interesado puede nombrar peritos para que le asistan.",
+        conceptos: ["momento de la prueba"]
+    },
+        {
+        numero: 37,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Informes.",
+        texto: "Informes. Para los efectos de la resolución del procedimiento, se solicitarán aquellos informes que señalen las disposiciones legales, y los que se juzguen necesarios para resolver, citándose el precepto que los exija o fundamentando, en su caso, la conveniencia de requerirlos.",
+        conceptos: ["Informes."]
     },
 ];
