@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     mostrarArticulosDestacados();
+    poblarIndiceFlor();
 });
 
 const inputBuscador = document.querySelector("#inputBuscador");
@@ -63,6 +64,46 @@ function mostrarArticulosDestacados() {
         contenedorCapitulos.appendChild(bloqueCapitulo);
     });
 }
+
+// --- ÍNDICE FLOR ---
+
+function poblarIndiceFlor() {
+    const listaIndice = document.querySelector("#listaIndice");
+    const grupos = agruparPorCapitulo(lbpa);
+
+    grupos.forEach(function (grupo) {
+        listaIndice.appendChild(crearEncabezadoCapitulo(grupo));
+
+        const ul = document.createElement("ul");
+        grupo.articulos.forEach(function (articulo) {
+            const li = document.createElement("li");
+            li.textContent = `Art. ${articulo.numero} — ${articulo.titulo}`;
+            li.addEventListener("click", function () {
+                cerrarModalIndice();
+                mostrarArticuloIndividual(articulo);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+            ul.appendChild(li);
+        });
+        listaIndice.appendChild(ul);
+    });
+}
+
+function abrirModalIndice() {
+    document.querySelector("#modalIndice").classList.remove("oculto");
+}
+
+function cerrarModalIndice() {
+    document.querySelector("#modalIndice").classList.add("oculto");
+}
+
+document.querySelector("#btnIndiceFlor").addEventListener("click", abrirModalIndice);
+document.querySelector("#btnCerrarIndice").addEventListener("click", cerrarModalIndice);
+document.querySelector("#modalIndice").addEventListener("click", function (evento) {
+    if (evento.target.id === "modalIndice") {
+        cerrarModalIndice();
+    }
+});
 
 // --- BUSCADOR ---
 
@@ -202,7 +243,6 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
         }
     });
 
-    // --- NOTAS PERSONALES (guardadas en este dispositivo) ---
     const claveNota = `nota-art-${articulo.numero}`;
     const textareaNota = document.querySelector("#notaTexto");
     const mensajeNota = document.querySelector("#notaGuardadaMsg");
