@@ -135,7 +135,7 @@ function renderArticuloCompleto(articulo, consulta) {
         <h4>Art. ${articulo.numero} — ${articulo.titulo}</h4>
         <span class="resultado-etiqueta">Texto oficial</span>
 
-        <div class="barra-anotacion">
+               <div class="barra-anotacion">
             <button class="btn-anotacion" data-tool="lapiz" title="Lápiz">✏️</button>
             <button class="btn-anotacion" data-tool="destacador" title="Destacador">🖍️</button>
             <button class="btn-anotacion" data-tool="borrador" title="Borrador">🧹</button>
@@ -157,6 +157,11 @@ function renderArticuloCompleto(articulo, consulta) {
                 <span class="color-swatch" data-color="#FFB3B3" style="background:#FFB3B3"></span>
                 <span class="color-swatch" data-color="#FFD3A5" style="background:#FFD3A5"></span>
                 <span class="color-swatch" data-color="#FFF3A0" style="background:#FFF3A0"></span>
+            </div>
+
+            <div id="opcionesBorrador" class="opciones-anotacion oculto">
+                <button class="btn-modo-borrador activo" data-modo="preciso">Preciso</button>
+                <button class="btn-modo-borrador" data-modo="trazo">Por trazo</button>
             </div>
         </div>
 
@@ -294,18 +299,231 @@ function inicializarAnotacion(numeroArticulo) {
     canvas.width = textoAnotable.offsetWidth;
     canvas.height = textoAnotable.offsetHeight;
 
-    const claveDibujo = `dibujo-art-${numeroArticulo}`;
+    const claveTrazos = `trazos-art-${numeroArticulo}`;
+    let trazos = [];
     try {
-        const dibujoGuardado = localStorage.getItem(claveDibujo);
-        if (dibujoGuardado) {
-            const img = new Image();
-            img.onload = function () { ctx.drawImage(img, 0, 0); };
-            img.src = dibujoGuardado;
-        }
+        const guardado = localStorage.getItem(claveTrazos);
+        trazos = guardado ? JSON.parse(guardado) : [];
     } catch (error) {
-        console.log("No se pudo cargar el dibujo guardado:", error);
+        trazos = [];
     }
 
+    function guardarTrazos() {
+        try { localStorage.setItem(claveTrazos, JSON.stringify(trazos)); }
+        catch (error) { console.log("No se pudo guardar el dibujo:", error); }
+    }
+
+    function dibujarTrazo(trazo) {
+        if (trazo.puntos.length < 2) return;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+
+        if (trazo.herramienta === "lapiz") {
+            ctx.globalCompositeOperation = "source-over";
+            ctx.globalAlpha = 1;
+            ctx.strokeStyle = trazo.color;
+            ctx.lineWidth = trazo.grosor;
+            ctx.beginPath();
+            ctx.moveTo(trazo.puntos[0].x, trazo.puntos[0].y);
+            for (let i = 1; i < trazo.puntos.length; i++) {
+                ctx.lineTo(trazo.puntos[i].x, trazo.puntos[i].y);
+            }
+            ctx.stroke();
+        } else if (trazo.herramienta === "destacador") {
+            // El destacador siempre es una línea recta: del primer al último punto
+            const inicio = trazo.puntos[0];
+            const fin = trazo.puntos[trazo.puntos.length - 1];
+            ctx.globalCompositeOperation = "multiply";
+            ctx.globalAlpha = 0.5;
+            ctx.strokeStyle = trazo.color;
+            ctx.lineWidth = 16;
+            ctx.beginPath();
+            ctx.moveTo(inicio.x, inicio.y);
+            ctx.lineTo(fin.x, fin.y);
+            ctx.stroke();
+        }
+        ctx.globalCompositeOperation = "source-over";
+        ctx.globalAlpha = 1;
+    }
+
+    function redibujarTodo() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        trazos.forEach(dibujarTrazo);
+    }
+
+    redibujarTodo();
+
+    // --- Herramienta activa y sus opciones ---
+    let herramientaActiva = null;
+    let colorLapiz = "#1a1a1a";
+    let tamañoLapiz = 4;
+    let colorDestacador = "#FFC1D9";
+    let modoBorrador = "preciso";
+
+    const botonesHerramienta = document.querySelectorAll(".btn-anotacion[data-tool]");
+    const opcionesLapiz = document.querySelector("#opcionesLapiz");
+    const opcionesDestacador = document.querySelector("#opcionesDestacador");
+    const opcionesBorrador = document.querySelector("#opcionesBorrador");
+
+    function activarHerramienta(herramienta) {
+        herramientaActiva = (herramientaActiva === herramienta) ? null : herramienta;
+        botonesHerramienta.forEach(function (b) { b.classList.toggle("activo", b.dataset.tool === herramientaActiva); });
+        opcionesLapiz.classList.toggle("oculto", herramientaActiva !== "lapiz");
+        opcionesDestacador.classList.toggle("oculto", herramientaActiva !== "destacador");
+        opcionesBorrador.classList.toggle("oculto", herramientaActiva !== "borrador");
+        canvas.style.pointerEvents = herramientaActiva ? "auto" : "none";
+        canvas.style.cursor = herramientaActiva ? "crosshair" : "default";
+    }
+
+    botonesHerramienta.forEach(function (boton) {
+        boton.addEventListener("click", function () { activarHerramienta(boton.dataset.tool); });
+    });
+
+    opcionesLapiz.querySelectorAll(".color-swatch").forEach(function (swatch) {
+        swatch.addEventListener("click", function () { colorLapiz = swatch.dataset.color; });
+    });
+    opcionesLapiz.querySelectorAll(".btn-tamano").forEach(function (boton) {
+        boton.addEventListener("click", function () { tamañoLapiz = Number(boton.dataset.size); });
+    });
+    opcionesDestacador.querySelectorAll(".color-swatch").forEach(function (swatch) {
+        swatch.addEventListener("click", function () { colorDestacador = swatch.dataset.color; });
+    });
+    opcionesBorrador.querySelectorAll(".btn-modo-borrador").forEach(function (boton) {
+        boton.addEventListener("click", function () {
+            modoBorrador = boton.dataset.modo;
+            opcionesBorrador.querySelectorAll(".btn-modo-borrador").forEach(b => b.classList.remove("activo"));
+            boton.classList.add("activo");
+        });
+    });
+
+    document.querySelector("#btnLimpiarDibujo").addEventListener("click", function () {
+        trazos = [];
+        redibujarTodo();
+        guardarTrazos();
+    });
+
+    // --- Matemática para saber si un punto está cerca de un trazo ---
+    function distanciaPuntoSegmento(p, a, b) {
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const largo2 = dx * dx + dy * dy;
+        let t = largo2 === 0 ? 0 : ((p.x - a.x) * dx + (p.y - a.y) * dy) / largo2;
+        t = Math.max(0, Math.min(1, t));
+        const proyX = a.x + t * dx, proyY = a.y + t * dy;
+        return Math.hypot(p.x - proyX, p.y - proyY);
+    }
+
+    function distanciaAPuntoDelTrazo(p, trazo) {
+        let minima = Infinity;
+        for (let i = 0; i < trazo.puntos.length - 1; i++) {
+            minima = Math.min(minima, distanciaPuntoSegmento(p, trazo.puntos[i], trazo.puntos[i + 1]));
+        }
+        return minima;
+    }
+
+    // Borra "por trazo": si el punto está cerca de una línea completa, la elimina entera
+    function borrarTrazoCompleto(p) {
+        const umbral = 14;
+        const antes = trazos.length;
+        trazos = trazos.filter(function (trazo) { return distanciaAPuntoDelTrazo(p, trazo) > umbral; });
+        return trazos.length !== antes;
+    }
+
+    // Borra "preciso": recorta los trazos justo en el punto tocado, partiéndolos si es necesario
+    function borrarPreciso(p) {
+        const radio = 12;
+        const nuevosTrazos = [];
+        let huboCambio = false;
+
+        trazos.forEach(function (trazo) {
+            let segmentoActual = [];
+            trazo.puntos.forEach(function (punto) {
+                if (Math.hypot(punto.x - p.x, punto.y - p.y) <= radio) {
+                    huboCambio = true;
+                    if (segmentoActual.length >= 2) {
+                        nuevosTrazos.push({ herramienta: trazo.herramienta, color: trazo.color, grosor: trazo.grosor, puntos: segmentoActual });
+                    }
+                    segmentoActual = [];
+                } else {
+                    segmentoActual.push(punto);
+                }
+            });
+            if (segmentoActual.length >= 2) {
+                nuevosTrazos.push({ herramienta: trazo.herramienta, color: trazo.color, grosor: trazo.grosor, puntos: segmentoActual });
+            } else if (!huboCambio) {
+                nuevosTrazos.push(trazo);
+            }
+        });
+
+        trazos = nuevosTrazos;
+        return huboCambio;
+    }
+
+    // --- Eventos del lienzo ---
+    let dibujando = false;
+    let trazoActual = null;
+
+    function obtenerPosicion(evento) {
+        const rect = canvas.getBoundingClientRect();
+        return { x: evento.clientX - rect.left, y: evento.clientY - rect.top };
+    }
+
+    function muestrearLinea(a, b, pasoMax) {
+        const distancia = Math.hypot(b.x - a.x, b.y - a.y);
+        const pasos = Math.max(1, Math.ceil(distancia / pasoMax));
+        const puntos = [];
+        for (let i = 0; i <= pasos; i++) {
+            puntos.push({ x: a.x + (b.x - a.x) * (i / pasos), y: a.y + (b.y - a.y) * (i / pasos) });
+        }
+        return puntos;
+    }
+
+    canvas.addEventListener("pointerdown", function (evento) {
+        if (!herramientaActiva) return;
+        dibujando = true;
+        const punto = obtenerPosicion(evento);
+
+        if (herramientaActiva === "lapiz") {
+            trazoActual = { herramienta: "lapiz", color: colorLapiz, grosor: tamañoLapiz, puntos: [punto] };
+        } else if (herramientaActiva === "destacador") {
+            trazoActual = { herramienta: "destacador", color: colorDestacador, grosor: 16, puntos: [punto, punto] };
+        } else if (herramientaActiva === "borrador") {
+            const cambio = modoBorrador === "trazo" ? borrarTrazoCompleto(punto) : borrarPreciso(punto);
+            if (cambio) redibujarTodo();
+        }
+    });
+
+    canvas.addEventListener("pointermove", function (evento) {
+        if (!dibujando || !herramientaActiva) return;
+        const punto = obtenerPosicion(evento);
+
+        if (herramientaActiva === "lapiz") {
+            trazoActual.puntos.push(punto);
+            redibujarTodo();
+            dibujarTrazo(trazoActual);
+        } else if (herramientaActiva === "destacador") {
+            trazoActual.puntos[1] = punto; // siempre una línea recta: inicio -> punto actual
+            redibujarTodo();
+            dibujarTrazo(trazoActual);
+        } else if (herramientaActiva === "borrador") {
+            const ultimaPos = evento.getCoalescedEvents ? null : null;
+            const cambio = modoBorrador === "trazo" ? borrarTrazoCompleto(punto) : borrarPreciso(punto);
+            if (cambio) redibujarTodo();
+        }
+    });
+
+    ["pointerup", "pointerleave", "pointercancel"].forEach(function (evt) {
+        canvas.addEventListener(evt, function () {
+            if (!dibujando) return;
+            dibujando = false;
+            if (trazoActual && (herramientaActiva === "lapiz" || herramientaActiva === "destacador")) {
+                trazos.push(trazoActual);
+                trazoActual = null;
+                redibujarTodo();
+            }
+            guardarTrazos();
+        });
+    });
+}
     function guardarDibujo() {
         try { localStorage.setItem(claveDibujo, canvas.toDataURL()); }
         catch (error) { console.log("No se pudo guardar el dibujo:", error); }
