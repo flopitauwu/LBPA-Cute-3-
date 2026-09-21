@@ -160,3 +160,20 @@ body {
 .btn-volver:hover {
     text-decoration: underline;
 }
+.resultado-clicable {
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.resultado-clicable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--sombra);
+}
+
+.resultado-ver-mas {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: var(--borgoña);
+    font-weight: 500;
+}
