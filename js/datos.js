@@ -207,12 +207,16 @@ const lbpa = [
     },
     {
         numero: 20,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
         titulo: "Capacidad para actuar",
-        texto: "Los órganos de la Administración estarán obligados a disponer y utilizar adecuadamente plataformas electrónicas para efectos de llevar expedientes electrónicos, las que deberán cumplir con estándares de seguridad, interoperabilidad, interconexión y ciberseguridad.\nLos escritos, documentos, actos y actuaciones de toda especie que se presenten o verifiquen en el procedimiento se registrarán en el expediente electrónico correspondiente, siguiendo las nomenclaturas pertinentes, de acuerdo a cada etapa del procedimiento.\nLa conservación de los expedientes electrónicos estará a cargo del órgano respectivo, el cual será el responsable de su integridad, disponibilidad y autenticidad.\nSi fuere necesaria la reconstitución de un expediente o piezas de éste se reemplazará en todo o parte por una copia fiel, que se obtendrá de quien la tuviere, si no se dispusiere de ella directamente.\nSi no existiere copia fiel los actos se dictarán nuevamente, para lo cual la Administración reunirá los antecedentes que le permitan fundamentar su preexistencia y contenido, y las actuaciones se repetirán con las formalidades previstas para cada caso.\nLas comunicaciones oficiales entre los órganos de la Administración serán registradas en una plataforma electrónica destinada al efecto.\nMediante reglamento, dictado por el Ministerio de Hacienda, se fijarán los estándares que deberán cumplir dichas plataformas, en los términos previstos en esta ley considerando, además, condiciones de accesibilidad para los interesados, seguridad, funcionamiento, calidad, protección y conservación de los documentos.",
+        texto: " Tendrán capacidad de actuar ante la Administración, además de las personas que gocen de ella o la ejerzan con arreglo a las normas generales, los menores de edad para el ejercicio y defensa de aquellos de sus derechos e intereses cuya actuación esté permitida por el ordenamiento jurídico-administrativo sin la asistencia de la persona que ejerza la patria potestad, tutela o curatela. Se exceptúa el supuesto de los menores incapacitados, cuando la extensión de la incapacitación afecte al ejercicio y defensa de los derechos o intereses de que se trate.",
         conceptos: ["capacidad para actuar", "interesado", "menores de edad"]
     },
     {
         numero: 21,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
         titulo: "Interesados",
         texto: "Se consideran interesados en el procedimiento administrativo:",
         numerales: [
@@ -222,5 +226,13 @@ const lbpa = [
         ],
         conceptos: ["interesado", "interés individual", "interés colectivo"],
         comentarioProfesor: "Bermúdez aclara que este artículo no da una verdadera 'definición' de interesado, sino un listado de situaciones; el elemento común es el interés, que ubica a quien solo lo tiene en una posición jurídica distinta —aunque igualmente protegida— a la del titular de un derecho subjetivo. A partir de esto clasifica al interesado en: quien inicia el procedimiento, el tercero afectado por la resolución, y quien impugna mediante un recurso administrativo (p. 229-230)."
-    }
+    },
+    {
+        numero: 22,
+        capitulo: 2,
+        capituloTitulo: "El Procedimiento Administrativo",
+        titulo: "Apoderados",
+        texto: "Los interesados podrán actuar por medio de apoderados, entendiéndose que éstos tienen todas las facultades necesarias para la consecución del acto administrativo, salvo manifestación expresa en contrario.\n    El poder podrá constar en documento suscrito mediante firma electrónica simple o avanzada. Se aceptará también aquel que conste por escritura pública o documento privado suscrito ante notario. Con todo, se requerirá siempre de documento suscrito mediante firma electrónica avanzada o de escritura pública cuando el acto administrativo de que se trate produzca efectos que exijan solemnidad de instrumento o escritura pública.",
+        conceptos: ["Apoderados"]
+    },
 ];
