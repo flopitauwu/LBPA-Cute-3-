@@ -8,15 +8,26 @@ const contenedorResultados = document.querySelector("#resultadosBusqueda");
 const contenedorVistaArticulo = document.querySelector("#vistaArticulo");
 const contenedorCapitulos = document.querySelector(".capitulos");
 
-function agruparPorCapitulo(articulos) {
+// --- LÓGICA DE AGRUPACIÓN (CAPÍTULOS -> PÁRRAFOS) ---
+function agruparDatos(articulos) {
     const grupos = [];
-    let capituloActual = null;
     articulos.forEach(function (articulo) {
-        if (articulo.capitulo !== capituloActual) {
-            capituloActual = articulo.capitulo;
-            grupos.push({ capitulo: articulo.capitulo, capituloTitulo: articulo.capituloTitulo, articulos: [] });
+        let cap = grupos.find(g => g.capitulo === articulo.capitulo);
+        if (!cap) {
+            cap = { capitulo: articulo.capitulo, capituloTitulo: articulo.capituloTitulo, parrafos: [] };
+            grupos.push(cap);
         }
-        grupos[grupos.length - 1].articulos.push(articulo);
+        
+        const numParr = articulo.parrafo || "Sin Párrafo";
+        const titParr = articulo.parrafoTitulo || "";
+        
+        let parr = cap.parrafos.find(p => p.parrafo === numParr);
+        if (!parr) {
+            parr = { parrafo: numParr, parrafoTitulo: titParr, articulos: [] };
+            cap.parrafos.push(parr);
+        }
+        
+        parr.articulos.push(articulo);
     });
     return grupos;
 }
@@ -28,25 +39,44 @@ function crearEncabezadoCapitulo(grupo) {
     return encabezado;
 }
 
+function crearEncabezadoParrafo(parrafo) {
+    const encabezado = document.createElement("h3");
+    encabezado.classList.add("titulo-parrafo");
+    encabezado.textContent = `${parrafo.parrafo} — ${parrafo.parrafoTitulo}`;
+    return encabezado;
+}
+
 function mostrarArticulosDestacados() {
     contenedorVistaArticulo.innerHTML = "";
     contenedorCapitulos.innerHTML = "";
     contenedorCapitulos.style.display = "";
-    const grupos = agruparPorCapitulo(lbpa);
+    
+    const grupos = agruparDatos(lbpa);
+    
     grupos.forEach(function (grupo) {
         const bloqueCapitulo = document.createElement("div");
         bloqueCapitulo.classList.add("bloque-capitulo");
         bloqueCapitulo.appendChild(crearEncabezadoCapitulo(grupo));
-        const fila = document.createElement("div");
-        fila.classList.add("fila-capitulo");
-        grupo.articulos.forEach(function (articulo) {
-            const tarjeta = document.createElement("article");
-            tarjeta.classList.add("tarjeta-capitulo");
-            tarjeta.innerHTML = `<h3>Art. ${articulo.numero}</h3><p>${articulo.titulo}</p>`;
-            tarjeta.addEventListener("click", function () { mostrarArticuloIndividual(articulo); });
-            fila.appendChild(tarjeta);
+        
+        grupo.parrafos.forEach(function(parrafo) {
+            if (parrafo.parrafo !== "Sin Párrafo") {
+                bloqueCapitulo.appendChild(crearEncabezadoParrafo(parrafo));
+            }
+            
+            const fila = document.createElement("div");
+            fila.classList.add("fila-capitulo");
+            
+            parrafo.articulos.forEach(function (articulo) {
+                const tarjeta = document.createElement("article");
+                tarjeta.classList.add("tarjeta-capitulo");
+                tarjeta.innerHTML = `<h3>Art. ${articulo.numero}</h3><p>${articulo.titulo}</p>`;
+                tarjeta.addEventListener("click", function () { mostrarArticuloIndividual(articulo); });
+                fila.appendChild(tarjeta);
+            });
+            
+            bloqueCapitulo.appendChild(fila);
         });
-        bloqueCapitulo.appendChild(fila);
+        
         contenedorCapitulos.appendChild(bloqueCapitulo);
     });
 }
@@ -56,21 +86,35 @@ function poblarIndiceFlor() {
     const listaIndice = document.querySelector("#listaIndice");
     if (!listaIndice) return;
     listaIndice.innerHTML = "";
-    const grupos = agruparPorCapitulo(lbpa);
+    const grupos = agruparDatos(lbpa);
     grupos.forEach(function (grupo) {
         listaIndice.appendChild(crearEncabezadoCapitulo(grupo));
-        const ul = document.createElement("ul");
-        grupo.articulos.forEach(function (articulo) {
-            const li = document.createElement("li");
-            li.textContent = `Art. ${articulo.numero} — ${articulo.titulo}`;
-            li.addEventListener("click", function () {
-                cerrarModalIndice();
-                mostrarArticuloIndividual(articulo);
-                window.scrollTo({ top: 0, behavior: "smooth" });
+        
+        grupo.parrafos.forEach(function(parrafo) {
+            if (parrafo.parrafo !== "Sin Párrafo") {
+                const hParr = document.createElement("h4");
+                hParr.textContent = `${parrafo.parrafo} — ${parrafo.parrafoTitulo}`;
+                hParr.style.fontSize = "0.95rem";
+                hParr.style.color = "#555";
+                hParr.style.margin = "10px 0 5px 15px";
+                listaIndice.appendChild(hParr);
+            }
+            
+            const ul = document.createElement("ul");
+            ul.style.marginLeft = parrafo.parrafo !== "Sin Párrafo" ? "15px" : "0";
+            
+            parrafo.articulos.forEach(function (articulo) {
+                const li = document.createElement("li");
+                li.textContent = `Art. ${articulo.numero} — ${articulo.titulo}`;
+                li.addEventListener("click", function () {
+                    cerrarModalIndice();
+                    mostrarArticuloIndividual(articulo);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+                ul.appendChild(li);
             });
-            ul.appendChild(li);
+            listaIndice.appendChild(ul);
         });
-        listaIndice.appendChild(ul);
     });
 }
 
@@ -104,6 +148,32 @@ inputBuscador.addEventListener("input", function () {
     mostrarResultados(resultados, consulta);
 });
 
+function mostrarResultados(resultados, consulta) {
+    contenedorResultados.innerHTML = "";
+    if (resultados.length === 0) {
+        contenedorResultados.innerHTML = `<p class="sin-resultados">No se encontraron resultados para "${consulta}".</p>`;
+        return;
+    }
+    const grupos = agruparDatos(resultados);
+    grupos.forEach(function (grupo) {
+        contenedorResultados.appendChild(crearEncabezadoCapitulo(grupo));
+        
+        grupo.parrafos.forEach(function(parrafo) {
+            if (parrafo.parrafo !== "Sin Párrafo") {
+                contenedorResultados.appendChild(crearEncabezadoParrafo(parrafo));
+            }
+            
+            parrafo.articulos.forEach(function (articulo) {
+                const item = document.createElement("div");
+                item.classList.add("resultado-item", "resultado-clicable");
+                item.innerHTML = renderResumenArticulo(articulo, consulta);
+                item.addEventListener("click", function () { mostrarArticuloIndividual(articulo, consulta); });
+                contenedorResultados.appendChild(item);
+            });
+        });
+    });
+}
+
 // --- RESALTADO ---
 function escaparRegex(texto) { return texto.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 function resaltar(texto, consulta) {
@@ -132,7 +202,6 @@ function renderResumenArticulo(articulo, consulta) {
     `;
 }
 
-// --- Texto oficial + barra de anotación ---
 function renderArticuloCompleto(articulo, consulta) {
     const comentarioHTML = articulo.comentarioProfesor
         ? `<span class="resultado-etiqueta">Según Bermúdez</span><p class="resultado-comentario">${resaltar(articulo.comentarioProfesor, consulta)}</p>`
@@ -183,25 +252,6 @@ function renderArticuloCompleto(articulo, consulta) {
     `;
 }
 
-function mostrarResultados(resultados, consulta) {
-    contenedorResultados.innerHTML = "";
-    if (resultados.length === 0) {
-        contenedorResultados.innerHTML = `<p class="sin-resultados">No se encontraron resultados para "${consulta}".</p>`;
-        return;
-    }
-    const grupos = agruparPorCapitulo(resultados);
-    grupos.forEach(function (grupo) {
-        contenedorResultados.appendChild(crearEncabezadoCapitulo(grupo));
-        grupo.articulos.forEach(function (articulo) {
-            const item = document.createElement("div");
-            item.classList.add("resultado-item", "resultado-clicable");
-            item.innerHTML = renderResumenArticulo(articulo, consulta);
-            item.addEventListener("click", function () { mostrarArticuloIndividual(articulo, consulta); });
-            contenedorResultados.appendChild(item);
-        });
-    });
-}
-
 // --- NOTAS (LocalStorage) ---
 function obtenerNotas(numero) {
     try {
@@ -211,21 +261,21 @@ function obtenerNotas(numero) {
 }
 function guardarNotas(numero, notas) {
     try { localStorage.setItem(`notas-art-${numero}`, JSON.stringify(notas)); }
-    catch (error) { console.log("No se pudieron guardar las notas:", error); }
+    catch (error) { console.log("Error:", error); }
 }
 function renderizarListaNotas(numero) {
     const contenedorNotas = document.querySelector("#listaNotasGuardadas");
     if (!contenedorNotas) return;
     const notas = obtenerNotas(numero);
     if (notas.length === 0) {
-        contenedorNotas.innerHTML = `<p class="nota-guardada-vacia">Aún no has agregado notas para este artículo.</p>`;
+        contenedorNotas.innerHTML = `<p class="nota-guardada-vacia">Aún no has agregado notas.</p>`;
         return;
     }
     contenedorNotas.innerHTML = notas.map(function (nota) {
         return `
             <div class="tarjeta-nota">
                 <p class="tarjeta-nota-texto">${nota.texto}</p>
-                <button class="btn-eliminar-nota" data-id="${nota.id}" title="Eliminar nota">🗑</button>
+                <button class="btn-eliminar-nota" data-id="${nota.id}">🗑</button>
             </div>
         `;
     }).join("");
@@ -247,7 +297,7 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
         <div class="vista-articulo">
             <aside class="panel-nota-editar">
                 <span class="resultado-etiqueta">✎ Agregar nota</span>
-                <textarea id="notaTexto" class="nota-textarea" placeholder="Escribe una nota nueva sobre este artículo..."></textarea>
+                <textarea id="notaTexto" class="nota-textarea" placeholder="Escribe una nota..."></textarea>
                 <div class="nota-acciones">
                     <button id="btnAgregarNota" class="btn-guardar-nota">Agregar nota</button>
                     <span id="notaGuardadaMsg" class="nota-guardada-msg"></span>
@@ -284,22 +334,20 @@ function mostrarArticuloIndividual(articulo, origenConsulta) {
         guardarNotas(articulo.numero, notas);
         textareaNota.value = "";
         renderizarListaNotas(articulo.numero);
-        mensajeNota.textContent = "✓ Nota agregada";
+        mensajeNota.textContent = "✓ Agregada";
         setTimeout(function () { mensajeNota.textContent = ""; }, 2000);
     });
 
-    // Iniciar sistema de dibujo después de un pequeño retraso para asegurar que el DOM cargó
     setTimeout(() => { inicializarAnotacion(articulo.numero); }, 50);
 }
 
-// --- ANOTACIÓN Y LIENZO (MODO GOODNOTES PARA IPAD Y PC) ---
+// --- ANOTACIÓN Y LIENZO ---
 function inicializarAnotacion(numeroArticulo) {
     const contenedorAnotable = document.querySelector("#contenedorAnotable");
     const canvas = document.querySelector("#lienzoAnotacion");
     if (!canvas || !contenedorAnotable) return;
     
     const ctx = canvas.getContext("2d");
-
     function redimensionarLienzo() {
         canvas.width = contenedorAnotable.offsetWidth;
         canvas.height = contenedorAnotable.offsetHeight;
@@ -321,13 +369,10 @@ function inicializarAnotacion(numeroArticulo) {
         historial.push(JSON.stringify(trazos));
         pasoHistorial++;
         try { localStorage.setItem(claveTrazos, JSON.stringify(trazos)); }
-        catch (error) { console.log("Error al guardar:", error); }
+        catch (error) {}
     }
 
-    // Guardar el estado inicial en blanco (o con lo que haya recuperado)
-    if (historial.length === 0) {
-        guardarEstadoHistorial();
-    }
+    if (historial.length === 0) guardarEstadoHistorial();
 
     function dibujarTrazo(trazo) {
         if (!trazo.puntos || trazo.puntos.length < 2) return;
@@ -341,9 +386,7 @@ function inicializarAnotacion(numeroArticulo) {
             ctx.lineWidth = trazo.grosor;
             ctx.beginPath();
             ctx.moveTo(trazo.puntos[0].x, trazo.puntos[0].y);
-            for (let i = 1; i < trazo.puntos.length; i++) {
-                ctx.lineTo(trazo.puntos[i].x, trazo.puntos[i].y);
-            }
+            for (let i = 1; i < trazo.puntos.length; i++) ctx.lineTo(trazo.puntos[i].x, trazo.puntos[i].y);
             ctx.stroke();
         } else if (trazo.herramienta === "destacador") {
             ctx.globalAlpha = 0.45;
@@ -351,9 +394,7 @@ function inicializarAnotacion(numeroArticulo) {
             ctx.lineWidth = 18;
             ctx.beginPath();
             ctx.moveTo(trazo.puntos[0].x, trazo.puntos[0].y);
-            for (let i = 1; i < trazo.puntos.length; i++) {
-                ctx.lineTo(trazo.puntos[i].x, trazo.puntos[i].y);
-            }
+            for (let i = 1; i < trazo.puntos.length; i++) ctx.lineTo(trazo.puntos[i].x, trazo.puntos[i].y);
             ctx.stroke();
         }
         ctx.globalAlpha = 1;
@@ -383,27 +424,13 @@ function inicializarAnotacion(numeroArticulo) {
         opcionesLapiz.classList.toggle("oculto", herramientaActiva !== "lapiz");
         opcionesDestacador.classList.toggle("oculto", herramientaActiva !== "destacador");
         opcionesBorrador.classList.toggle("oculto", herramientaActiva !== "borrador");
-        
-        if (herramientaActiva) {
-            contenedorAnotable.classList.add("modo-dibujo");
-        } else {
-            contenedorAnotable.classList.remove("modo-dibujo");
-        }
+        herramientaActiva ? contenedorAnotable.classList.add("modo-dibujo") : contenedorAnotable.classList.remove("modo-dibujo");
     }
 
-    botonesHerramienta.forEach(boton => {
-        boton.addEventListener("click", () => activarHerramienta(boton.dataset.tool));
-    });
-
-    opcionesLapiz.querySelectorAll(".color-swatch").forEach(swatch => {
-        swatch.addEventListener("click", () => colorLapiz = swatch.dataset.color);
-    });
-    opcionesLapiz.querySelectorAll(".btn-tamano").forEach(boton => {
-        boton.addEventListener("click", () => tamañoLapiz = Number(boton.dataset.size));
-    });
-    opcionesDestacador.querySelectorAll(".color-swatch").forEach(swatch => {
-        swatch.addEventListener("click", () => colorDestacador = swatch.dataset.color);
-    });
+    botonesHerramienta.forEach(boton => { boton.addEventListener("click", () => activarHerramienta(boton.dataset.tool)); });
+    opcionesLapiz.querySelectorAll(".color-swatch").forEach(swatch => { swatch.addEventListener("click", () => colorLapiz = swatch.dataset.color); });
+    opcionesLapiz.querySelectorAll(".btn-tamano").forEach(boton => { boton.addEventListener("click", () => tamañoLapiz = Number(boton.dataset.size)); });
+    opcionesDestacador.querySelectorAll(".color-swatch").forEach(swatch => { swatch.addEventListener("click", () => colorDestacador = swatch.dataset.color); });
     opcionesBorrador.querySelectorAll(".btn-modo-borrador").forEach(boton => {
         boton.addEventListener("click", () => {
             modoBorrador = boton.dataset.modo;
@@ -412,7 +439,6 @@ function inicializarAnotacion(numeroArticulo) {
         });
     });
 
-    // Deshacer / Rehacer / Borrar todo
     document.querySelector("#btnDeshacer")?.addEventListener("click", () => {
         if (pasoHistorial > 0) {
             pasoHistorial--;
@@ -437,7 +463,6 @@ function inicializarAnotacion(numeroArticulo) {
         guardarEstadoHistorial();
     });
 
-    // --- Lógica del Borrador ---
     function distanciaPuntoSegmento(p, a, b) {
         const dx = b.x - a.x, dy = b.y - a.y;
         const largo2 = dx * dx + dy * dy;
@@ -468,56 +493,36 @@ function inicializarAnotacion(numeroArticulo) {
             trazo.puntos.forEach(punto => {
                 if (Math.hypot(punto.x - p.x, punto.y - p.y) <= radio) {
                     huboCambio = true;
-                    if (segmentoActual.length >= 2) {
-                        nuevosTrazos.push({ herramienta: trazo.herramienta, color: trazo.color, grosor: trazo.grosor, puntos: segmentoActual });
-                    }
+                    if (segmentoActual.length >= 2) nuevosTrazos.push({ herramienta: trazo.herramienta, color: trazo.color, grosor: trazo.grosor, puntos: segmentoActual });
                     segmentoActual = [];
                 } else {
                     segmentoActual.push(punto);
                 }
             });
-            if (segmentoActual.length >= 2) {
-                nuevosTrazos.push({ herramienta: trazo.herramienta, color: trazo.color, grosor: trazo.grosor, puntos: segmentoActual });
-            }
+            if (segmentoActual.length >= 2) nuevosTrazos.push({ herramienta: trazo.herramienta, color: trazo.color, grosor: trazo.grosor, puntos: segmentoActual });
         });
         trazos = nuevosTrazos;
         return huboCambio;
     }
 
-    // --- Eventos de Dibujo con Palm Rejection ---
     let dibujando = false;
     let trazoActual = null;
 
     function obtenerPosicion(evento) {
         const rect = canvas.getBoundingClientRect();
-        return { 
-            x: evento.clientX - rect.left, 
-            y: evento.clientY - rect.top 
-        };
+        return { x: evento.clientX - rect.left, y: evento.clientY - rect.top };
     }
 
     canvas.addEventListener("pointerdown", function (evento) {
         if (!herramientaActiva) return;
-
-        // Palm Rejection: si detecta toque de dedo y no estás borrando, no pinta.
-        // Esto permite hacer zoom en iPad sin que se dibuje una raya.
-        if (evento.pointerType === "touch" && herramientaActiva !== "borrador") {
-            return;
-        }
-
-        // Evitar comportamientos por defecto que causan que la pantalla se mueva
+        if (evento.pointerType === "touch" && herramientaActiva !== "borrador") return;
         evento.preventDefault(); 
         
         dibujando = true;
         const punto = obtenerPosicion(evento);
 
         if (herramientaActiva === "lapiz" || herramientaActiva === "destacador") {
-            trazoActual = { 
-                herramienta: herramientaActiva, 
-                color: herramientaActiva === "lapiz" ? colorLapiz : colorDestacador, 
-                grosor: tamañoLapiz, 
-                puntos: [punto] 
-            };
+            trazoActual = { herramienta: herramientaActiva, color: herramientaActiva === "lapiz" ? colorLapiz : colorDestacador, grosor: tamañoLapiz, puntos: [punto] };
         } else if (herramientaActiva === "borrador") {
             const cambio = modoBorrador === "trazo" ? borrarTrazoCompleto(punto) : borrarPreciso(punto);
             if (cambio) redibujarTodo();
@@ -526,9 +531,7 @@ function inicializarAnotacion(numeroArticulo) {
 
     canvas.addEventListener("pointermove", function (evento) {
         if (!dibujando || !herramientaActiva) return;
-        
         evento.preventDefault();
-
         const punto = obtenerPosicion(evento);
 
         if (herramientaActiva === "lapiz" || herramientaActiva === "destacador") {
@@ -542,7 +545,7 @@ function inicializarAnotacion(numeroArticulo) {
     });
 
     ["pointerup", "pointerleave", "pointercancel"].forEach(evt => {
-        canvas.addEventListener(evt, function (evento) {
+        canvas.addEventListener(evt, function () {
             if (!dibujando) return;
             dibujando = false;
             
@@ -551,7 +554,6 @@ function inicializarAnotacion(numeroArticulo) {
                 trazoActual = null;
                 redibujarTodo();
             }
-            // Guarda el paso solo cuando levantas el lápiz/mouse
             guardarEstadoHistorial();
         });
     });
