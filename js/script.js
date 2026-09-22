@@ -258,11 +258,11 @@ function renderArticuloCompleto(articulo, consulta) {
         </div>
 
         <div class="barra-anotacion">
-            <button class="btn-anotacion" data-tool="lapiz" title="Lápiz">✏️</button>
-            <button class="btn-anotacion" data-tool="destacador" title="Destacador">🖍️</button>
+            <button class="btn-anotacion" data-tool="lapiz" title="Lápiz">ᝰ✍︎</button>
+            <button class="btn-anotacion" data-tool="destacador" title="Destacador">✎ᝰ</button>
             <button class="btn-anotacion" data-tool="borrador" title="Borrador">🧹</button>
-            <button class="btn-anotacion" id="btnDeshacer" title="Deshacer (Volver atrás)">↩️</button>
-            <button class="btn-anotacion" id="btnRehacer" title="Rehacer">↪️</button>
+            <button class="btn-anotacion" id="btnDeshacer" title="Deshacer (Volver atrás)">↩︎</button>
+            <button class="btn-anotacion" id="btnRehacer" title="Rehacer">↪︎</button>
             <button class="btn-anotacion" id="btnLimpiarDibujo" title="Borrar todo">🗑️</button>
 
             <div id="opcionesLapiz" class="opciones-anotacion oculto">
