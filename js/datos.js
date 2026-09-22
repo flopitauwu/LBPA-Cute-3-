@@ -512,14 +512,18 @@ const lbpa = [
         numero: 45,
         capitulo: 3,
         capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Notificación",
         titulo: "Procedencia",
         texto: "Procedencia. Los actos administrativos de efectos individuales, deberán ser notificados a los interesados conteniendo su texto íntegro.\nLas notificaciones deberán practicarse, a más tardar, en los cinco días siguientes a aquél en que ha quedado totalmente tramitado el acto administrativo.\nNo obstante lo anterior, los actos administrativos que afectaren a personas cuyo paradero fuere ignorado, deberán publicarse en el Diario Oficial.",
         conceptos: ["procedencia"]
     },
     {
         numero: 46,
-       capitulo: 3,
+        capitulo: 3,
         capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Notificación",
         titulo: " Procedimiento",
         texto: "Procedimiento. Las notificaciones se practicarán por medios electrónicos en base a la información contenida en un registro único dependiente de la Secretaría de Gobierno Digital de la Subsecretaría de Hacienda sobre el cual se configurarán domicilios digitales únicos, cuyas características y operatividad será regulada mediante reglamento dictado conjuntamente por el Ministerio de Hacienda. Dichas notificaciones tendrán el carácter de personal. Las notificaciones, citaciones y comunicaciones a través del domicilio único digital definido por la ley, producirán pleno efecto legal y se entenderán practicadas al tercer día hábil siguiente contado desde la fecha de su envío\nQuienes carezcan de los medios tecnológicos, no tengan acceso a medios electrónicos o sólo actuaren excepcionalmente a través de ellos, podrán solicitar por medio de un formulario, ante el órgano respectivo que la notificación se practique mediante forma diversa, quien deberá pronunciarse dentro del tercer día, según lo establezca el reglamento, y deberá hacerlo de manera fundada en caso de denegar la solicitud. La notificación se realizará en la forma solicitada si fuere posible o mediante carta certificada dirigida al domicilio que debiere designar al presentar esta solicitud. En caso de notificaciones por carta certificada, éstas se entenderán practicadas a contar del tercer día siguiente a su recepción en la oficina de correos que corresponda.\n Asimismo, las notificaciones podrán hacerse en las dependencias de la Administración, si el interesado se apersonare a recibirla, dejándose constancia de ello en el expediente electrónico, consignándose la fecha y hora de la misma. Si el interesado requiriere copia del acto o resolución que se le notifica se le dará, sin más trámite, en el mismo momento, en el formato que se tramite el procedimiento.\nEn los procedimientos administrativos especiales en los que la ley establezca un medio de notificación distinto al establecido en el inciso primero, los órganos de la Administración podrán practicar las notificaciones a través de dichos medios de notificación especial o en la forma establecida en el presente artículo. Los órganos de la Administración del Estado deberán informar expresamente a los interesados el medio a través del cual se les practicarán las notificaciones, en los formularios a los que se refieren los artículos 18 y 30.\nMediante el reglamento referido en el inciso primero se regulará de qué forma los órganos de la Administración deberán practicar las notificaciones electrónicas, considerarlas practicadas y obtener información necesaria para llevar el registro indicado, estableciendo, a lo menos, los requisitos y condiciones necesarios que aseguren la constancia de la fecha y hora de envío de notificaciones, la recepción o acceso por el interesado o su apoderado, especialmente en el caso de la primera notificación para resguardar su derecho a la defensa, así como la integridad del contenido, la identidad fidedigna del remitente y el destinatario de la misma.",
         conceptos: ["procedimiento"]
@@ -528,6 +532,8 @@ const lbpa = [
         numero: 47,
         capitulo: 3,
         capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Notificación",
         titulo: "Notificación tácita.",
         texto: "Notificación tácita. Aun cuando no hubiere sido practicada notificación alguna, o la que existiere fuere viciada, se entenderá el acto debidamente notificado si el interesado a quien afectare, hiciere cualquier gestión en el procedimiento, con posterioridad al acto, que suponga necesariamente su conocimiento, sin haber reclamado previamente de su falta o nulidad.",
         conceptos: ["notificación","notificación tácita"]
@@ -536,6 +542,8 @@ const lbpa = [
         numero: 48,
         capitulo: 3,
         capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        parrafo: "Párrafo 2º",            
+        parrafoTitulo: "Publicación",
         titulo: "Obligación de publicar",
         texto: "Obligación de publicar. Deberán publicarse en el Diario Oficial los siguientes actos administrativos:",
        numerales: [
@@ -552,6 +560,8 @@ const lbpa = [
         numero: 49,
         capitulo: 3,
         capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        parrafo: "Párrafo 2º",            
+        parrafoTitulo: "Publicación",
         titulo: "Autenticación.",
         texto: "Autenticación. Los actos publicados en el Diario Oficial se tendrán como auténticos y oficialmente notificados, obligando desde esa fecha a su íntegro y cabal cumplimiento, salvo que se establecieren reglas diferentes sobre la fecha en que haya de entrar en vigencia.",
         conceptos: ["autenticación"]
@@ -560,6 +570,8 @@ const lbpa = [
         numero: 50,
         capitulo: 3,
         capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Ejecución",
         titulo: "Título.",
         texto: "Título. La Administración Pública no iniciará ninguna actuación material de ejecución de resoluciones que limite derechos de los particulares sin que previamente haya sido adoptada la resolución que le sirva de fundamento jurídico.\n El órgano que ordene un acto de ejecución material de resoluciones estará obligado a notificar al particular interesado la resolución que autorice la actuación administrativa.",
         conceptos: ["publicidad", "Publicidad y ejecutividad de los actos administrativos","ejecutividad"]
@@ -568,7 +580,9 @@ const lbpa = [
         numero: 51,
         capitulo: 3,
         capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
-        titulo: "Ejecutoriedad.",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Ejecución",
+        titulo: "Ejecutoriedad",
         texto: "Ejecutoriedad. Los actos de la Administración Pública sujetos al Derecho Administrativo causan inmediata ejecutoriedad, salvo en aquellos casos en que una disposición establezca lo contrario o necesiten aprobación o autorización superior.\nLos decretos y las resoluciones producirán efectos jurídicos desde su notificación o publicación, según sean de contenido individual o general.",
         conceptos: ["ejecutoriedad"]
     },
@@ -576,16 +590,177 @@ const lbpa = [
         numero: 52,
         capitulo: 3,
         capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Ejecución",
         titulo: "Retroactividad.",
         texto: "Retroactividad. Los actos administrativos no tendrán efecto retroactivo, salvo cuando produzcan consecuencias favorables para los interesados y no lesionen derechos de terceros.",
         conceptos: ["procedencia"]
     },
     {
-        numero: 48,
-        capitulo: 3,
-        capituloTitulo: "Publicidad y ejecutividad de los actos administrativos",
-        titulo: "Procedencia",
-        texto: "k",
+        numero: 53,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Principios generales",
+        titulo: "Invalidación",
+        texto: "Invalidación. La autoridad administrativa podrá, de oficio o a petición de parte, invalidar los actos contrarios a derecho, previa audiencia del interesado, siempre que lo haga dentro de los dos años contados desde la notificación o publicación del acto.\nLa invalidación de un acto administrativo podrá ser total o parcial. La invalidación parcial no afectará las disposiciones que sean independientes de la parte invalidada.\nEl acto invalidatorio será siempre impugnable ante los Tribunales de Justicia, en procedimiento breve y sumario.",
+        conceptos: ["Invalidación", "extinción del acto"]
+    },
+    {
+        numero: 54,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Principios generales",
+        titulo: "Interpuesta por un interesado",
+        texto: "Interpuesta por un interesado una reclamación ante la Administración, no podrá el mismo reclamante deducir igual pretensión ante los Tribunales de Justicia, mientras aquélla no haya sido resuelta o no haya transcurrido el plazo para que deba entenderse desestimada.\n Planteada la reclamación se interrumpirá el plazo para ejercer la acción jurisdiccional. Este volverá a contarse desde la fecha en que se notifique el acto que la resuelve o, en su caso, desde que la reclamación se entienda desestimada por el transcurso del plazo.\nSi respecto de un acto administrativo se deduce acción jurisdiccional por el interesado, la Administración deberá inhibirse de conocer cualquier reclamación que éste interponga sobre la misma pretensión.",
+        conceptos: ["."]
+    },
+    {
+        numero: 55,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Principios generales",
+        titulo: "Notificación a terceros.",
+        texto: "Notificación a terceros. Se notificará a los interesados que hubieren participado en el procedimiento, la interposición de los recursos, para que en el plazo de cinco días aleguen cuanto consideren procedente en defensa de sus intereses.",
+        conceptos: ["."]
+    },
+    {
+        numero: 56,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Principios generales",
+        titulo: "La autoridad correspondiente",
+        texto: "La autoridad correspondiente ordenará que se corrijan por la Administración o por el interesado, en su caso, los vicios que advierta en el procedimiento, fijando plazos para tal efecto.",
         conceptos: ["procedencia"]
+    },
+    {
+        numero: 57,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Principios generales",
+        titulo: "Suspensión del acto",
+        texto: "Suspensión del acto. La interposición de los recursos administrativos no suspenderá la ejecución del acto impugnado.\nCon todo, la autoridad llamada a resolver el recurso, a petición fundada del interesado, podrá suspender la ejecución cuando el cumplimiento del acto recurrido pudiere causar daño irreparable o hacer imposible el cumplimiento de lo que se resolviere, en caso de acogerse el recurso.",
+        conceptos: ["Suspensión del acto", "suspensión", "extinción del acto"]
+    },
+    {
+        numero: 58,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Principios generales",
+        titulo: "Publicidad de los actos recurridos.",
+        texto: "Publicidad de los actos recurridos. Las resoluciones que acogieren recursos interpuestos contra actos que hayan sido publicados en el Diario Oficial, deberán ser publicadas en extracto en dicho periódico en la edición correspondiente a los días 1º ó 15 de cada mes o al día siguiente si fuere inhábil.",
+        conceptos: ["procedencia"]
+    },
+    {
+        numero: 59,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 2º",            
+        parrafoTitulo: "De los recursos de reposición y jerárquico",
+        titulo: "Procedencia.",
+        texto: "Procedencia. El recurso de reposición se interpondrá dentro del plazo de cinco días ante el mismo órgano que dictó el acto que se impugna; en subsidio, podrá interponerse el recurso jerárquico.\nRechazada total o parcialmente una reposición, se elevará el expediente al superior que corresponda si junto con ésta se hubiere interpuesto subsidiariamente recurso jerárquico.\nCuando no se deduzca reposición, el recurso jerárquico se interpondrá para ante el superior jerárquico de quien hubiere dictado el acto impugnado, dentro de los 5 días siguientes a su notificación.\nNo procederá recurso jerárquico contra los actos del Presidente de la República, de los Ministros de Estado, de los alcaldes y los jefes superiores de los servicios públicos descentralizados. En estos casos, el recurso de reposición agotará la vía administrativa.\n La autoridad llamada a pronunciarse sobre los recursos a que se refieren los incisos anteriores tendrá un plazo no superior a 30 días para resolverlos.\nSi se ha deducido recurso jerárquico, la autoridad llamada a resolverlo deberá oír previamente al órgano recurrido el que podrá formular sus descargos por cualquier medio, escrito o electrónico.\nLa resolución que acoja el recurso podrá modificar, reemplazar o dejar sin efecto el acto impugnado.",
+        conceptos: ["reposición", "procedencia"]
+    },
+    {
+        numero: 60,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Del recurso extraordinario de revisión",
+        titulo: "En contra de los actos administrativos firmes",
+        texto: "En contra de los actos administrativos firmes podrá interponerse el recurso de revisión ante el superior jerárquico, si lo hubiere o, en su defecto, ante la autoridad que lo hubiere dictado, cuando concurra alguna de las siguientes circunstancias.",
+        numerales: [
+            "a) Que la resolución se hubiere dictado sin el debido emplazamiento;",
+            "b) Que, al dictarlo, se hubiere incurrido en manifiesto error de hecho y que éste haya sido determinante para la decisión adoptada, o que aparecieren documentos de valor esencial para la resolución del asunto, ignorados al dictarse el acto o que no haya sido posible acompañarlos al expediente administrativo en aquel momento;",
+            "c) Que por sentencia ejecutoriada se haya declarado que el acto se dictó como consecuencia de prevaricación, cohecho, violencia u otra maquinación fraudulenta, y d) Que en la resolución hayan influido de modo esencial documentos o testimonios declarados falsos por sentencia ejecutoriada posterior a aquella resolución, o que siendo anterior, no hubiese sido conocida oportunamente por el interesado.",
+        ],
+        textoContinuacion: "El plazo para interponer el recurso será de un año que se computará desde el día siguiente a aquél en que se dictó la resolución en los casos de las letras a) y b). Respecto de las letras c) y d), dicho plazo se contará desde que la sentencia quede ejecutoriada, salvo que ella preceda a la resolución cuya revisión se solicita, caso en el cual el plazo se computará desde el día siguiente al de la notificación de ésta.",
+        conceptos: ["proceden"]
+    },
+    {
+        numero: 61,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 4º",            
+        parrafoTitulo: "De la revisión de oficio de la Administración",
+        titulo: "Procedencia.",
+        texto: "Procedencia. Los actos administrativos podrán ser revocados por el órgano que los hubiere dictado.\n La revocación no procederá en los siguientes casos:",
+        numerales: [
+            "a) Cuando se trate de actos declarativos o creadores de derechos adquiridos legítimamente;",
+            "b) Cuando la ley haya determinado expresamente otra forma de extinción de los actos; o",
+            "c) Cuando, por su naturaleza, la regulación legal del acto impida que sean dejados sin efecto.",
+        ],
+        conceptos: ["procedencia"]
+    },
+    {
+        numero: 62,
+        capitulo: 4,
+        capituloTitulo: "Revisión de los actos administrativos",
+        parrafo: "Párrafo 4º",            
+        parrafoTitulo: "De la revisión de oficio de la Administración",
+        titulo: "Aclaración del acto.",
+        texto: "Aclaración del acto. En cualquier momento, la autoridad administrativa que hubiere dictado una decisión que ponga término a un procedimiento podrá, de oficio o a petición del interesado, aclarar los puntos dudosos u obscuros y rectificar los errores de copia, de referencia, de cálculos numéricos y, en general, los puramente materiales o de hechos que aparecieren de manifiesto en el acto administrativo.",
+        conceptos: ["procedencia"]
+    },
+    {
+        numero: 63,
+        capitulo: 5,
+        capituloTitulo: "Disposiciones Finales",
+        titulo: "Procedimiento de urgencia.",
+        texto: "Procedimiento de urgencia. Cuando razones de interés público lo aconsejen, se podrá ordenar, de oficio o a petición del interesado, que al procedimiento se le aplique la tramitación de urgencia.\nEn tales circunstancias, los plazos establecidos para el procedimiento ordinario se reducirán a la mitad, salvo los relativos a la presentación de solicitudes y recursos.\nNo cabrá recurso alguno en contra de la decisión que ordene la aplicación de la tramitación de urgencia al procedimiento.",
+        conceptos: ["."]
+    },
+    {
+        numero: 64,
+        capitulo: 5,
+        capituloTitulo: "Disposiciones Finales",
+        titulo: "Procedimiento de urgencia.",
+        texto: "Silencio Positivo. Transcurrido el plazo legal para resolver acerca de una solicitud que haya originado un procedimiento, sin que la Administración se pronuncie sobre ella, el interesado podrá denunciar el incumplimiento de dicho plazo ante la autoridad que debía resolver el asunto, requiriéndole una decisión acerca de su solicitud. Dicha autoridad deberá otorgar recibo de la denuncia, con expresión de su fecha, y elevar copia de ella a su superior jerárquico dentro del plazo de 24 horas.\n Si la autoridad que debía resolver el asunto no se pronuncia en el plazo de cinco días contados desde la recepción de la denuncia, la solicitud del interesado se entenderá aceptada.\nEn los casos del inciso precedente, el interesado podrá pedir que se certifique que su solicitud no ha sido resuelta dentro del plazo legal. Dicho certificado será expedido sin más trámite.",
+        conceptos: ["silencio administrativo"]
+    },
+    {
+        numero: 65,
+        capitulo: 5,
+        capituloTitulo: "Disposiciones Finales",
+        titulo: "Silencio negativo",
+        texto: "Silencio Negativo. Se entenderá rechazada una solicitud que no sea resuelta dentro del plazo legal cuando ella afecte el patrimonio fiscal. Lo mismo se aplicará en los casos en que la Administración actúe de oficio, cuando deba pronunciarse sobre impugnaciones o revisiones de actos administrativos o cuando se ejercite por parte de alguna persona el derecho de petición consagrado en el numeral 14 del artículo 19 de la Constitución Política.\n En los casos del inciso precedente, el interesado podrá pedir que se certifique que su solicitud no ha sido resuelta dentro de plazo legal. El certificado se otorgará sin más trámite, entendiéndose que desde la fecha en que ha sido expedido empiezan a correr los plazos para interponer los recursos que procedan.",
+        conceptos: ["Silencio administrativo"]
+    },
+    {
+        numero: 66,
+        capitulo: 5,
+        capituloTitulo: "Disposiciones Finales",
+        titulo: "Efectos del silencio administrativo.",
+        texto: "Efectos del silencio administrativo. Los actos administrativos que concluyan por aplicación de las disposiciones de los artículos precedentes, tendrán los mismos efectos que aquéllos que culminaren con una resolución expresa de la Administración, desde la fecha de la certificación respectiva.",
+        conceptos: ["Silencio administrativo"]
+    },
+    {
+        numero: 67,
+        capitulo: 5,
+        capituloTitulo: "Disposiciones Finales",
+        titulo: "Facúltase al Presidente",
+        texto: "Facúltase al Presidente de la República para que en el plazo de un año, contado desde la publicación de esta ley en el Diario Oficial, mediante uno o más decretos con fuerza de ley del Ministerio Secretaría General de la Presidencia, que deberá llevar también la firma del Ministro de Economía, Fomento y Reconstrucción, del Ministro de Vivienda y Urbanismo, del Ministro de Transportes y Telecomunicaciones y del Ministro del Interior, reduzca los plazos de los procedimientos administrativos que rigen el otorgamiento de las patentes municipales señaladas en el decreto ley Nº 3.063, de 1979; y los permisos, estudios de impacto vial, certificados y recepción de obras de construcción y urbanismo que se indican en el Título III de la Ley General de Urbanismo y Construcciones.\nPara el adecuado cumplimiento de esta obligación, el Presidente de la República podrá fijar o modificar plazos, sin que éstos puedan durar más de noventa días ni que se amplíen los ya existentes. En ningún caso, se podrán establecer etapas o procedimientos distintos a los establecidos por la ley.",
+        conceptos: ["."]
+    },
+   {
+        numero: 68,
+        capitulo: 5,
+        capituloTitulo: "Disposiciones Finales",
+        titulo: "Facúltase al Presidente",
+        texto: "Facúltase al Presidente de la República para que en el plazo de un año, contado desde la publicación de esta ley en el Diario Oficial, mediante un decreto con fuerza de ley expedido a través del Ministerio de Salud, y con la firma del Ministro Secretario General de la Presidencia, determine las materias que, conforme a lo dispuesto en el artículo 7º del Código Sanitario, requieren de autorización sanitaria expresa y de los elementos centrales de procedimiento de tramitación de la misma, con el propósito de simplificarlo y reducir sus plazos de tramitación.",
+        conceptos: ["."]
+    },
+   {
+        numero: 69,
+        capitulo: 5,
+        capituloTitulo: "Disposiciones Finales",
+        titulo: "Facúltase al Presidente",
+        texto: "Facúltase al Presidente de la República para que en el plazo de un año, mediante un decreto con fuerza de ley del Ministerio Secretaría General de la Presidencia, modifique el sistema destinado a calificar ambientalmente un estudio o una declaración de impacto ambiental de la ley Nº 19.300, con el propósito de simplificarlo y reducir sus plazos de tramitación. En ningún caso, el plazo total de tramitación podrá exceder de noventa días.".
+        conceptos: ["Silencio administrativo"]
     },
 ];
