@@ -544,3 +544,86 @@ body {
 .contenedor-anotable.modo-dibujo .texto-anotable {
     user-select: none;
 }
+/* =========================================
+   ESTILOS PARA EL ÍNDICE TIPO ÁRBOL OFICIAL
+========================================= */
+.lista-indice .indice-capitulo {
+    font-size: 1.05rem;
+    color: #6a7b8c; /* Tono grisáceo azulado para capítulos */
+    text-transform: uppercase;
+    margin: 20px 0 5px 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.lista-indice .indice-parrafo {
+    color: #c92a2a; /* Rojo oficial para párrafos */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    margin: 10px 0 5px 15px; /* Sangría inicial */
+    font-family: 'Poppins', sans-serif;
+}
+
+.lista-indice ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 5px 0;
+}
+
+.lista-indice ul.indice-con-sangria {
+    border-left: 2px solid #e9ecef; /* Línea guía lateral */
+    margin-left: 22px;
+    padding-left: 15px;
+}
+
+.lista-indice li {
+    color: #868e96;
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.lista-indice li:hover {
+    color: var(--borgoña);
+    background-color: var(--crema);
+    font-weight: 500;
+}
+
+/* =========================================
+   ENCABEZADO JERÁRQUICO (DENTRO DEL ARTÍCULO)
+========================================= */
+.articulo-encabezado-oficial {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--rosa-empolvado);
+    padding-bottom: 15px;
+}
+
+.articulo-jerarquia-capitulo {
+    font-size: 0.85rem;
+    color: #8a6a63;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.articulo-jerarquia-parrafo {
+    font-size: 1.1rem;
+    color: var(--borgoña);
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+.articulo-titulo-principal {
+    font-family: 'Playfair Display', serif;
+    color: var(--texto-oscuro);
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/* Ocultar el "h4" viejo que generaba la tarjeta para que no salga doble el título */
+.resultado-item > h4 {
+    display: none;
+}
