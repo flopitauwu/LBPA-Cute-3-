@@ -197,6 +197,8 @@ const lbpa = [
         numero: 19,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "Uso obligatorio de plataformas electrónicas.",
         texto: "Los órganos de la Administración estarán obligados a disponer y utilizar adecuadamente plataformas electrónicas para efectos de llevar expedientes electrónicos, las que deberán cumplir con estándares de seguridad, interoperabilidad, interconexión y ciberseguridad.\nLos escritos, documentos, actos y actuaciones de toda especie que se presenten o verifiquen en el procedimiento se registrarán en el expediente electrónico correspondiente, siguiendo las nomenclaturas pertinentes, de acuerdo a cada etapa del procedimiento.\nLa conservación de los expedientes electrónicos estará a cargo del órgano respectivo, el cual será el responsable de su integridad, disponibilidad y autenticidad.\nSi fuere necesaria la reconstitución de un expediente o piezas de éste se reemplazará en todo o parte por una copia fiel, que se obtendrá de quien la tuviere, si no se dispusiere de ella directamente.\nSi no existiere copia fiel los actos se dictarán nuevamente, para lo cual la Administración reunirá los antecedentes que le permitan fundamentar su preexistencia y contenido, y las actuaciones se repetirán con las formalidades previstas para cada caso.\n Las comunicaciones oficiales entre los órganos de la Administración serán registradas en una plataforma electrónica destinada al efecto.\nMediante reglamento, dictado por el Ministerio de Hacienda, se fijarán los estándares que deberán cumplir dichas plataformas, en los términos previstos en esta ley considerando, además, condiciones de accesibilidad para los interesados, seguridad, funcionamiento, calidad, protección y conservación de los documentos.",
         conceptos: ["medios electrónicos", "expediente electrónico", "transformación digital"]
@@ -205,6 +207,8 @@ const lbpa = [
         numero: "19 Bis", 
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "Documentos electrónicos y digitalización.",
         texto: "Los actos de la Administración y los documentos de los interesados deberán cumplir con lo establecido en la ley Nº 19.799, sobre documentos electrónicos, firma electrónica y servicios de certificación de dicha firma.\nLos documentos presentados por interesados cuyo formato original no sea electrónico podrán presentarse mediante copias digitalizadas directamente en el expediente electrónico. Asimismo, podrán presentarse en la dependencia de la Administración correspondiente, documentos electrónicos o bien en soporte de papel si lo anterior no fuere posible, debiendo el funcionario correspondiente digitalizarlos e ingresarlos inmediatamente al expediente electrónico.\nLa forma de cotejar la autenticidad y conformidad de los documentos en soporte de papel y sus copias digitalizadas presentadas según lo indicado en el inciso anterior será regulada por un reglamento dictado en conjunto por el Ministerio de Hacienda y el Ministerio de las Culturas, las Artes y el Patrimonio. Toda infracción a la autenticidad y conformidad de las copias digitalizadas respecto a los documentos originales en soporte de papel dará lugar a las responsabilidades legales correspondientes.",
         conceptos: ["documentos electrónicos", "digitalización", "firma electrónica"]
@@ -213,6 +217,8 @@ const lbpa = [
         numero: 20,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "Capacidad para actuar",
         texto: " Tendrán capacidad de actuar ante la Administración, además de las personas que gocen de ella o la ejerzan con arreglo a las normas generales, los menores de edad para el ejercicio y defensa de aquellos de sus derechos e intereses cuya actuación esté permitida por el ordenamiento jurídico-administrativo sin la asistencia de la persona que ejerza la patria potestad, tutela o curatela. Se exceptúa el supuesto de los menores incapacitados, cuando la extensión de la incapacitación afecte al ejercicio y defensa de los derechos o intereses de que se trate.",
         conceptos: ["capacidad para actuar", "interesado", "menores de edad"]
@@ -221,6 +227,8 @@ const lbpa = [
         numero: 21,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "Interesados",
         texto: "Se consideran interesados en el procedimiento administrativo:",
         numerales: [
@@ -235,6 +243,8 @@ const lbpa = [
         numero: 22,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "Apoderados",
         texto: "Los interesados podrán actuar por medio de apoderados, entendiéndose que éstos tienen todas las facultades necesarias para la consecución del acto administrativo, salvo manifestación expresa en contrario.\n    El poder podrá constar en documento suscrito mediante firma electrónica simple o avanzada. Se aceptará también aquel que conste por escritura pública o documento privado suscrito ante notario. Con todo, se requerirá siempre de documento suscrito mediante firma electrónica avanzada o de escritura pública cuando el acto administrativo de que se trate produzca efectos que exijan solemnidad de instrumento o escritura pública.",
         conceptos: ["Apoderados"]
@@ -243,6 +253,8 @@ const lbpa = [
         numero: 23,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "Obligación de cumplimiento de los plazos.",
         texto: "Los términos y plazos establecidos en ésta u otras leyes obligan a las autoridades y personal al servicio de la Administración en la tramitación de los asuntos, así como los interesados en los mismos.",
         conceptos: ["Cumplimiento de plazos"]
@@ -251,6 +263,8 @@ const lbpa = [
         numero: 24,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "El funcionario del organismo al que corresponda resolver",
         texto: "El funcionario del organismo al que corresponda resolver, que reciba una solicitud, documento o expediente, deberá hacerlo llegar a la dependencia respectiva, a través de medios electrónicos, a más tardar dentro de las 24 horas siguientes a su recepción.\n Las providencias de mero trámite deberán dictarse por quien deba hacerlo, dentro del plazo de 48 horas contado desde la recepción de la solicitud, documento o expediente.\n Los informes, dictámenes u otras actuaciones similares, deberán evacuarse dentro del plazo de 10 días, contado desde la petición de la diligencia.\nLas decisiones definitivas deberán expedirse dentro de los 20 días siguientes, contados desde que, a petición del interesado, se certifique que el acto se encuentra en estado de resolverse. La prolongación injustificada de la certificación dará origen a responsabilidad administrativa.",
         conceptos: ["funcionario", "corresponda"]
@@ -259,6 +273,8 @@ const lbpa = [
         numero: "24 bis",
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "En virtud de los principios de interoperabilidad y cooperación",
         texto: "En virtud de los principios de interoperabilidad y cooperación, en todo procedimiento administrativo los órganos de la Administración del Estado que tengan en su poder documentos o información respecto de materias de su competencia, que sean necesarios para su conocimiento o resolución, deberán remitirlos por medios electrónicos a aquel órgano ante el cual se estuviere tramitando el respectivo procedimiento, que así lo solicite. No obstante, se requerirá previa autorización del interesado en los términos indicados en la letra f) del artículo 30, en el caso de que dichos documentos o información contengan datos sensibles de aquel interesado, ya sea que estén incluidos o no en bases de datos personales, de conformidad con lo establecido en el artículo 30.\nSe dejará registro de toda solicitud entre los órganos de la Administración del Estado respecto a información de carácter sensible del interesado, al que tendrán acceso. Este registro deberá indicar, al menos, lo siguiente:",
          numerales: [
@@ -276,6 +292,8 @@ const lbpa = [
         numero: 25,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "Cómputo de los plazos del procedimiento administrativo.",
         texto: "Cómputo de los plazos del procedimiento administrativo. Los plazos de días establecidos en esta ley son de días hábiles, entendiéndose que son inhábiles los días sábados, los domingos y los festivos.\nLos plazos se computarán desde el día siguiente a aquél en que se notifique o publique el acto de que se trate o se produzca su estimación o su desestimación en virtud del silencio administrativo. Si en el mes de vencimiento no hubiere equivalente al día del mes en que comienza el cómputo, se entenderá que el plazo expira el último día de aquel mes.\n Cuando el último día del plazo sea inhábil, éste se entenderá prorrogado al primer día hábil siguiente.\nLas plataformas electrónicas permitirán la presentación de documentos todos los días del año durante las veinticuatro horas. No obstante, la presentación en un día inhábil se entenderá realizada en la primera hora del primer día hábil siguiente.",
         conceptos: ["computo de los plazos", "plazos"]
@@ -284,6 +302,8 @@ const lbpa = [
         numero: 26,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "Ampliación de los plazos.",
         texto: "Ampliación de los plazos. La Administración, salvo disposición en contrario, podrá conceder, de oficio o a petición de los interesados, una ampliación de los plazos establecidos, que no exceda de la mitad de los mismos, si las circunstancias lo aconsejan y con ello no se perjudican derechos de tercero.\nTanto la petición de los interesados como la decisión sobre la ampliación, deberán producirse, en todo caso, antes del vencimiento del plazo de que se trate.\nEn ningún caso podrá ser objeto de ampliación un plazo ya vencido.",
         conceptos: ["ampliación de los plazos", "plazos"]
@@ -292,6 +312,8 @@ const lbpa = [
         numero: 27,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 1º",            
+        parrafoTitulo: "Normas básicas", 
         titulo: "Salvo caso fortuito o fuerza mayor",
         texto: "Salvo caso fortuito o fuerza mayor, el procedimiento administrativo no podrá exceder de 6 meses, desde su iniciación hasta la fecha en que se emita la decisión final.",
         conceptos: ["ampliación de los plazos", "plazos"]
