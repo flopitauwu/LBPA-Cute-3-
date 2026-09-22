@@ -1,84 +1,65 @@
 document.addEventListener("DOMContentLoaded", function () {
     mostrarArticulosDestacados();
-    poblarIndiceFlor();
-});
-
-const inputBuscador = document.querySelector("#inputBuscador");
-const contenedorResultados = document.querySelector("#resultadosBusqueda");
-const contenedorVistaArticulo = document.querySelector("#vistaArticulo");
-const contenedorCapitulos = document.querySelector(".capitulos");
-
-// --- LÓGICA DE AGRUPACIÓN (CAPÍTULOS -> PÁRRAFOS) ---
-function agruparDatos(articulos) {
-    const grupos = [];
-    articulos.forEach(function (articulo) {
-        let cap = grupos.find(g => g.capitulo === articulo.capitulo);
-        if (!cap) {
-            cap = { capitulo: articulo.capitulo, capituloTitulo: articulo.capituloTitulo, parrafos: [] };
-            grupos.push(cap);
+   function poblarIndiceFlor() {
+    const listaIndice = document.querySelector("#listaIndice");
+    if (!listaIndice) return;
+    listaIndice.innerHTML = "";
+    
+    // Agrupación automática directa para evitar errores
+    const capitulosMap = {};
+    
+    lbpa.forEach(articulo => {
+        const capNum = articulo.capitulo || "1";
+        const capTit = articulo.capituloTitulo || "DISPOSICIONES GENERALES";
+        
+        if (!capitulosMap[capNum]) {
+            capitulosMap[capNum] = { titulo: capTit, parrafos: {} };
         }
         
-        const numParr = articulo.parrafo || "Sin Párrafo";
-        const titParr = articulo.parrafoTitulo || "";
-        
-        let parr = cap.parrafos.find(p => p.parrafo === numParr);
-        if (!parr) {
-            parr = { parrafo: numParr, parrafoTitulo: titParr, articulos: [] };
-            cap.parrafos.push(parr);
+        const parrKey = (articulo.parrafo && articulo.parrafo !== "Sin Párrafo") 
+            ? `${articulo.parrafo} — ${articulo.parrafoTitulo}` 
+            : "Artículos Sueltos";
+            
+        if (!capitulosMap[capNum].parrafos[parrKey]) {
+            capitulosMap[capNum].parrafos[parrKey] = [];
         }
         
-        parr.articulos.push(articulo);
+        capitulosMap[capNum].parrafos[parrKey].push(articulo);
     });
-    return grupos;
-}
 
-function crearEncabezadoCapitulo(grupo) {
-    const encabezado = document.createElement("h2");
-    encabezado.classList.add("titulo-capitulo");
-    encabezado.textContent = `Capítulo ${grupo.capitulo} — ${grupo.capituloTitulo}`;
-    return encabezado;
-}
-
-function crearEncabezadoParrafo(parrafo) {
-    const encabezado = document.createElement("h3");
-    encabezado.classList.add("titulo-parrafo");
-    encabezado.textContent = `${parrafo.parrafo} — ${parrafo.parrafoTitulo}`;
-    return encabezado;
-}
-
-function mostrarArticulosDestacados() {
-    contenedorVistaArticulo.innerHTML = "";
-    contenedorCapitulos.innerHTML = "";
-    contenedorCapitulos.style.display = "";
-    
-    const grupos = agruparDatos(lbpa);
-    
-    grupos.forEach(function (grupo) {
-        const bloqueCapitulo = document.createElement("div");
-        bloqueCapitulo.classList.add("bloque-capitulo");
-        bloqueCapitulo.appendChild(crearEncabezadoCapitulo(grupo));
+    // Dibujar en pantalla
+    for (const [capNum, capData] of Object.entries(capitulosMap)) {
+        const hCap = document.createElement("h2");
+        hCap.classList.add("indice-capitulo");
+        hCap.textContent = `CAPÍTULO ${capNum} ${capData.titulo}`;
+        listaIndice.appendChild(hCap);
         
-        grupo.parrafos.forEach(function(parrafo) {
-            if (parrafo.parrafo !== "Sin Párrafo") {
-                bloqueCapitulo.appendChild(crearEncabezadoParrafo(parrafo));
+        for (const [parrKey, articulos] of Object.entries(capData.parrafos)) {
+            if (parrKey !== "Artículos Sueltos") {
+                const hParr = document.createElement("h4");
+                hParr.classList.add("indice-parrafo");
+                hParr.textContent = parrKey;
+                listaIndice.appendChild(hParr);
             }
             
-            const fila = document.createElement("div");
-            fila.classList.add("fila-capitulo");
+            const ul = document.createElement("ul");
+            if (parrKey !== "Artículos Sueltos") {
+                ul.classList.add("indice-con-sangria");
+            }
             
-            parrafo.articulos.forEach(function (articulo) {
-                const tarjeta = document.createElement("article");
-                tarjeta.classList.add("tarjeta-capitulo");
-                tarjeta.innerHTML = `<h3>Art. ${articulo.numero}</h3><p>${articulo.titulo}</p>`;
-                tarjeta.addEventListener("click", function () { mostrarArticuloIndividual(articulo); });
-                fila.appendChild(tarjeta);
+            articulos.forEach(articulo => {
+                const li = document.createElement("li");
+                li.textContent = `ARTÍCULO ${articulo.numero} - ${articulo.titulo}`;
+                li.addEventListener("click", function () {
+                    cerrarModalIndice();
+                    mostrarArticuloIndividual(articulo);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+                ul.appendChild(li);
             });
-            
-            bloqueCapitulo.appendChild(fila);
-        });
-        
-        contenedorCapitulos.appendChild(bloqueCapitulo);
-    });
+            listaIndice.appendChild(ul);
+        }
+    }
 }
 
 // --- ÍNDICE FLOR ---
