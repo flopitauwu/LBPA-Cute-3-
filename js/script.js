@@ -82,40 +82,65 @@ function mostrarArticulosDestacados() {
 }
 
 // --- ÍNDICE FLOR ---
-function poblarIndiceFlor() {
-    const listaIndice = document.querySelector("#listaIndice");
-    if (!listaIndice) return;
-    listaIndice.innerHTML = "";
-    const grupos = agruparDatos(lbpa);
-    grupos.forEach(function (grupo) {
-        listaIndice.appendChild(crearEncabezadoCapitulo(grupo));
+function renderArticuloCompleto(articulo, consulta) {
+    const comentarioHTML = articulo.comentarioProfesor
+        ? `<div style="margin-top: 25px;"><span class="resultado-etiqueta">Según Bermúdez</span><p class="resultado-comentario">${resaltar(articulo.comentarioProfesor, consulta)}</p></div>`
+        : "";
         
-        grupo.parrafos.forEach(function(parrafo) {
-            if (parrafo.parrafo !== "Sin Párrafo") {
-                const hParr = document.createElement("h4");
-                hParr.textContent = `${parrafo.parrafo} — ${parrafo.parrafoTitulo}`;
-                hParr.style.fontSize = "0.95rem";
-                hParr.style.color = "#555";
-                hParr.style.margin = "10px 0 5px 15px";
-                listaIndice.appendChild(hParr);
-            }
+    // Lógica para mostrar el Párrafo arriba solo si el artículo lo tiene
+    const subtituloParrafo = (articulo.parrafo && articulo.parrafo !== "Sin Párrafo")
+        ? `<div class="articulo-jerarquia-parrafo">${articulo.parrafo} — ${articulo.parrafoTitulo}</div>`
+        : "";
+        
+    return `
+        <!-- Nuevo encabezado jerárquico -->
+        <div class="articulo-encabezado-oficial">
+            <div class="articulo-jerarquia-capitulo">CAPÍTULO ${articulo.capitulo} — ${articulo.capituloTitulo}</div>
+            ${subtituloParrafo}
+            <h3 class="articulo-titulo-principal">Art. ${articulo.numero} — ${articulo.titulo}</h3>
+        </div>
+        
+        <div class="barra-anotacion">
+            <button class="btn-anotacion" data-tool="lapiz" title="Lápiz">✏️</button>
+            <button class="btn-anotacion" data-tool="destacador" title="Destacador">🖍️</button>
+            <button class="btn-anotacion" data-tool="borrador" title="Borrador">🧹</button>
+            <button class="btn-anotacion" id="btnDeshacer" title="Deshacer (Volver atrás)">↩️</button>
+            <button class="btn-anotacion" id="btnRehacer" title="Rehacer">↪️</button>
+            <button class="btn-anotacion" id="btnLimpiarDibujo" title="Borrar todo">🗑️</button>
             
-            const ul = document.createElement("ul");
-            ul.style.marginLeft = parrafo.parrafo !== "Sin Párrafo" ? "15px" : "0";
-            
-            parrafo.articulos.forEach(function (articulo) {
-                const li = document.createElement("li");
-                li.textContent = `Art. ${articulo.numero} — ${articulo.titulo}`;
-                li.addEventListener("click", function () {
-                    cerrarModalIndice();
-                    mostrarArticuloIndividual(articulo);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                });
-                ul.appendChild(li);
-            });
-            listaIndice.appendChild(ul);
-        });
-    });
+            <div id="opcionesLapiz" class="opciones-anotacion oculto">
+                <span class="color-swatch" data-color="#1a1a1a" style="background:#1a1a1a"></span>
+                <span class="color-swatch" data-color="#E03131" style="background:#E03131"></span>
+                <span class="color-swatch" data-color="#1971C2" style="background:#1971C2"></span>
+                <button class="btn-tamano" data-size="2">Fina</button>
+                <button class="btn-tamano" data-size="4">Media</button>
+                <button class="btn-tamano" data-size="7">Grande</button>
+            </div>
+            <div id="opcionesDestacador" class="opciones-anotacion oculto">
+                <span class="color-swatch" data-color="#FFC1D9" style="background:#FFC1D9"></span>
+                <span class="color-swatch" data-color="#D9C9E8" style="background:#D9C9E8"></span>
+                <span class="color-swatch" data-color="#AEE1F5" style="background:#AEE1F5"></span>
+                <span class="color-swatch" data-color="#FFB3B3" style="background:#FFB3B3"></span>
+                <span class="color-swatch" data-color="#FFD3A5" style="background:#FFD3A5"></span>
+                <span class="color-swatch" data-color="#FFF3A0" style="background:#FFF3A0"></span>
+            </div>
+            <div id="opcionesBorrador" class="opciones-anotacion oculto">
+                <button class="btn-modo-borrador activo" data-modo="preciso">Preciso</button>
+                <button class="btn-modo-borrador" data-modo="trazo">Por trazo</button>
+            </div>
+        </div>
+        
+        <div class="contenedor-anotable" id="contenedorAnotable">
+            <div class="texto-anotable">
+                <span class="resultado-etiqueta">Texto oficial</span>
+                ${formatearIncisos(articulo.texto, consulta)}
+                ${formatearNumerales(articulo.numerales, consulta)}
+                ${articulo.textoContinuacion ? formatearIncisos(articulo.textoContinuacion, consulta) : ""}
+                ${comentarioHTML}
+            </div>
+            <canvas id="lienzoAnotacion" class="lienzo-anotacion"></canvas>
+        </div>
+    `;
 }
 
 function abrirModalIndice() { document.querySelector("#modalIndice")?.classList.remove("oculto"); }
