@@ -622,3 +622,7 @@ body {
     font-size: 1.6rem;
     margin: 0;
 }
+h1, h2, h3, h4 {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1;
+}
