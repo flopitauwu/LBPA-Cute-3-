@@ -322,6 +322,8 @@ const lbpa = [
         numero: 28,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 2º",            
+        parrafoTitulo: "Iniciación del procedimiento", 
         titulo: "Inicio.",
         texto: "Inicio. Los procedimientos podrán iniciarse de oficio o a solicitud de persona interesada.",
         conceptos: ["inicio", "inicio de los procedimientos"]
@@ -330,6 +332,8 @@ const lbpa = [
         numero: 29,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 2º",            
+        parrafoTitulo: "Iniciación del procedimiento",
         titulo: "Inicio de oficio.",
         texto: "Inicio de oficio. Los procedimientos se iniciarán de oficio por propia iniciativa, como consecuencia de una orden superior, a petición de otros órganos o por denuncia.\nCon anterioridad al acuerdo de iniciación, podrá el órgano competente abrir un período de información previa con el fin de conocer las circunstancias del caso concreto y la conveniencia o no de iniciar el procedimiento.",
         conceptos: ["inicio de oficio"]
@@ -338,6 +342,8 @@ const lbpa = [
         numero: 30,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 2º",            
+        parrafoTitulo: "Iniciación del procedimiento",
         titulo: "Inicio a solicitud de parte.",
         texto: "Inicio a solicitud de parte. En caso que el procedimiento se inicie a petición de parte interesada, la solicitud que se formule deberá contener:",
          numerales: [
@@ -356,6 +362,8 @@ const lbpa = [
         numero: 31,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 2º",            
+        parrafoTitulo: "Iniciación del procedimiento",
         titulo: "Antecedentes adicionales.",
         texto: "Antecedentes adicionales. Si la solicitud de iniciación no reúne los requisitos señalados en el artículo precedente y los exigidos, en su caso, por la legislación específica aplicable, se requerirá al interesado para que, en un plazo de cinco días, subsane la falta o acompañe los documentos respectivos, con indicación de que, si así no lo hiciere, se le tendrá por desistido de su petición.\n En los procedimientos iniciados a solicitud de los interesados, el órgano competente podrá recabar del solicitante la modificación o mejora voluntarias de los términos de aquélla. De ello se levantará acta sucinta, que se incorporará al procedimiento.",
         conceptos: ["antecedentes", "antecedentes adicionales"]
@@ -364,6 +372,8 @@ const lbpa = [
         numero: 32,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 2º",            
+        parrafoTitulo: "Iniciación del procedimiento",
         titulo: "Medidas provisionales.",
         texto: " Medidas provisionales. Iniciado el procedimiento, el órgano administrativo podrá adoptar, de oficio o a petición de parte, las medidas provisionales que estime oportunas para asegurar la eficacia de la decisión que pudiera recaer, si existiesen elementos de juicio suficientes para ello.\nSin embargo, antes de la iniciación del procedimiento administrativo, el órgano competente, de oficio o a petición de parte, en los casos de urgencia y para la protección provisional de los intereses implicados, podrá adoptar las medidas correspondientes. Estas medidas provisionales deberán ser confirmadas, modificadas o levantadas en la iniciación del procedimiento, que deberá efectuarse dentro de los quince días siguientes a su adopción, el cual podrá ser objeto del recurso que proceda.\nEn todo caso, las medidas a que se refiere el inciso anterior, quedarán sin efecto si no se inicia el procedimiento en dicho plazo, o cuando la decisión de iniciación no contenga un pronunciamiento expreso acerca de las mismas.\n No se podrán adoptar medidas provisionales que puedan causar perjuicio de difícil o imposible reparación a los interesados, o que impliquen violación de derechos amparados por las leyes.\nLas medidas provisionales podrán ser alzadas o modificadas durante la tramitación del procedimiento, de oficio o a petición de parte, en virtud de circunstancias sobrevinientes o que no pudieron ser tenidas en cuenta en el momento de su adopción.\nEn todo caso, las medidas de que trata este artículo, se extinguirán con la eficacia de la resolución administrativa que ponga fin al procedimiento correspondiente.",
         conceptos: ["medidas provisionales"]
@@ -372,6 +382,8 @@ const lbpa = [
         numero: 33,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 2º",            
+        parrafoTitulo: "Iniciación del procedimiento",
         titulo: "Acumulación o desacumulación de procedimientos.",
         texto: "Acumulación o desacumulación de procedimientos. El órgano administrativo que inicie o tramite un procedimiento, cualquiera que haya sido la forma de su iniciación, podrá disponer su acumulación a otros más antiguos con los que guarde identidad sustancial o íntima conexión, o su desacumulación.\nContra esta resolución no procederá recurso alguno.",
         conceptos: ["acumulación", "desacumulación de procedimientos"]
@@ -380,6 +392,8 @@ const lbpa = [
         numero: 34,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Instrucción del procedimiento",
         titulo: "Actos de instrucción.",
         texto: "Actos de instrucción. Los actos de instrucción son aquéllos necesarios para la determinación, conocimiento y comprobación de los datos en virtud de los cuales deba pronunciarse el acto.\nSe realizarán de oficio por el órgano que tramite el procedimiento, sin perjuicio del derecho de los interesados a proponer aquellas actuaciones que requieran su intervención, o constituyan trámites legal o reglamentariamente establecidos.",
         conceptos: [" Instrucción del procedimiento", "actos de instrucción", "instrucción"]
@@ -388,6 +402,8 @@ const lbpa = [
         numero: 35,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Instrucción del procedimiento",
         titulo: "Prueba.",
         texto: "Prueba. Los hechos relevantes para la decisión de un procedimiento, podrán acreditarse por cualquier medio de prueba admisible en derecho, apreciándose en conciencia.\n Cuando a la Administración no le consten los hechos alegados por los interesados o la naturaleza del procedimiento lo exija, el instructor del mismo ordenará la apertura de un período de prueba, por un plazo no superior a treinta días ni inferior a diez, a fin de que puedan practicarse cuantas juzgue pertinentes.\nEl instructor del procedimiento sólo podrá rechazar las pruebas propuestas por los interesados cuando sean manifiestamente improcedentes o innecesarias, mediante resolución motivada.",
         conceptos: ["prueba", "inicio de los procedimientos"]
@@ -396,6 +412,8 @@ const lbpa = [
         numero: 36,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Instrucción del procedimiento",
         titulo: "Momento de la prueba.",
         texto: "Momento de la prueba. La Administración comunicará a los interesados, con la suficiente antelación, el inicio de las actuaciones necesarias para la realización de las pruebas que hayan sido admitidas.\nEn la notificación se consignará el lugar, fecha y hora en que se practicará la prueba, con la advertencia, en su caso, de que el interesado puede nombrar peritos para que le asistan.",
         conceptos: ["momento de la prueba"]
@@ -404,6 +422,8 @@ const lbpa = [
         numero: 37,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Instrucción del procedimiento",
         titulo: "Informes.",
         texto: "Informes. Para los efectos de la resolución del procedimiento, se solicitarán aquellos informes que señalen las disposiciones legales, y los que se juzguen necesarios para resolver, citándose el precepto que los exija o fundamentando, en su caso, la conveniencia de requerirlos.",
         conceptos: ["Informes."]
@@ -412,6 +432,8 @@ const lbpa = [
         numero: "37 bis",
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Instrucción del procedimiento",
         titulo: "bis del 37",
         texto: "Cuando un órgano de la Administración del Estado deba evacuar un acto administrativo de carácter general que tenga claros efectos en los ámbitos de competencia de otro órgano, le remitirá todos los antecedentes y requerirá de éste un informe para efectos de evitar o precaver conflictos de normas, con el objeto de resguardar la coordinación, cooperación y colaboración entre los órganos involucrados en su dictación.\nLos órganos administrativos cuyo informe se solicite deberán evacuarlo dentro del plazo de treinta días corridos, contado desde la fecha en que hubieren recibido el requerimiento a que se refiere el inciso precedente. El requirente valorará el contenido de la opinión del órgano administrativo requerido, expresándolo en la motivación del acto administrativo de carácter general que dicte, de conformidad con lo dispuesto en el artículo 41. Transcurrido el plazo sin que se hubiere recibido el correspondiente informe, se procederá conforme al inciso segundo del artículo 38.\nEl requerimiento y los informes que emitan los órganos administrativos en virtud de los incisos anteriores se sujetarán en su forma, valor y tramitación a lo señalado en los artículos 37 y 38.\nNo regirá lo establecido en los incisos anteriores en los casos en que el acto administrativo de carácter general requiera aplicación inmediata o en el más breve plazo posible, atendida su naturaleza y urgencia, circunstancia que deberá ser justificada y de la cual se dejará constancia en su texto.\nCon todo, el órgano administrativo autor de dicho acto, con posterioridad a su dictación, deberá remitirle a los otros órganos administrativos competentes todos los antecedentes tenidos a la vista y requerir de éstos un informe, con el propósito de cumplir con los objetivos señalados en el inciso primero, en la aplicación del acto administrativo respectivo.",
         conceptos: ["."]
@@ -420,6 +442,8 @@ const lbpa = [
         numero: 38,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Instrucción del procedimiento",
         titulo: "Valor de los informes.",
         texto: "Valor de los informes. Salvo disposición expresa en contrario, los informes serán facultativos y no vinculantes.\nSi el informe debiera ser emitido por un órgano de la Administración distinto del que tramita el procedimiento en orden a expresar el punto de vista correspondiente a sus competencias respectivas, y transcurriera el plazo sin que aquél se hubiera evacuado, se podrán proseguir las actuaciones.",
         conceptos: ["valor de los informes", "informes"]
@@ -428,6 +452,8 @@ const lbpa = [
         numero: 39,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 3º",            
+        parrafoTitulo: "Instrucción del procedimiento",
         titulo: "Información pública.",
         texto: "Información pública. El órgano al que corresponda la resolución del procedimiento, cuando la naturaleza de éste lo requiera, podrá ordenar un período de información pública.\nPara tales efectos, se anunciará en el Diario Oficial o en un diario de circulación nacional, a fin de que cualquier persona pueda examinar el procedimiento, o la parte del mismo que se indique.\n El anuncio señalará el lugar de exhibición y determinará el plazo para formular observaciones, que en ningún caso podrá ser inferior a diez días.\nLa falta de actuación en este trámite, no impedirá a los interesados interponer los recursos procedentes contra la resolución definitiva del procedimiento.\nLa actuación en el trámite de información pública no otorga, por sí misma, la condición de interesado. En todo caso, la Administración otorgará una respuesta razonada, en lo pertinente, que podrá ser común para todas aquellas observaciones que planteen cuestiones sustancialmente iguales.",
         conceptos: ["información pública"]
@@ -436,6 +462,8 @@ const lbpa = [
         numero: 40,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 4º",            
+        parrafoTitulo: "Finalización del procedimiento",
         titulo: "Conclusión del procedimiento.",
         texto: "Conclusión del procedimiento. Pondrán término al procedimiento la resolución final, el desistimiento, la declaración de abandono y la renuncia al derecho en que se funde la solicitud, cuando tal renuncia no esté prohibida por el ordenamiento jurídico.\nTambién producirá la terminación del procedimiento la imposibilidad material de continuarlo por causas sobrevinientes. La resolución que se dicte deberá ser fundada en todo caso.",
         conceptos: ["conclusión del procedimiento", "procedimientos"]
@@ -444,6 +472,8 @@ const lbpa = [
         numero: 41,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 4º",            
+        parrafoTitulo: "Finalización del procedimiento",
         titulo: "Contenido de la resolución final.",
         texto: "Contenido de la resolución final. La resolución que ponga fin al procedimiento decidirá las cuestiones planteadas por los interesados.\nCuando en la elaboración de la resolución final se adviertan cuestiones conexas, ellas serán puestas en conocimiento de los interesados, quienes dispondrán de un plazo de quince días para formular las alegaciones que estimen pertinentes y aportar, en su caso, medios de prueba. Transcurrido ese plazo el órgano competente decidirá sobre ellas en la resolución final.\nEn los procedimientos tramitados a solicitud del interesado, la resolución deberá ajustarse a las peticiones formuladas por éste, sin que en ningún caso pueda agravar su situación inicial y sin perjuicio de la potestad de la Administración de incoar de oficio un nuevo procedimiento, si fuere procedente.\nLas resoluciones contendrán la decisión, que será fundada. Expresarán, además, los recursos que contra la misma procedan, órgano administrativo o judicial ante el que hubieran de presentarse y plazo para interponerlos, sin perjuicio de que los interesados puedan ejercitar cualquier otro que estimen oportuno.\nEn ningún caso podrá la Administración abstenerse de resolver so pretexto de silencio, oscuridad o insuficiencia de los preceptos legales aplicables al caso, aunque podrá resolver la inadmisibilidad de las solicitudes de reconocimiento de derechos no previstos en el ordenamiento jurídico o manifiestamente carentes de fundamento.\nLa aceptación de informes o dictámenes servirá de motivación a la resolución cuando se incorporen al texto de la misma.",
         conceptos: ["Contenido de la resolución final."]
@@ -452,6 +482,8 @@ const lbpa = [
         numero: 42,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 4º",            
+        parrafoTitulo: "Finalización del procedimiento",
         titulo: "Renuncia y Desistimiento.",
         texto: "Renuncia y Desistimiento. Todo interesado podrá desistirse de su solicitud o, cuando ello no esté prohibido por el ordenamiento jurídico, renunciar a sus derechos.\nSi la solicitud de iniciación se hubiera formulado por dos o más interesados, el desistimiento o la renuncia sólo afectará a aquéllos que la hubiesen formulado.\n Tanto el desistimiento como la renuncia podrán hacerse por cualquier medio que permita su constancia.",
         conceptos: ["Renuncia y Desistimiento","renuncia", "desistimiento"]
@@ -460,6 +492,8 @@ const lbpa = [
         numero: 43,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 4º",            
+        parrafoTitulo: "Finalización del procedimiento",
         titulo: "Abandono.",
         texto: "Abandono. Cuando por la inactividad de un interesado se produzca por más de treinta días la paralización del procedimiento iniciado por él, la Administración le advertirá que si no efectúa las diligencias de su cargo en el plazo de siete días, declarará el abandono de ese procedimiento.\nTranscurrido el plazo señalado precedentemente, sin que el particular requerido realice las actividades necesarias para reanudar la tramitación, la Administración declarará abandonado el procedimiento y ordenará su archivo, notificándoselo al interesado.\nEl abandono no producirá por sí solo la prescripción de las acciones del particular o de la Administración. En todo caso, los procedimientos abandonados no interrumpirán el plazo de prescripción.",
         conceptos: ["Abandono"]
@@ -468,6 +502,8 @@ const lbpa = [
         numero: 44,
         capitulo: 2,
         capituloTitulo: "El Procedimiento Administrativo",
+        parrafo: "Párrafo 4º",            
+        parrafoTitulo: "Finalización del procedimiento",
         titulo: "Excepción del abandono.",
         texto: "Excepción del abandono. La Administración podrá no declarar el abandono, cuando la cuestión suscitada afecte al interés general o fuera conveniente continuarla para su definición y esclarecimiento.",
         conceptos: ["inicio", "inicio de los procedimientos"]
