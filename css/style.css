@@ -622,8 +622,3 @@ body {
     font-size: 1.6rem;
     margin: 0;
 }
-
-/* Ocultar el "h4" viejo que generaba la tarjeta para que no salga doble el título */
-.resultado-item > h4 {
-    display: none;
-}
