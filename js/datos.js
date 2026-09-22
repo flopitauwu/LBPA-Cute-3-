@@ -765,7 +765,7 @@ const lbpa = [
         capitulo: 5,
         capituloTitulo: "Disposiciones Finales",
         titulo: "Facúltase al Presidente",
-        texto: "Facúltase al Presidente de la República para que en el plazo de un año, mediante un decreto con fuerza de ley del Ministerio Secretaría General de la Presidencia, modifique el sistema destinado a calificar ambientalmente un estudio o una declaración de impacto ambiental de la ley Nº 19.300, con el propósito de simplificarlo y reducir sus plazos de tramitación. En ningún caso, el plazo total de tramitación podrá exceder de noventa días.".
+        texto: "Facúltase al Presidente de la República para que en el plazo de un año, mediante un decreto con fuerza de ley del Ministerio Secretaría General de la Presidencia, modifique el sistema destinado a calificar ambientalmente un estudio o una declaración de impacto ambiental de la ley Nº 19.300, con el propósito de simplificarlo y reducir sus plazos de tramitación. En ningún caso, el plazo total de tramitación podrá exceder de noventa días.",
         conceptos: ["Silencio administrativo"]
     },
 ];
