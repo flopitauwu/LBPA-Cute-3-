@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     mostrarArticulosDestacados();
-   function poblarIndiceFlor() {
+  function poblarIndiceFlor() {
     const listaIndice = document.querySelector("#listaIndice");
     if (!listaIndice) return;
     listaIndice.innerHTML = "";
     
-    // Agrupación automática directa para evitar errores
     const capitulosMap = {};
     
     lbpa.forEach(articulo => {
@@ -27,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         capitulosMap[capNum].parrafos[parrKey].push(articulo);
     });
 
-    // Dibujar en pantalla
     for (const [capNum, capData] of Object.entries(capitulosMap)) {
         const hCap = document.createElement("h2");
         hCap.classList.add("indice-capitulo");
