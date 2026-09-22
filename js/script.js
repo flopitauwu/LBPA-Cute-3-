@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     mostrarArticulosDestacados();
-  function poblarIndiceFlor() {
+    poblarIndiceFlor();
+});
+
+function poblarIndiceFlor() {
     const listaIndice = document.querySelector("#listaIndice");
     if (!listaIndice) return;
     listaIndice.innerHTML = "";
